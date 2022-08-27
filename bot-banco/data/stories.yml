@@ -1,0 +1,32 @@
+version: "3.1"
+
+stories:
+- story: pruebas de conceptos
+  steps:
+  - intent: pruebas
+  - action: prueba_base
+
+- story: inicio
+  steps:
+  - intent: saludar 
+  - action: utter_saludar
+  - checkpoint: conexion_inicio
+
+- story: consulta de tarjeta
+  steps:
+  - checkpoint: conexion_inicio
+  - intent: consulta_tarjeta
+  - action: utter_tarjeta
+  - checkpoint: conexion_tarjeta
+
+- story: retirar tarjeta
+  steps:
+  - checkpoint: conexion_tarjeta
+  - intent: retirar_tarjeta
+  - action: utter_retirar_tarjeta
+
+- story: cargar tarjeta
+  steps:
+  - checkpoint: conexion_tarjeta
+  - intent: cargar_tarjeta
+  - action: utter_cargar_tarjeta

@@ -1,0 +1,36 @@
+version: "3.1"
+
+intents:
+  - pruebas
+  - saludar
+  - consulta_tarjeta
+  - retirar_tarjeta
+  - cargar_tarjeta
+  - bot_challenge
+  - despedir
+
+actions:
+  - prueba_base
+
+responses:
+  utter_saludar:
+  - text: "Hola, es un placer poder ayudarte con lo que necesites... en que puedo ayudarte?"
+
+  utter_tarjeta:
+  - text: "Un placer poder ayudarte, que necesitas exactamente de la tarjeta?"
+
+  utter_retirar_tarjeta:
+  - text: "Para retirar una tarjetas debes: "
+
+  utter_cargar_tarjeta:
+  - text: "Para cargar la tarjeta debes: "
+
+  utter_iamabot:
+  - text: "Define bot... estas seguro que tu no lo eres?"
+
+  utter_despedir:
+  - text: "Ha sido un placer, espero haberte ayudado... adios"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

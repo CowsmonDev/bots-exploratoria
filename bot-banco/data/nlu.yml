@@ -1,0 +1,61 @@
+version: "3.1"
+
+nlu:
+- intent: pruebas
+  examples: -prueba
+- intent: saludar
+  examples: |
+    - hola
+    - hi
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - buenas
+    - que tal?
+
+- intent: consulta_tarjeta
+  examples: |
+    - tengo una consulta sobre la tarjeta
+    - necesito ayuda con la tarjeta
+    - sobre la tarjeta
+    - tarjeta
+    - con respecto a la tarjeta
+
+- intent: retirar_tarjeta
+  examples: |
+    - como retirar una tarjeta
+    - necesito retirar la tarjeta
+    - necesito la tarjeta
+    - ir a buscar la tarjeta
+    - retirar la tarjeta
+
+- intent: cargar_tarjeta
+  examples: |
+    - cargarle plata a la tarjeta
+    - ingresarle plata a la tarjeta
+    - introducirle dinero a la tarjeta
+    - cargar la tarjeta
+    - como cargar la tarjeta
+    - como ingresarle dinero a la tarjeta
+
+- intent: despedir
+  examples: |
+    - bye
+    - nos vemos
+    - adios
+    - gracias
+    - hasta pronto
+    - gracias por la ayuda
+    - fue un placer
+    - fue un gusto, nos vemos
+    - hasta la proxima
+    - gracias por la atencion
+    - que tengas un lindo dia
+    - hasta nunca
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
