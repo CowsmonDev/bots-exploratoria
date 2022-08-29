@@ -43,13 +43,14 @@ nlu:
     - como cargar la tarjeta
     - como ingresarle dinero a la tarjeta
 
-- intent: consutar_saldo
+- intent: consultar_saldo
   examples: |
     - donde puedo ver el monto de mi tarjeta
     - en que lugar puedo ver el monto de mi tarjeta
     - donde puedo ver el saldo de mi cuenta
     - donde puedo ver el saldo de mi tarjeta
     - como puedo ver el saldo de mi cuenta
+    - como se cuanta plata tengo
 
 - intent: consultar_monto_saldo
   examples: |
