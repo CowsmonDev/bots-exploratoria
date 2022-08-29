@@ -1,8 +1,6 @@
 version: "3.1"
 
 nlu:
-- intent: pruebas
-  examples: -prueba
 - intent: saludar
   examples: |
     - hola
@@ -12,6 +10,13 @@ nlu:
     - buenas noches
     - buenas
     - que tal?
+
+- intent: consultar_saldo
+  examples: |
+    - Quisiera consultar el saldo de mi tarjeta
+    - Como consulto el saldo de mi tarjeta
+    - de que forma consulto el saldo de mi tarjeta
+    - donde consulto el saldo de mi tarjeta
 
 - intent: consulta_tarjeta
   examples: |

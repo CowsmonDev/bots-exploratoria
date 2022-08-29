@@ -1,32 +1,38 @@
 version: "3.1"
 
 stories:
-- story: pruebas de conceptos
-  steps:
-  - intent: pruebas
-  - action: prueba_base
 
 - story: inicio
   steps:
   - intent: saludar 
   - action: utter_saludar
-  - checkpoint: conexion_inicio
 
 - story: consulta de tarjeta
   steps:
-  - checkpoint: conexion_inicio
   - intent: consulta_tarjeta
   - action: utter_tarjeta
-  - checkpoint: conexion_tarjeta
 
 - story: retirar tarjeta
   steps:
-  - checkpoint: conexion_tarjeta
   - intent: retirar_tarjeta
   - action: utter_retirar_tarjeta
+  - checkpoint: terminar
 
 - story: cargar tarjeta
   steps:
-  - checkpoint: conexion_tarjeta
   - intent: cargar_tarjeta
   - action: utter_cargar_tarjeta
+  - checkpoint: terminar
+
+- story: consutar saldo de tarjeta
+  steps:
+  - intent: consultar_saldo
+  - action: action_saldo
+  - checkpoint: terminar
+
+- story: despedir
+  steps:
+  - checkpoint: terminar
+  - action: utter_consulta_despedir
+  - intent: despedir
+  - action: utter_despedir

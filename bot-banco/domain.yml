@@ -1,16 +1,16 @@
 version: "3.1"
 
 intents:
-  - pruebas
   - saludar
   - consulta_tarjeta
   - retirar_tarjeta
   - cargar_tarjeta
   - bot_challenge
+  - consultar_saldo
   - despedir
 
 actions:
-  - prueba_base
+  - action_saldo 
 
 responses:
   utter_saludar:
@@ -28,8 +28,12 @@ responses:
   utter_iamabot:
   - text: "Define bot... estas seguro que tu no lo eres?"
 
+  utter_consulta_despedir:
+  - text: "Puedo ayudarte con algo mas?"
+
   utter_despedir:
   - text: "Ha sido un placer, espero haberte ayudado... adios"
+  
 
 session_config:
   session_expiration_time: 60
