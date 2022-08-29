@@ -43,6 +43,33 @@ nlu:
     - como cargar la tarjeta
     - como ingresarle dinero a la tarjeta
 
+- intent: consutar_saldo
+  examples: |
+    - donde puedo ver el monto de mi tarjeta
+    - en que lugar puedo ver el monto de mi tarjeta
+    - donde puedo ver el saldo de mi cuenta
+    - donde puedo ver el saldo de mi tarjeta
+    - como puedo ver el saldo de mi cuenta
+
+- intent: consultar_monto_saldo
+  examples: |
+    - cual es mi saldo
+    - que monto tiene mi cuenta
+    - cual es el saldo de mi tarjeta
+    - cual es el monto que tiene mi tarjeta
+    - cuanto tiene mi cuenta
+    - que valor tiene mi cuenta
+    - quiero saber mi saldo
+    - decime mi saldo
+    
+- intent: ingresar_documento
+  examples: |
+    - mi documento es:
+    - mi documento es:
+    - mi documento es:
+    - mi documento es:
+
+
 - intent: despedir
   examples: |
     - bye
@@ -60,7 +87,7 @@ nlu:
 
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - eres un robot?
+    - eres humano?
+    - estoy hablando con un robot?
+    - estoy hablando con un humano?

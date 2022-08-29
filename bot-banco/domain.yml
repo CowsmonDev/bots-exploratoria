@@ -5,12 +5,14 @@ intents:
   - consulta_tarjeta
   - retirar_tarjeta
   - cargar_tarjeta
-  - bot_challenge
   - consultar_saldo
+  - consultar_monto_saldo
+  - ingresar_documento
+  - bot_challenge
   - despedir
 
 actions:
-  - action_saldo 
+  - action_devolver_saldo
 
 responses:
   utter_saludar:
@@ -30,6 +32,12 @@ responses:
 
   utter_consulta_despedir:
   - text: "Puedo ayudarte con algo mas?"
+
+  utter_saldo:
+  - text: "Para saber tu saldo debes ingresar a [...] o yo te lo puedo decir"
+
+  utter_solicitar_documento:
+  - text: "Necesitare tu documento para darte el saldo"
 
   utter_despedir:
   - text: "Ha sido un placer, espero haberte ayudado... adios"
