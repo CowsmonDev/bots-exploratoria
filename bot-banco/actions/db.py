@@ -1,5 +1,6 @@
+from abc import abstractmethod, ABC
 import mysql.connector
-class Conneccion :
+class Conneccion(ABC) :
 	__db_host : str = "localhost"
 	__db_user : str = "agustin"
 	__db_password : str = "Agustin@22-23"
@@ -12,6 +13,7 @@ class Conneccion :
 			cursor.execute(sql)
 			self.__conn.commit()
 			res = cursor.fetchall()
+			return res
 		except mysql.connector.Error as e:
 			print ("Error code:", e.errno)        # error number
 			print ("SQLSTATE value:", e.sqlstate) # SQLSTATE value
@@ -19,7 +21,17 @@ class Conneccion :
 			print ("Error:", e)                   # errno, sqlstate, msg values
 			s = str(e)
 			print ("Error:", s)
+		return None 
+	def get_select(self): return "SELECT " + self.get_campos() + " FROM " + self.get_table()
+	def select(self):
+		res = self.commit(self, self.get_select(self))
 		return res
+	
+	@abstractmethod
+	def get_campos(self): pass
+	@abstractmethod
+	def get_table(self): pass
+		
 
 class Client(Conneccion):
 	__table : str = "clientes"
@@ -32,22 +44,20 @@ class Client(Conneccion):
 	def __init__(self) :
 		super().__init__()
 
-	def select(self):
-		res = Conneccion.commit(self, "SELECT " + Client.__campos + " FROM " + Client.__table)
+	def get_campos(self): return self.__campos
+	def get_table(self): return self.__table
+
+class Cuenta(Conneccion):
+	__table : str = "cuentas"
+	__cuenta : str = "cuenta"
+	__saldo : str = "saldo"
+	__ultimo_movimiento : str = "ultimo_movimiento"
+	__campos : str = __cuenta + ", " + __saldo + ", " + __ultimo_movimiento
+
+	def get_datos_cuenta(self, cuenta): 
+		res = Conneccion.commit(self, self.get_select() + " WHERE " + self.__cuenta + " = " + cuenta)
 		return res
 
 
-"""
-def dataInsert(FirstName, LastName):
-	mydb = mysql.connector.connect(
-		host='localhost',
-		user='agustin',
-		password='Agustin@22-23',
-		database='prueba'
-	)
-
-	mycursor = mydb.cursor()
-	sql = 'INSERT INTO tabla (nombre, apellido) VALUES ("{0}", "{1}");'.format(FirstName, LastName)
-	mycursor.execute(sql)
-	mydb.commit()
-"""
+	def get_campos(self): return self.__campos
+	def get_table(self): return self.__table

@@ -12,6 +12,19 @@ stories:
   - intent: consulta_tarjeta
   - action: utter_tarjeta
 
+- story: consultar sobre el saldo de tarjeta
+  steps:
+  - intent: consultar_saldo
+  - action: utter_saldo
+
+- story: consultar del saldo de la tarjeta
+  steps:
+  - intent: consultar_monto_saldo
+  - action: utter_solicitar_documento
+  - intent: ingresar_documento
+  - action: action_devolver_saldo
+  - checkpoint: terminar
+
 - story: retirar tarjeta
   steps:
   - intent: retirar_tarjeta
@@ -24,12 +37,7 @@ stories:
   - action: utter_cargar_tarjeta
   - checkpoint: terminar
 
-- story: consutar saldo de tarjeta
-  steps:
-  - intent: consultar_saldo
-  - action: action_saldo
-  - checkpoint: terminar
-
+#- checkpoint: terminar
 - story: despedir
   steps:
   - checkpoint: terminar
