@@ -3,12 +3,23 @@ version: "3.1"
 intents:
   - saludar
   - despedir
+  - negar
   - bot_challenge
+  - consultar_materia
+  - consultar_comisiones
+actions:
+  - action_consulta_materias
+  - action_comisiones_materias
+
+entities:
+  - materias
 
 
 responses:
   utter_saludar:
   - text: "Hola, es un placer poder ayudarte con lo que necesites... en que puedo ayudarte?"
+  utter_consultar_despedir:
+  - text: "Hay algo mas en lo que puedo ayudarte?"
   utter_despedir:
   - text: "Ha sido un placer, espero haberte ayudado... adios"
   utter_iamabot:
