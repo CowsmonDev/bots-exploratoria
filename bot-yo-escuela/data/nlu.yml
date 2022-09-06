@@ -1,0 +1,37 @@
+version: "3.1"
+
+nlu:
+- intent: saludar
+  examples: |
+    - hola
+    - hi
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - buenas
+    - que tal?
+- intent: negar
+  examples: |
+    - no
+    - no gracias
+    - por ahora no
+- intent: despedir
+  examples: |
+    - bye
+    - nos vemos
+    - adios
+    - gracias
+    - hasta pronto
+    - gracias por la ayuda
+    - fue un placer
+    - fue un gusto, nos vemos
+    - hasta la proxima
+    - gracias por la atencion
+    - que tengas un lindo dia
+    - hasta nunca
+- intent: bot_challenge
+  examples: |
+    - eres un robot?
+    - eres humano?
+    - estoy hablando con un robot?
+    - estoy hablando con un humano?

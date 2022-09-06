@@ -1,0 +1,16 @@
+version: "3.1"
+
+stories:
+- story: inicio
+  steps:
+  - intent: saludar 
+  - action: utter_saludar
+
+- story: despedir
+  steps:
+  - checkpoint: terminar
+  - action: utter_consultar_despedir
+  - or:
+    - intent: despedir
+    - intent: negar
+  - action: utter_despedir
