@@ -1,0 +1,32 @@
+version: "3.1"
+
+stories:
+- story: inicio
+  steps:
+  - intent: saludar 
+  - action: utter_saludar
+  - checkpoint: consulta
+
+- story: consultar materias
+  steps:
+  - checkpoint: consulta
+  - intent: consultar_materia
+  - action: action_consulta_materias
+  - checkpoint: terminar
+
+- story: consultar comisiones
+  steps:
+  - checkpoint: consulta
+  - intent: consultar_comisiones
+  - action: action_comisiones_materias
+  - checkpoint: terminar
+
+
+- story: despedir
+  steps:
+  - checkpoint: terminar
+  - action: utter_consultar_despedir
+  - or:
+    - intent: despedir
+    - intent: negar
+  - action: utter_despedir
