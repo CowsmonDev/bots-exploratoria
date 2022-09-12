@@ -1,0 +1,264 @@
+version: "3.1"
+
+nlu:
+- lookup: nombre 
+  examples: |
+    - Agustin
+    - Mateo
+    - Jonathan
+    - Daniel
+    - Pablo
+    - Álvaro
+    - Adrián
+    - David
+    - Diego
+    - Javier
+    - Mario
+    - Sergio
+    - Marcos
+    - Manuel
+    - Martín
+    - Nicolás
+    - Jorge
+    - Iván
+    - Carlos
+    - Lucas
+    - Sofía
+    - Lucía
+    - María
+    - Paula
+    - Daniela
+    - Valeria
+    - Julia
+    - Alba
+    - Claudia
+    - Isabella
+    - Romina
+    - Jimena
+    - Emma
+    - Alexandra
+    - Laura
+    - Charllote
+    - Violet
+    - Eleanor
+    - Lucy
+    - Evelyn
+    - Adeline
+    - Alice
+    - Adelaide
+    - Elizabeth
+    - Samantha
+    - Scarlett
+    - Amalia
+    - Olivia
+    - Isla
+    - Ava
+    - Cora
+    - Eleanor
+    - Lucy
+    - Chloe
+    - Renata
+    - Camila
+    - Regina
+    - Veronica
+    - Bianca
+    - Fiorella
+    - Gabriella
+    - Gianna
+    - Pia
+    - Zinerva
+    - Fatima
+    - Nayla
+    - Karima
+    - Zara
+    - Atticus
+    - Asher
+    - Ezra
+    - Silas
+    - Declan
+    - Wyat
+    - Oliver
+    - Henry
+    - Milo
+    - Jude
+    - Liam
+    - Austin
+    - Axel
+    - Alexander
+    - Jacob
+    - Luke
+    - Everett
+    - Santiago
+    - Matías
+    - Ángel
+    - Gabriel
+    - Simón
+    - Thiago
+    - Valentín
+    - Julián
+    - Benjamín
+    - Erick
+    - Sasha
+    - Dante
+    - Enzo
+    - Ariel
+    - Alexandra
+- lookup: profesiones
+  examples: |
+    - Profesor
+    - Ayudante
+    - Compañero
+
+- intent: saludar
+  examples: |
+    - hola
+    - hi
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - buenas
+    - que tal?
+- intent: notificar_nombre
+  examples: |
+    - soy [Agustin](nombre)
+    - me llamo [Alexandra](nombre)
+    - mi nombre es [Agustin](nombre)
+    - yo soy [Alexandra](nombre)
+    - me llamo [Agustin](nombre)
+- intent: notificar_profesion
+  examples: |
+    - soy tu [Compañero](profesion)
+    - soy [Profesor](profesion) tuyo
+    - te conozco porque soy [Compañero](profesion) tuyo
+    - te conozco porque soy [Profesor](profesion)
+- intent: notificar_nombre_profesion
+  examples: |
+    - soy [Agustin](nombre) y soy tu [Profesor](profesion)
+    - soy [Alexandra](nombre) y soy [Compañero](profesion) tuyo
+    - soy [Agustin](nombre) y te conozco porque soy [Profesor](profesion) tuyo
+    - soy [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
+    - mi nombre es [Agustin](nombre) y soy tu [Profesor](profesion)
+    - mi nombre es [Alexandra](nombre) y soy [Compañero](profesion) tuyo
+    - mi nombre es [Agustin](nombre) y te conozco porque soy [Profesor]](profesion) tuyo
+    - mi nombre es [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
+    - yo soy [Agustin](nombre) y soy tu [Profesor](profesion)
+    - yo soy [Alexandra](nombre) y soy [Compañero](profesion) tuyo
+    - yo soy [Agustin](nombre) y te conozco porque soy [Profesor](profesion) tuyo
+    - yo soy [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
+    - me llamo [Agustin](nombre) y soy tu [Profesor](profesion)
+    - me llamo [Alexandra](nombre) y soy [Compañero](profesion) tuyo
+    - me llamo [Agustin](nombre) y te conozco porque soy [Profesor](profesion) tuyo
+    - me llamo [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
+    - soy [Agustin](nombre), soy tu [Profesor](profesion)
+    - soy [Alexandra](nombre), soy [Compañero](profesion) tuyo
+    - soy [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
+    - soy [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
+    - mi nombre es [Agustin](nombre), soy tu [Profesor](profesion)
+    - mi nombre es [Alexandra](nombre), soy [Compañero](profesion) tuyo
+    - mi nombre es [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
+    - mi nombre es [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
+    - yo soy [Agustin](nombre), soy tu [Profesor](profesion)
+    - yo soy [Alexandra](nombre), soy [Compañero](profesion) tuyo
+    - yo soy [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
+    - yo soy [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
+    - me llamo [Agustin](nombre), soy tu [Profesor](profesion)
+    - me llamo [Alexandra](nombre), soy [Compañero](profesion) tuyo
+    - me llamo [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
+    - me llamo [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
+- intent: consultar_año
+  examples: |
+    - en que año estas?
+    - que año estas cursando?
+    - por que año vas?
+    - que año estas cursando en teoria?
+    - ya estas en tercero?
+    - ya estas en cuarto? 
+    - ya estas en quinto?
+
+- intent: consulta_materias_en_curso
+  examples: |
+    - y que estas cursando entonces?
+    - que estas dando?
+    - que y que estas dando?
+    - que de cada cosa estas dando?
+    - que estas cursando de cada cosa?
+    - cual estas dando?
+    - cual estas cursando entonces?
+
+- intent: comentar_retraso
+  examples: |
+    - uff... te retrasaste supongo
+    - suele pasar
+    - lo he escuchado
+    - es bastante comun
+    - es mas comun de lo que esperaba
+    - puede pasar
+    - pasa
+
+- intent: consultar_retraso
+  examples: |
+    - que paso?
+    - como?, no entendi a que te referias
+    - como paso?
+    - desaprobaste algun materia o como?
+    - no diste alguna materia?
+
+- intent: felicitacion_cursada
+  examples: |
+    - te fue bastante bien
+    - excelente como te fue
+    - nada mal te fue
+    - relativamente bien
+    - bueno, felicitaciones por como venis
+    - venis bien
+    - a comparacion de muchos, venis excelente
+    - no te preocupes por como te fue, te fue bien
+
+- intent: compadecer_cursadas
+  examples: |
+    - pudo haber sido peor
+    - lastima esas dos cursadas, venias bien
+    - que pena esas cursadas
+    - que lastima esas cursadas, ahora a seguir adelante
+    - bueno, ahora a seguir para adelante
+
+- intent: negar
+  examples: |
+    - no
+    - no gracias
+    - por ahora no
+    - negativo
+    - eso seria una negacion
+- intent: afirmar
+  examples: |
+    - si
+    - probablemente
+    - eso seria una afirmacion
+    - es lo que esperaba
+    - normalmente asi es
+    - asi es
+    - es la costrumbre
+    - afirmativo
+    - supongo
+- intent: despedir
+  examples: |
+    - bye
+    - nos vemos
+    - adios
+    - gracias
+    - hasta pronto
+    - gracias por la ayuda
+    - fue un placer
+    - fue un gusto, nos vemos
+    - hasta la proxima
+    - gracias por la atencion
+    - que tengas un lindo dia
+    - hasta nunca
+- intent: bot_challenge
+  examples: |
+    - eres un robot?
+    - eres humano?
+    - estoy hablando con un robot?
+    - estoy hablando con un humano?
+
+
