@@ -2,17 +2,48 @@ version: "3.1"
 
 intents:
   - saludar
+  - notificar_nombre_profesion
+  - notificar_nombre
+  - notificar_profesion
+  - consultar_año
+  - consulta_materias_en_curso
+  - comentar_retraso
+  - consultar_retraso
+  - felicitacion_cursada
+  - compadecer_cursadas
   - despedir
   - negar
+  - afirmar
   - bot_challenge
+
+actions:
+  - action_nombre
+
+entities:
+  - nombre
+  - profesion
 
 responses:
   utter_saludar:
-  - text: "Hola, es un placer poder ayudarte con lo que necesites... en que puedo ayudarte?"
+  - text: "Hola, soy un robot o tu lo eres, en cualquier caso...\nQue, esperabas que dijera algo mas :) ?"
+  utter_solicitar_profesion:
+  - text: "y de donde te conozco? es que soy muy malo con los nombres"
+  utter_no_se:
+  - text: "bueno, las respuestas normales no suelen ir conmigo, asi que... Quien eres? perdon, no te tengo agendado"
+  utter_consultar_año:
+  - text: "uff, bueno... ahora mismo estoy en segundo/tercero"
+  utter_consulta_materias_en_curso:
+  - text: "dame un segundo que me acuerde... emm, a cierto, estoy dando exploratoria, Objetos, Digital y comunicacion de datos"
+  utter_retraso:
+  - text: "si, me retrase con CDC1 y fisica el primer año, cosas que pasan :)"
+  utter_felicitacion_cursada:
+  - text: "gracias... supongo, en cierta forma me pudo haber ido mejor"
+  utter_compadecer_cursadas:
+  - text: "si, lastima... pero son cosas que pasa y ahora solo puedo ir para delante"
   utter_consultar_despedir:
-  - text: "Hay algo mas en lo que puedo ayudarte?"
+  - text: "algo mas o damos por finalizada esta increible conversacion tan apasionada?"
   utter_despedir:
-  - text: "Ha sido un placer, espero haberte ayudado... adios"
+  - text: "Ha sido un placer, espero haberte ayudado... adios\nXD al final si soy un robot, frase robotizada y todo jajaja"
   utter_iamabot:
   - text: "Define bot... estas seguro que tu no lo eres?"
 
