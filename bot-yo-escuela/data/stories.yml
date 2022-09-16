@@ -24,6 +24,12 @@ stories:
   - action: action_nombre
   - checkpoint: notificar_relacion
 
+- story: como elegiste la carrera
+  - or:
+    - intent: como_elegiste_carrera
+    - intent: como_encontraste_la carrera
+  - action: utter_choque_carrera
+
 - story: notificar de profesion
   steps: 
   - checkpoint: notificar_relacion
