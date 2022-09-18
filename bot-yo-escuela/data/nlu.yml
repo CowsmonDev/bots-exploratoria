@@ -121,10 +121,9 @@ nlu:
 - intent: notificar_nombre
   examples: |
     - soy [Agustin](nombre)
-    - me llamo [Alexandra](nombre)
-    - mi nombre es [Agustin](nombre)
-    - yo soy [Alexandra](nombre)
-    - me llamo [Agustin](nombre)
+    - me llamo Alexandra
+    - mi nombre es Daniel
+    - yo soy Pablo
 - intent: notificar_profesion
   examples: |
     - soy tu [Compañero](profesion)
@@ -133,38 +132,22 @@ nlu:
     - te conozco porque soy [Profesor](profesion)
 - intent: notificar_nombre_profesion
   examples: |
-    - soy [Agustin](nombre) y soy tu [Profesor](profesion)
-    - soy [Alexandra](nombre) y soy [Compañero](profesion) tuyo
-    - soy [Agustin](nombre) y te conozco porque soy [Profesor](profesion) tuyo
-    - soy [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
-    - mi nombre es [Agustin](nombre) y soy tu [Profesor](profesion)
-    - mi nombre es [Alexandra](nombre) y soy [Compañero](profesion) tuyo
-    - mi nombre es [Agustin](nombre) y te conozco porque soy [Profesor]](profesion) tuyo
-    - mi nombre es [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
-    - yo soy [Agustin](nombre) y soy tu [Profesor](profesion)
-    - yo soy [Alexandra](nombre) y soy [Compañero](profesion) tuyo
-    - yo soy [Agustin](nombre) y te conozco porque soy [Profesor](profesion) tuyo
-    - yo soy [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
-    - me llamo [Agustin](nombre) y soy tu [Profesor](profesion)
-    - me llamo [Alexandra](nombre) y soy [Compañero](profesion) tuyo
-    - me llamo [Agustin](nombre) y te conozco porque soy [Profesor](profesion) tuyo
-    - me llamo [Alexandra](nombre) y te conozco porque soy [Compañero](profesion)
-    - soy [Agustin](nombre), soy tu [Profesor](profesion)
-    - soy [Alexandra](nombre), soy [Compañero](profesion) tuyo
-    - soy [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
-    - soy [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
-    - mi nombre es [Agustin](nombre), soy tu [Profesor](profesion)
-    - mi nombre es [Alexandra](nombre), soy [Compañero](profesion) tuyo
-    - mi nombre es [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
-    - mi nombre es [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
-    - yo soy [Agustin](nombre), soy tu [Profesor](profesion)
-    - yo soy [Alexandra](nombre), soy [Compañero](profesion) tuyo
-    - yo soy [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
-    - yo soy [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
-    - me llamo [Agustin](nombre), soy tu [Profesor](profesion)
-    - me llamo [Alexandra](nombre), soy [Compañero](profesion) tuyo
-    - me llamo [Agustin](nombre), te conozco porque soy [Profesor](profesion) tuyo
-    - me llamo [Alexandra](nombre), te conozco porque soy [Compañero](profesion)
+    - soy [Agustin](nombre) y soy tu [Compañero](profesion)
+    - me llamo Alexandra y soy tu [Compañero](profesion)
+    - mi nombre es Daniel y soy tu [Compañero](profesion)
+    - yo soy Pablo y soy tu [Compañero](profesion)
+    - soy [Agustin](nombre) y soy [Profesor](profesion) tuyo
+    - me llamo Alexandra y soy [Profesor](profesion) tuyo
+    - mi nombre es Daniel y soy [Profesor](profesion) tuyo
+    - yo soy Pablo y soy [Profesor](profesion) tuyo
+    - soy [Agustin](nombre) y te conozco porque soy [Compañero](profesion) tuyo
+    - me llamo Alexandra y te conozco porque soy [Compañero](profesion) tuyo
+    - mi nombre es Daniel y te conozco porque soy [Compañero](profesion) tuyo
+    - yo soy Pablo y te conozco porque soy [Compañero](profesion) tuyo
+    - soy [Agustin](nombre) y te conozco porque soy [Profesor](profesion)
+    - me llamo Alexandra y te conozco porque soy [Profesor](profesion)
+    - mi nombre es Daniel y te conozco porque soy [Profesor](profesion)
+    - yo soy Pablo y te conozco porque soy [Profesor](profesion)
 - intent: consultar_año
   examples: |
     - en que año estas?
