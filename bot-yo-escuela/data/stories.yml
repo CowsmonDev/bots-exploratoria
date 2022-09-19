@@ -25,7 +25,6 @@ stories:
   - checkpoint: notificar_relacion
   - intent: notificar_nombre
   - action: utter_solicitar_profesion
-  - action: action_nombre
   - checkpoint: notificar_relacion
 
 - story: notificar de profesion
@@ -40,7 +39,8 @@ stories:
   - intent: notificar_nombre_profesion
   - action: utter_ah_si
 
-# ! falta conector consulta
+# ? Dependiendo profesion agrego reciprocidad ### Idea
+
 
 # TODO: Camino hacia la carrera
 - story: como encontre la carrera
@@ -83,7 +83,7 @@ stories:
 - story: consulta materias cursadas
   steps:
   - intent: consulta_materias_en_curso
-  - action: utter_consulta_materias_en_curso
+  - action: action_consulta_materias_en_curso
   - checkpoint: camino_materias_cursada
 
 - story: camino retraso

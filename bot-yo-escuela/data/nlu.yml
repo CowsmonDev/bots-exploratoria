@@ -256,6 +256,7 @@ nlu:
     - como paso?
     - desaprobaste algun materia o como?
     - no diste alguna materia?
+    - como segundo / tercero?
 
 - intent: felicitacion_cursada
   examples: |
@@ -275,6 +276,7 @@ nlu:
     - que pena esas cursadas
     - que lastima esas cursadas, ahora a seguir adelante
     - bueno, ahora a seguir para adelante
+    - uff... que mal
 
 - intent: negar
   examples: |

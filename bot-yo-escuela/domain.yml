@@ -1,32 +1,33 @@
+#* author: "CowsmonDev@22-23" *#
 version: "3.1"
 
 intents:
-  - saludar
-  - notificar_nombre_profesion
-  - notificar_nombre
-  - notificar_profesion
-  - como_encontraste_carrera
-  - eleccion_unicen
-  - alternativa_tecnica
-  - eleccion_tecnica
-  - no_eleccion_media
-  - opciones_secundaria
-  - consultar_existencia_opcion
-  - efecto_mariposa
-  - consultar_opciones_carrera
-  - consultar_año
-  - consulta_materias_en_curso
-  - comentar_retraso
-  - consultar_retraso
-  - felicitacion_cursada
-  - compadecer_cursadas
-  - despedir
-  - negar
-  - afirmar
-  - bot_challenge
+        - saludar
+        - notificar_nombre_profesion
+        - notificar_nombre
+        - notificar_profesion
+        - como_encontraste_carrera
+        - eleccion_unicen
+        - alternativa_tecnica
+        - eleccion_tecnica
+        - no_eleccion_media
+        - opciones_secundaria
+        - consultar_existencia_opcion
+        - efecto_mariposa
+        - consultar_opciones_carrera
+        - consultar_año
+        - consulta_materias_en_curso
+        - comentar_retraso
+        - consultar_retraso
+        - felicitacion_cursada
+        - compadecer_cursadas
+        - despedir
+        - negar
+        - afirmar
+        - bot_challenge
 
 actions:
-  - action_nombre
+        - action_consulta_materias_en_curso
 
 entities:
   - nombre
@@ -65,7 +66,7 @@ responses:
   utter_consultar_año:
   - text: "uff, bueno... ahora mismo estoy en segundo/tercero"
   utter_consulta_materias_en_curso:
-  - text: "dame un segundo que me acuerde... emm, a cierto, estoy dando exploratoria, Objetos, Digital y comunicacion de datos"
+  - text: "dame un segundo que me acuerde...\nemm, a cierto, estoy dando exploratoria, Objetos, Digital y comunicacion de datos"
   utter_retraso:
   - text: "si, me retrase con CDC1 y fisica el primer año, cosas que pasan :)"
   utter_felicitacion_cursada:
