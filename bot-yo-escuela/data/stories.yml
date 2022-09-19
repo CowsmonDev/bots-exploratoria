@@ -1,21 +1,25 @@
 version: "3.1"
 
+Comment: > 
+  stories:
+  - story: inicio
+    steps:
+    - intent: saludar 
+    - action: utter_saludar
+    - or: 
+      - intent: negar
+      - intent: afirmar
+    - action: utter_no_se
+    - checkpoint: notificar_relacion
+
 stories:
 - story: inicio
   steps:
-  - intent: saludar 
+  - intent: saludar
   - action: utter_saludar
-  - or: 
-    - intent: negar
-    - intent: afirmar
-  - action: utter_no_se
   - checkpoint: notificar_relacion
-  
-- story: notificar nombre y profesion
-  steps:
-  - checkpoint: notificar_relacion
-  - intent: notificar_nombre_profesion
 
+# TODO: Presentacion
 - story: notificar de nombre
   steps:
   - checkpoint: notificar_relacion
@@ -28,7 +32,17 @@ stories:
   steps: 
   - checkpoint: notificar_relacion
   - intent: notificar_profesion
+  - action: utter_ah_si
 
+- story: notificar nombre y profesion
+  steps:
+  - checkpoint: notificar_relacion
+  - intent: notificar_nombre_profesion
+  - action: utter_ah_si
+
+# ! falta conector consulta
+
+# TODO: Camino hacia la carrera
 - story: como encontre la carrera
   steps:
   - intent: como_encontraste_carrera
@@ -47,9 +61,9 @@ stories:
   - intent: alternativa_tecnica
   - action: utter_alternativa_tecnica
   - or:
+    - intent: eleccion_tecnica
     - intent: no_eleccion_media
     - intent: opciones_secundaria
-    - intent: consultar_existencia_opcion
   - action: utter_eleccion_tecnica_media
   - intent: efecto_mariposa
   - action: utter_efecto_mariposa
@@ -60,6 +74,7 @@ stories:
   - action: utter_consultar_opciones_carrera
 
 
+# TODO: Estado de carrera
 - story: consultar año
   steps:
   - intent: consultar_año
@@ -91,6 +106,8 @@ stories:
   - checkpoint: camino_materias_cursada
   - intent: compadecer_cursadas
   - action: utter_compadecer_cursadas
+
+# TODO: Despedida
 
 - story: despedir
   steps:
