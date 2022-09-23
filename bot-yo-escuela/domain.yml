@@ -21,6 +21,13 @@ intents:
         - consultar_retraso
         - felicitacion_cursada
         - compadecer_cursadas
+        - lenguaje_inicial
+        - estudio_aparte_secundaria
+        - fuente_estudios_secundaria
+        - rama_interes
+        - fuente_estudios_actual
+        - proyecto_aparte
+        - tecnologia_actual
         - despedir
         - negar
         - afirmar
@@ -73,6 +80,26 @@ responses:
   - text: "gracias... supongo, en cierta forma me pudo haber ido mejor"
   utter_compadecer_cursadas:
   - text: "si, lastima... pero son cosas que pasa y ahora solo puedo ir para delante"
+
+  utter_lenguaje_inicial:
+  - text: "Empece en la secundaria con C++ y Visual Basic 6"
+  utter_estudio_aparte_secundaria:
+  - text: "recien empece en el sexto, con JavaScript, haciendo cosas basicas...
+        hasta ese momento, solo me habia enfocado en lo que me enseñaban"
+  utter_fuente_estudios_secundaria:
+  - text: "la mayoria de las veces por videos en Youtube, y en mis inicios usaba la 
+        app "solo learn" para aprender Sintaxis"
+  utter_rama_interes:
+  - text: "actualmente estoy desarrollando aplicaciones de escritorio pero
+        con tecnologias de la Web... Anteriormente desarrollaba en java\n
+        https://github.com/CowsmonDev/MetricPoint "
+  utter_fuente_estudios_actual:
+  - text: "la mayoria de las veces por videos de Youtube o en cuyo caso de documentacion y foros"
+  utter_programacion_actual:
+  - text: "hoy en dia estoy adaptando el proyecto en Java a Electron, un Framework
+        basado en JavaScript de forma de poder realizar un proyecto mas mantenible
+        con recursos limitados...
+        ademas, asi practico nuevas tecnologias con un proyecto bastante completo"
   utter_consultar_despedir:
   - text: "algo mas o damos por finalizada esta increible conversacion tan apasionada?"
   utter_despedir:

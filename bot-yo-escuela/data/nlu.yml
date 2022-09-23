@@ -104,6 +104,7 @@ nlu:
     - Ariel
     - Alexandra
 
+# TODO: Presentacion
 - intent: saludar
   examples: |
     - hola
@@ -145,6 +146,7 @@ nlu:
     - yo soy Pablo y te conozco porque soy [Profesor](profesion)
 
 
+# TODO: Camino hacia la carrera
 - intent: como_encontraste_carrera
   examples: |
     - como encontraste la carrera?
@@ -156,7 +158,6 @@ nlu:
     - cual fue tu camino para elegir Sistemas?
     - como tomaste la decision de estudiar Sistemas?
     - como tomaste la decision de estudiar Ingeñeria?
-
 - intent: eleccion_unicen
   examples: |
     - como elegiste la Unicen?
@@ -167,14 +168,12 @@ nlu:
     - conociste alguna otra opcion en lugar de la Unicen?
     - conociste otra universidad?
     - pensaste en otra Universidad?
-
 - intent: alternativa_tecnica
   examples: |
     - Que hubiera pasado si no llegabas a la tecnica?
     - y si no ibas a la tecnica?
     - si no entrabas a la tecnica que pasaba?
     - que pasaba si no ibas a la tecnica?
-
 - intent: eleccion_tecnica
   examples: |
     - Como elegiste la tecnica?
@@ -184,14 +183,13 @@ nlu:
     - que te llamo la atencion de la tecnica?
     - siempre supiste que querias ir a la tecnica?
     - decidiste vos ir a la tecnica o alguien mas tomo la decision?
-
 - intent: no_eleccion_media
   examples: |
     - por que no fuiste a la media?
     - que te llevo a elegir la tecnica sobre la media?
+    - por que no elegiste la media?
     - por que la tecnica y no la media?
     - en que supero la tecnica a la media entonces?
-
 - intent: opciones_secundaria
   examples: |
     - tenias alguna otra opcion?
@@ -199,7 +197,6 @@ nlu:
     - conociste alguna otra secundaria?
     - te dieron o buscaste algun opcion?
     - existia alguna opcion?
-  
 - intent: efecto_mariposa
   examples: |
     - interesante como pequeñas cosas cambian tu vida
@@ -208,7 +205,6 @@ nlu:
     - te has puesto a pensar en eso?
     - una eleccion... interesante
     - es para ponerte a pensar
-
 - intent: consultar_opciones_carrera
   examples: |
     - tenias alguna otra carrera en mente?
@@ -219,6 +215,7 @@ nlu:
     - se te ocurrio alguna otra carrera?
     - pensaste en dedicarte a otra cosa?
 
+# TODO: Estado de carrera
 - intent: consultar_año
   examples: |
     - en que año estas?
@@ -228,7 +225,6 @@ nlu:
     - ya estas en tercero?
     - ya estas en cuarto? 
     - ya estas en quinto?
-
 - intent: consulta_materias_en_curso
   examples: |
     - y que estas cursando entonces?
@@ -238,7 +234,6 @@ nlu:
     - que estas cursando de cada cosa?
     - cual estas dando?
     - cual estas cursando entonces?
-
 - intent: comentar_retraso
   examples: |
     - uff... te retrasaste supongo
@@ -248,7 +243,6 @@ nlu:
     - es mas comun de lo que esperaba
     - puede pasar
     - pasa
-
 - intent: consultar_retraso
   examples: |
     - que paso?
@@ -257,7 +251,6 @@ nlu:
     - desaprobaste algun materia o como?
     - no diste alguna materia?
     - como segundo / tercero?
-
 - intent: felicitacion_cursada
   examples: |
     - te fue bastante bien
@@ -268,7 +261,6 @@ nlu:
     - venis bien
     - a comparacion de muchos, venis excelente
     - no te preocupes por como te fue, te fue bien
-
 - intent: compadecer_cursadas
   examples: |
     - pudo haber sido peor
@@ -278,6 +270,30 @@ nlu:
     - bueno, ahora a seguir para adelante
     - uff... que mal
 
+# TODO: Areas de Interes
+- intent: lenguaje_inicial
+  examples: |
+    - a
+- intent: estudio_aparte_secundaria
+  examples: |
+    - a
+- intent: fuente_estudios_secundaria
+  examples: |
+    - a
+- intent: rama_interes
+  examples: |
+    - a
+- intent: fuente_estudios_actual
+  examples: |
+    - a
+- intent: proyecto_aparte
+  examples: |
+    - a
+- intent: tecnologia_actual
+  examples: |
+    - a
+
+# TODO: Despedida
 - intent: negar
   examples: |
     - no

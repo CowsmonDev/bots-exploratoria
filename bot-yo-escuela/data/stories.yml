@@ -26,13 +26,11 @@ stories:
   - intent: notificar_nombre
   - action: utter_solicitar_profesion
   - checkpoint: notificar_relacion
-
 - story: notificar de profesion
   steps: 
   - checkpoint: notificar_relacion
   - intent: notificar_profesion
   - action: utter_ah_si
-
 - story: notificar nombre y profesion
   steps:
   - checkpoint: notificar_relacion
@@ -45,16 +43,16 @@ stories:
 # TODO: Camino hacia la carrera
 - story: como encontre la carrera
   steps:
-  - intent: como_encontraste_carrera
+  - or:
+    - intent: como_encontre_programacion
+    - intent: como_encontraste_carrera
   - action: utter_como_encontre_carrera
   - checkpoint: bifurcacion_encontre_carrera
-
 - story: eleccion de universidad
   steps:
   - checkpoint: bifurcacion_encontre_carrera
   - intent: eleccion_unicen
   - action: utter_eleccion_unicen
-
 - story: que hubieras hecho si no llegabas a la tecnica
   steps:
   - checkpoint: bifurcacion_encontre_carrera
@@ -67,7 +65,6 @@ stories:
   - action: utter_eleccion_tecnica_media
   - intent: efecto_mariposa
   - action: utter_efecto_mariposa
-
 - story: otra carrera posible
   steps:
   - intent: consultar_opciones_carrera
@@ -79,13 +76,11 @@ stories:
   steps:
   - intent: consultar_año
   - action: utter_consultar_año
-
 - story: consulta materias cursadas
   steps:
   - intent: consulta_materias_en_curso
   - action: action_consulta_materias_en_curso
   - checkpoint: camino_materias_cursada
-
 - story: camino retraso
   steps:
   - checkpoint: camino_materias_cursada
@@ -94,21 +89,39 @@ stories:
     - intent: consultar_retraso
   - action: utter_retraso
   - checkpoint: camino_materias_cursada
-
 - story: camino alagador materias cursadas
   steps:
   - checkpoint: camino_materias_cursada
   - intent: felicitacion_cursada
   - action: utter_felicitacion_cursada
-
 - story: camino compadeciente de cursadas
   steps:
   - checkpoint: camino_materias_cursada
   - intent: compadecer_cursadas
   - action: utter_compadecer_cursadas
 
-# TODO: Despedida
+# TODO: Areas de Interes
+story: tecnologias iniciales
+  steps:
+  - intent: lenguaje_inicial
+  - action: utter_lenguaje_inicial
+  - intent: estudio_aparte_secundaria
+  - action: utter_estudio_aparte_secundaria
+  - intent: fuente_estudios_secundaria
+  - action: utter_fuente_estudios_secundaria
 
+story: ramas de interes
+  steps:
+  - intent: rama_interes
+  - action: utter_rama_interes
+  - intent: fuente_estudios_actual
+  - action: utter_fuente_estudios_actual
+  - or:
+    - intent: proyecto_aparte
+    - intent: tecnologia_actual
+  - action: utter_programacion_actual
+
+# TODO: Despedida
 - story: despedir
   steps:
   - checkpoint: terminar
