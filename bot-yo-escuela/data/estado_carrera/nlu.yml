@@ -1,0 +1,58 @@
+version: "3.1"
+
+# TODO: Estado de carrera
+
+nlu:
+- intent: consultar_año
+  examples: |
+    - en que año estas?
+    - que año estas cursando?
+    - por que año vas?
+    - que año estas cursando en teoria?
+    - ya estas en tercero?
+    - ya estas en cuarto? 
+    - ya estas en quinto?
+- intent: consulta_materias_en_curso
+  examples: |
+    - y que estas cursando entonces?
+    - que estas dando?
+    - que y que estas dando?
+    - que de cada cosa estas dando?
+    - que estas cursando de cada cosa?
+    - cual estas dando?
+    - cual estas cursando entonces?
+- intent: comentar_retraso
+  examples: |
+    - uff... te retrasaste supongo
+    - suele pasar
+    - lo he escuchado
+    - es bastante comun
+    - es mas comun de lo que esperaba
+    - puede pasar
+    - pasa
+- intent: consultar_retraso
+  examples: |
+    - que paso?
+    - como?, no entendi a que te referias
+    - como paso?
+    - desaprobaste algun materia o como?
+    - no diste alguna materia?
+    - como segundo / tercero?
+- intent: felicitacion_cursada
+  examples: |
+    - te fue bastante bien
+    - excelente como te fue
+    - nada mal te fue
+    - relativamente bien
+    - bueno, felicitaciones por como venis
+    - venis bien
+    - a comparacion de muchos, venis excelente
+    - no te preocupes por como te fue, te fue bien
+- intent: compadecer_cursadas
+  examples: |
+    - pudo haber sido peor
+    - lastima esas dos cursadas, venias bien
+    - que pena esas cursadas
+    - que lastima esas cursadas, ahora a seguir adelante
+    - bueno, ahora a seguir para adelante
+    - uff... que mal

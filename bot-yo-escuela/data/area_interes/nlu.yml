@@ -1,0 +1,53 @@
+version: "3.1"
+
+# TODO: Areas de Interes
+
+nlu:
+- intent: lenguaje_inicial
+  examples: |
+    - con que lenguaje empesaste?
+    - con que tecnologia iniciaste?
+    - con que rama iniciaste?
+    - cual fue tu primer lenguaje?
+    - con que lenguaje tuviste tu primera interaccion?
+    - tu primer lenguaje?
+- intent: estudio_aparte
+  examples: |
+    - que [estudiabas]{"entity": "tiempo", "value" : "pasado"} a parte de la [secundaria](institucion)?
+    - [estudiabas]{"entity": "tiempo", "value" : "pasado"} por tu cuenta en la [secundaria](institucion)?
+    - que [estudiaste]{"entity": "tiempo", "value" : "pasado"} a parte de la [secundaria](institucion)
+    - [estudiabas]{"entity": "tiempo", "value" : "pasado"} algo por cuenta por separado de la [escuela]{"entity": "institucion", "value":"secundaria"}?
+
+    - que [estudias]{"entity": "tiempo", "value" : "presente"} a parte de la [universidad](institucion)?
+    - [estudias]{"entity": "tiempo", "value" : "presente"} por tu cuenta en la [universidad](institucion)?
+    - que [estudias]{"entity": "tiempo", "value" : "presente"} a parte de la [universidad](institucion)
+    - [estudias]{"entity": "tiempo", "value" : "presente"} algo por cuenta por separado de la [unicen]{"entity": "institucion", "value":"universidad"}?
+    - [estudias]{"entity": "tiempo", "value" : "presente"} algo por cuenta por separado de la [UNICEN]{"entity": "institucion", "value":"universidad"}?
+
+- intent: rama_interes
+  examples: |
+    - que rama te [intereso]{"entity": "tiempo", "value" : "pasado"}?
+    - que rama te [parecio]{"entity": "tiempo", "value" : "pasado"} interesante?
+    - que rama te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion?
+    - que seccion te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion?
+    - que sector de la programacion te [llamo]{"entity": "tiempo", "value" : "presente"} la atencion
+    - que rama te [interesa]{"entity": "tiempo", "value" : "presente"}?
+    - que rama te [parece]{"entity": "tiempo", "value" : "presente"} interesante?
+    - que rama te [llama]{"entity": "tiempo", "value" : "presente"} la atencion?
+    - que seccion te [llama]{"entity": "tiempo", "value" : "presente"} la atencion?
+    - que sector de la programacion te [llama]{"entity": "tiempo", "value" : "pasado"} la atencion
+    - que rama te [intereso]{"entity": "tiempo", "value" : "pasado"} en la [secundaria](institucion)?
+    - que rama te [parecio]{"entity": "tiempo", "value" : "pasado"} interesante en la [secundaria](institucion)?
+    - que rama te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion en la [secundaria](institucion)?
+    - que seccion te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion en la [secundaria](institucion)?
+    - que sector de la programacion te [llamo]{"entity": "tiempo", "value" : "presente"} la atencion en la [secundaria](institucion)?
+
+- intent: fuente_estudios
+  examples: |
+    - a
+- intent: proyecto_aparte
+  examples: |
+    - a
+- intent: tecnologia_actual
+  examples: |
+    - a

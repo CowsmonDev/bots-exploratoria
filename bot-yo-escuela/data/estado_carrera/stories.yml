@@ -1,0 +1,39 @@
+version: "3.1"
+
+# TODO: Estado de carrera
+
+stories:
+- story: consultar año
+  steps:
+  - intent: consultar_año
+  - action: action_consultar_año
+- story: consulta materias cursadas
+  steps:
+  - intent: consulta_materias_en_curso
+  - action: action_consulta_materias_en_curso
+  - checkpoint: camino_materias_cursada
+
+- story: consultar finales
+  steps:
+  - intent: consulta_finales
+  - action: action_consulta_finales
+
+- story: camino retraso
+  steps:
+  - checkpoint: camino_materias_cursada
+  - or:
+    - intent: comentar_retraso
+    - intent: consultar_retraso
+  - action: utter_retraso
+  - checkpoint: camino_materias_cursada #* Dependiendo que comento sobre el retraso de cursadas va para un lado o para el otro
+
+- story: camino alagador materias cursadas ### Camino uno:
+  steps:
+  - checkpoint: camino_materias_cursada
+  - intent: felicitacion_cursada
+  - action: utter_felicitacion_cursada
+- story: camino compadeciente de cursadas ###  Camino dos:
+  steps:
+  - checkpoint: camino_materias_cursada
+  - intent: compadecer_cursadas
+  - action: utter_compadecer_cursadas
