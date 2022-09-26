@@ -1,0 +1,24 @@
+version: "3.1"
+
+# TODO: Areas de Interes
+
+stories:
+- story: tecnologias iniciales
+  steps:
+  - intent: lenguaje_inicial
+  - action: utter_lenguaje_inicial
+  - intent: estudio_aparte_secundaria
+  - action: utter_estudio_aparte_secundaria
+  - intent: fuente_estudios_secundaria
+  - action: utter_fuente_estudios_secundaria
+
+- story: ramas de interes
+  steps:
+  - intent: rama_interes
+  - action: utter_rama_interes
+  - action: utter_fuente_estudios_actual
+  - or:
+    - intent: proyecto_aparte
+    - intent: tecnologia_actual
+  - action: utter_programacion_actual
+  - intent: fuente_estudios_actual

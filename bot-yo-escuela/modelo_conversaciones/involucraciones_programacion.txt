@@ -1,21 +1,5 @@
 Comment: >
-  - intent: rama_interes
-    examples: |
-      - que rama te [intereso]{"entity": "tiempo", "value" : "pasado"}?
-      - que rama te [parecio]{"entity": "tiempo", "value" : "pasado"} interesante?
-      - que rama te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion?
-      - que seccion te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion?
-      - que sector de la programacion te [llamo]{"entity": "tiempo", "value" : "presente"} la atencion
-      - que rama te [interesa]{"entity": "tiempo", "value" : "presente"}?
-      - que rama te [parece]{"entity": "tiempo", "value" : "presente"} interesante?
-      - que rama te [llama]{"entity": "tiempo", "value" : "presente"} la atencion?
-      - que seccion te [llama]{"entity": "tiempo", "value" : "presente"} la atencion?
-      - que sector de la programacion te [llama]{"entity": "tiempo", "value" : "pasado"} la atencion
-      - que rama te [intereso]{"entity": "tiempo", "value" : "pasado"} en la secundaria?
-      - que rama te [parecio]{"entity": "tiempo", "value" : "pasado"} interesante en la secundaria?
-      - que rama te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion en la secundaria?
-      - que seccion te [llamo]{"entity": "tiempo", "value" : "pasado"} la atencion en la secundaria?
-      - que sector de la programacion te [llamo]{"entity": "tiempo", "value" : "presente"} la atencion en la secundaria?
+
 
 
 
