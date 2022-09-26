@@ -9,3 +9,15 @@ class ActionGetCursadas(Action):
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		materias = EstadoActual.getCursadas()
 		dispatcher.utter_message(text=materias)
+
+class ActionGetAñoActual(Action):
+	def name(self)-> Text:
+		return "action_consultar_año"
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		dispatcher.utter_message(text=f"uff, bueno... ahora mismo estoy en {str(EstadoActual.getAñoActual())}\n Igual deberia estar en {str(EstadoActual.getAñoTeorico())}")
+class ActionGetFinalActuales(Action):
+	def name(self)-> Text:
+		return "action_consulta_finales"
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		dispatcher.utter_message(text=EstadoActual.getFinales())
+		

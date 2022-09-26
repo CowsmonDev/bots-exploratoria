@@ -273,17 +273,22 @@ nlu:
 # TODO: Areas de Interes
 - intent: lenguaje_inicial
   examples: |
-    - a
+    - con que lenguaje empesaste?
+    - con que tecnologia iniciaste?
+    - con que rama iniciaste?
+    - cual fue tu primer lenguaje?
+    - con que lenguaje tuviste tu primera interaccion?
+    - tu primer lenguaje?
 - intent: estudio_aparte_secundaria
   examples: |
-    - a
-- intent: fuente_estudios_secundaria
-  examples: |
-    - a
-- intent: rama_interes
-  examples: |
-    - a
-- intent: fuente_estudios_actual
+    - que estudiabas a parte de la secundaria?
+    - estudiabas por tu cuenta en la secundaria?
+    - que estudiaste a parte de la secundaria
+    - estudiabas algo por cuenta?
+
+
+
+- intent: fuente_estudios
   examples: |
     - a
 - intent: proyecto_aparte

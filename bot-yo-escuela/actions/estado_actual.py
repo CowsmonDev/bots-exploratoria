@@ -23,7 +23,7 @@ class EstadoActual:
 	@staticmethod
 	def getCursadas():
 		materias = EstadoActual.datos["materias"]["cursadas"]
-		retorno = "No estoy cursando nada" if(len(materias) == 0) else "Estoy cursando:\n"
+		retorno = "No estoy cursando nada" if(len(materias) == 0) else "dame un segundo que me acuerde...\nemm, a cierto... estoy cursando:\n"
 		for materia in materias:
 			retorno += f"- {materia}\n"
 		return retorno
@@ -40,6 +40,9 @@ class EstadoActual:
 	@staticmethod
 	def getAñoTeorico():
 		return EstadoActual.datos["año_teorico"]
+	@staticmethod
+	def  getAñoActual():
+		return EstadoActual.datos["materias"]["año"]
 	@staticmethod
 	def getAñoIngreso():
 		return EstadoActual.datos["año_ingreso"]

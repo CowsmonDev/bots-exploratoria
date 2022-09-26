@@ -1,18 +1,7 @@
 version: "3.1"
 
-Comment: > 
-  stories:
-  - story: inicio
-    steps:
-    - intent: saludar 
-    - action: utter_saludar
-    - or: 
-      - intent: negar
-      - intent: afirmar
-    - action: utter_no_se
-    - checkpoint: notificar_relacion
-
 stories:
+
 - story: inicio
   steps:
   - intent: saludar
@@ -75,12 +64,18 @@ stories:
 - story: consultar año
   steps:
   - intent: consultar_año
-  - action: utter_consultar_año
+  - action: action_consultar_año
 - story: consulta materias cursadas
   steps:
   - intent: consulta_materias_en_curso
   - action: action_consulta_materias_en_curso
   - checkpoint: camino_materias_cursada
+
+- story: consultar finales
+  steps:
+  - intent: consulta_finales
+  - action: action_consulta_finales
+
 - story: camino retraso
   steps:
   - checkpoint: camino_materias_cursada
@@ -88,45 +83,48 @@ stories:
     - intent: comentar_retraso
     - intent: consultar_retraso
   - action: utter_retraso
-  - checkpoint: camino_materias_cursada
-- story: camino alagador materias cursadas
+  - checkpoint: camino_materias_cursada #* Dependiendo que comento sobre el retraso de cursadas va para un lado o para el otro
+
+- story: camino alagador materias cursadas ### Camino uno:
   steps:
   - checkpoint: camino_materias_cursada
   - intent: felicitacion_cursada
   - action: utter_felicitacion_cursada
-- story: camino compadeciente de cursadas
+- story: camino compadeciente de cursadas ###  Camino dos:
   steps:
   - checkpoint: camino_materias_cursada
   - intent: compadecer_cursadas
   - action: utter_compadecer_cursadas
 
 # TODO: Areas de Interes
-story: tecnologias iniciales
+- story: tecnologias iniciales
   steps:
   - intent: lenguaje_inicial
   - action: utter_lenguaje_inicial
   - intent: estudio_aparte_secundaria
   - action: utter_estudio_aparte_secundaria
-  - intent: fuente_estudios_secundaria
   - action: utter_fuente_estudios_secundaria
+#- intent: fuente_estudios_secundaria
 
-story: ramas de interes
+- story: ramas de interes
   steps:
   - intent: rama_interes
   - action: utter_rama_interes
-  - intent: fuente_estudios_actual
   - action: utter_fuente_estudios_actual
   - or:
     - intent: proyecto_aparte
     - intent: tecnologia_actual
   - action: utter_programacion_actual
+#- intent: fuente_estudios_actual
 
 # TODO: Despedida
-- story: despedir
-  steps:
-  - checkpoint: terminar
-  - action: utter_consultar_despedir
-  - or:
+
+Comment_x: > 
+  - story: despedir
+    steps:
     - intent: despedir
-    - intent: negar
-  - action: utter_despedir
+    - action: utter_consultar_despedir
+    - or:
+      - intent: despedir
+      - intent: negar
+    - action: utter_despedir

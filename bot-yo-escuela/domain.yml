@@ -2,39 +2,42 @@
 version: "3.1"
 
 intents:
-        - saludar
-        - notificar_nombre_profesion
-        - notificar_nombre
-        - notificar_profesion
-        - como_encontraste_carrera
-        - eleccion_unicen
-        - alternativa_tecnica
-        - eleccion_tecnica
-        - no_eleccion_media
-        - opciones_secundaria
-        - consultar_existencia_opcion
-        - efecto_mariposa
-        - consultar_opciones_carrera
-        - consultar_año
-        - consulta_materias_en_curso
-        - comentar_retraso
-        - consultar_retraso
-        - felicitacion_cursada
-        - compadecer_cursadas
-        - lenguaje_inicial
-        - estudio_aparte_secundaria
-        - fuente_estudios_secundaria
-        - rama_interes
-        - fuente_estudios_actual
-        - proyecto_aparte
-        - tecnologia_actual
-        - despedir
-        - negar
-        - afirmar
-        - bot_challenge
+  - saludar
+  - notificar_nombre_profesion
+  - notificar_nombre
+  - notificar_profesion
+  - como_encontraste_carrera
+  - como_encontre_programacion
+  - eleccion_unicen
+  - alternativa_tecnica
+  - eleccion_tecnica
+  - no_eleccion_media
+  - opciones_secundaria
+  - efecto_mariposa
+  - consultar_opciones_carrera
+  - consultar_año
+  - consulta_materias_en_curso
+  - comentar_retraso
+  - consultar_retraso
+  - felicitacion_cursada
+  - compadecer_cursadas
+  - lenguaje_inicial
+  - estudio_aparte_secundaria
+  - rama_interes
+  - consulta_finales
+  - fuente_estudios
+  - proyecto_aparte
+  - tecnologia_actual
+  - despedir
+  - negar
+  - afirmar
+  - bot_challenge
+  - todo
 
 actions:
-        - action_consulta_materias_en_curso
+  - action_consulta_materias_en_curso
+  - action_consultar_año
+  - action_consulta_finales
 
 entities:
   - nombre
@@ -52,11 +55,9 @@ responses:
   utter_ah_si:
   - text: "ahhh... si, que pasa?"
   utter_como_encontre_carrera:
-  - text: "Bueno, mira como que medio tope con ella... entre a la tecnica pensando en los talleres que me podrian interesar\n
-          sin saber que tenian una orientacion en informatica, desde ahi todo fue tomando su rumbo"
+  - text: "Bueno, mira como que medio tope con ella... entre a la tecnica pensando en los talleres que me podrian interesar\n sin saber que tenian una orientacion en informatica, desde ahi todo fue tomando su rumbo"
   utter_eleccion_unicen:
-  - text: "Basicamente mi escuela tiene una buena relacion con la Unicen y practicamente me lo recomendaban cada profesor
-          con el que tenia... era como si no tuviera mucha opcion o no conociera otra opcion... hoy no me arrepiento"
+  - text: "Basicamente mi escuela tiene una buena relacion con la Unicen y practicamente me lo recomendaban cada profesor con el que tenia... era como si no tuviera mucha opcion o no conociera otra opcion... hoy no me arrepiento"
   utter_alternativa_tecnica:
   - text: "Probablemente hubiera terminado en una escula media estudiando alguna orientacion de biologia"
   utter_eleccion_tecnica_media:
@@ -72,8 +73,6 @@ responses:
           por psicologia o algo se me hubiera ocurrido"
   utter_consultar_año:
   - text: "uff, bueno... ahora mismo estoy en segundo/tercero"
-  utter_consulta_materias_en_curso:
-  - text: "dame un segundo que me acuerde...\nemm, a cierto, estoy dando exploratoria, Objetos, Digital y comunicacion de datos"
   utter_retraso:
   - text: "si, me retrase con CDC1 y fisica el primer año, cosas que pasan :)"
   utter_felicitacion_cursada:
@@ -84,11 +83,10 @@ responses:
   utter_lenguaje_inicial:
   - text: "Empece en la secundaria con C++ y Visual Basic 6"
   utter_estudio_aparte_secundaria:
-  - text: "recien empece en el sexto, con JavaScript, haciendo cosas basicas...
-        hasta ese momento, solo me habia enfocado en lo que me enseñaban"
+  - text: "recien empece en el sexto, con JavaScript, haciendo cosas basicas... hasta ese momento, solo me habia enfocado en lo que me enseñaban"
   utter_fuente_estudios_secundaria:
-  - text: "la mayoria de las veces por videos en Youtube, y en mis inicios usaba la 
-        app "solo learn" para aprender Sintaxis"
+  - text: 'la mayoria de las veces por videos en Youtube, y en mis inicios usaba la app "solo learn" para aprender Sintaxis'
+
   utter_rama_interes:
   - text: "actualmente estoy desarrollando aplicaciones de escritorio pero
         con tecnologias de la Web... Anteriormente desarrollaba en java\n
@@ -106,6 +104,10 @@ responses:
   - text: "Ha sido un placer, espero haberte ayudado... adios\nXD al final si soy un robot, frase robotizada y todo jajaja"
   utter_iamabot:
   - text: "Define bot... estas seguro que tu no lo eres?"
+  utter_todo:
+  - text: "todo dicho"
+
+
 
 session_config:
   session_expiration_time: 60
