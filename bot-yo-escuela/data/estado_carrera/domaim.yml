@@ -8,6 +8,7 @@ intents:
   - consultar_retraso
   - felicitacion_cursada
   - compadecer_cursadas
+  - consulta_finales
 
 actions:
   - action_consulta_materias_en_curso

@@ -56,3 +56,7 @@ nlu:
     - que lastima esas cursadas, ahora a seguir adelante
     - bueno, ahora a seguir para adelante
     - uff... que mal
+
+- intent: consulta_finales
+  examples: |
+    - a

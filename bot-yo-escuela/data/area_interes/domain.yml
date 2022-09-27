@@ -3,12 +3,15 @@ version: "3.1"
 
 intents:
   - lenguaje_inicial
-  - estudio_aparte_secundaria
+  - estudio_aparte
   - rama_interes
-  - consulta_finales
   - fuente_estudios
   - proyecto_aparte
   - tecnologia_actual
+
+actions:
+  - action_rama_interes
+  - action_fuente_estudios
 
 entities:
   - tiempo
@@ -19,14 +22,12 @@ responses:
   - text: "Empece en la secundaria con C++ y Visual Basic 6"
   utter_estudio_aparte_secundaria:
   - text: "recien empece en el sexto, con JavaScript, haciendo cosas basicas... hasta ese momento, solo me habia enfocado en lo que me enseñaban"
-  utter_fuente_estudios_secundaria:
-  - text: 'la mayoria de las veces por videos en Youtube, y en mis inicios usaba la app "solo learn" para aprender Sintaxis'
   utter_rama_interes:
   - text: "actualmente estoy desarrollando aplicaciones de escritorio pero
         con tecnologias de la Web... Anteriormente desarrollaba en java\n
         https://github.com/CowsmonDev/MetricPoint "
-  utter_fuente_estudios_actual:
-  - text: "la mayoria de las veces por videos de Youtube o en cuyo caso de documentacion y foros"
+  utter_fuente_estudios:
+  - text: "la mayoria de las veces por videos de Youtube o en cuyo caso de documentacion y foros, pero he utilizado cada opcion posible a lo largo de los años"
   utter_programacion_actual:
   - text: "hoy en dia estoy adaptando el proyecto en Java a Electron, un Framework
         basado en JavaScript de forma de poder realizar un proyecto mas mantenible
