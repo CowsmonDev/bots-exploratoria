@@ -30,6 +30,16 @@ stories:
   - intent: consulta_finales_aprobados
   - action: action_consulta_finales_aprobados
 
+- story: consultar materias aprobadas
+  steps:
+  - intent: consulta_materias_aprobadas
+  - action: action_consulta_materias_aprobadas
+
+- story: consulta total de materias
+  steps:
+  - intent: consulta_total_materias
+  - action: action_consulta_total_materias
+
 - story: camino retraso
   steps:
   - checkpoint: camino_materias_cursada

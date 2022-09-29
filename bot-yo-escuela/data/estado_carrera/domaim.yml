@@ -11,6 +11,8 @@ intents:
   - consulta_finales
   - consulta_finales_en_curso
   - consulta_finales_aprobados
+  - consulta_materias_aprobadas
+  - consulta_total_materias
 
 actions:
   - action_consulta_materias_en_curso
@@ -18,6 +20,8 @@ actions:
   - action_consulta_finales_en_curso
   - action_consulta_finales
   - action_consulta_finales_aprobados
+  - action_consulta_materias_aprobadas
+  - action_consulta_total_materias
 
 responses:
   utter_consultar_año:

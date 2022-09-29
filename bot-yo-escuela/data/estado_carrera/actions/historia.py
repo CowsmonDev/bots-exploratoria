@@ -22,7 +22,7 @@ class Historia:
 		impresion += "--------------------------------------------\n\n"
 		res = Historia.getConsulta("materia(M,X,Y,Z)")
 		for x in res:
-			impresion += f"{x['M']} - {x['X']} - {x['Y']} - {x['Z']}"
+			impresion += f"[Codigo: {x['M']}] - [Año: {x['X']}] - [Cuatrimestre: {x['Y']}] - [{x['Z']}]\n"
 		return impresion
 
 
@@ -46,8 +46,8 @@ class Historia:
 		impresion += "|------------------------------------------|\n"
 		impresion += "|            ~/--APROBE--\\~                |\n"
 		impresion += "--------------------------------------------\n\n"
-		res = Historia.getConsulta(f"materia_aprobada(CM,Y,CU,NM")
+		res = Historia.getConsulta(f"materia_aprobada(CM,Y,CU,NM)")
 		for cursada in res:
 			impresion += getFinalText(cursada)
-		impresion += "   Si, tengo una lista preparada con mis finales (para que se vea bonito) :)   "
+		impresion += "   Si, tengo una lista preparada con mis materias (para que se vea bonito) :)   "
 		return impresion

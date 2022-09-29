@@ -93,4 +93,34 @@ nlu:
     - cuantos finales aprobaste?
     - finales, cuanto aprobaste?
     - cuanto aprobaste en finales?
+  
+- intent: consulta_materias_aprobadas
+  examples: |
+    - cuales materias aprobaste?
+    - que materias aprobaste?
+    - aprobaste algun materia?
+    - en cuanto a materia, que final aprobaste?
+    - en cuanto a materia, aprobaste alguno?
+    - en cuanto a materia, cual aprobaste?
+    - cual materia aprobaste?
+    - materia, cuales aprobaste?
+    - cuantos materia aprobaste?
+    - materia, cuanto aprobaste?
+    - cuanto aprobaste en materia?
 
+- intent: consulta_total_materias
+  examples: |
+    - cuales materias tenes?
+    - cuales materias tenes en la carrera?
+    - cuales son las materias de la carrera?
+    - cuales son las materias que tenes en la carrera?
+    - que materias tenes?
+    - que materias tenes en la carrera?
+    - cuales son las asignaturas que tenes en la carrera?
+    - cual es tu plan de estudios?
+    - me pasas tu plan de estudios?
+    - me pasas tus materias?
+    - pasame tus materias?
+    - necesito saber cuales materias tenes en la carrera
+    - necesito saber cuales son las materias que tenes en la carrera
+    - cuales son las materias de ingeñeria
