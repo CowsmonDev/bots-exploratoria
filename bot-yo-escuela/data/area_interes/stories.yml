@@ -7,7 +7,6 @@ stories:
   steps:
   - intent: lenguaje_inicial
   - action: utter_lenguaje_inicial
-  - checkpoint: tecnologias_iniciales
 
 - story: fuente de estudios
   steps:

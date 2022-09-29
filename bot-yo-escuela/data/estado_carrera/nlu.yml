@@ -59,4 +59,38 @@ nlu:
 
 - intent: consulta_finales
   examples: |
-    - a
+    - cuales finales te quedan pendiente?
+    - cuales finales te quedan?
+    - que finales te quedan?
+    - que tenes pendiente en cuanto a finales?
+    - que debes de final?
+    - que te falta de finales?
+    - que te falta de final?
+    - cuantos finales te quedan?
+    - cuanto te queda de final?
+
+- intent: consulta_finales_en_curso
+  examples: |
+    - cuales finales estas dando?
+    - que finales estas dando?
+    - que finales estas preparando?
+    - estas preparando algun final?
+    - vas a dar algun final?
+    - tenes pensado dar algun final?
+    - en cuanto a finales, estas preparando alguno?
+    - estas preparando algo de finales?
+
+- intent: consulta_finales_aprobados
+  examples: |
+    - cuales finales aprobaste?
+    - que finales aprobaste?
+    - aprobaste algun final?
+    - en cuanto a finales, que final aprobaste?
+    - en cuanto a finales, aprobaste alguno?
+    - en cuanto a finales, cual aprobaste?
+    - cual final aprobaste?
+    - finales, cuales aprobaste?
+    - cuantos finales aprobaste?
+    - finales, cuanto aprobaste?
+    - cuanto aprobaste en finales?
+

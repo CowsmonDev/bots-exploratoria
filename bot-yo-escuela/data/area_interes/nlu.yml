@@ -18,7 +18,6 @@ nlu:
     - estudiabas por tu cuenta en la [secundaria]{"entity": "tiempo", "role": "secundaria", "value" : "pasado"}?
     - que estudiaste a parte de la [secundaria]{"entity": "tiempo", "role": "secundaria", "value" : "pasado"}?
     - estudiabas algo por cuenta por separado de la [escuela]{"entity": "tiempo", "role": "secundaria", "value" : "pasado"}?
-
     - que estudias a parte de la [universidad]{"entity": "tiempo", "role": "universidad", "value" : "presente"}?
     - estudias por tu cuenta en la [universidad]{"entity": "tiempo", "role": "universidad", "value" : "presente"}?
     - que estudias a parte de la [universidad]{"entity": "tiempo", "role": "universidad", "value" : "presente"}
@@ -60,10 +59,8 @@ nlu:
     - [tenias]{"entity": "tiempo", "role" : "general", "value" : "pasado"} algun proyecto?
     - [tuviste]{"entity": "tiempo", "role" : "general", "value" : "pasado"} algun proyecto?
     - [estuviste]{"entity": "tiempo", "role" : "general", "value" : "pasado"} en algun proyecto?
-
     - [tenias]{"entity": "tiempo", "role" : "secundaria", "value" : "pasado"} algun proyecto en la secundaria?
     - [tuviste]{"entity": "tiempo", "role" : "secundaria", "value" : "pasado"} algun proyecto durante la secundaria?
-
     - [tenes]{"entity": "tiempo", "role" : "general", "value" : "presente"} algun proyecto?
     - [estas]{"entity": "tiempo", "role" : "general", "value" : "presente"} trabajando en algun proyecto?
     - [estas]{"entity": "tiempo", "role" : "general", "value" : "presente"} trabajando con algo?

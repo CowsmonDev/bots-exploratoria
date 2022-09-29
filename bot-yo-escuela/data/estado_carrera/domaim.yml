@@ -9,11 +9,15 @@ intents:
   - felicitacion_cursada
   - compadecer_cursadas
   - consulta_finales
+  - consulta_finales_en_curso
+  - consulta_finales_aprobados
 
 actions:
   - action_consulta_materias_en_curso
   - action_consultar_año
+  - action_consulta_finales_en_curso
   - action_consulta_finales
+  - action_consulta_finales_aprobados
 
 responses:
   utter_consultar_año:

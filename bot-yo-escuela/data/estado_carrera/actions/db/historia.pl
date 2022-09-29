@@ -109,7 +109,6 @@ materia_final_aprobada(6122).
 materia_final_aprobada(6123).
 materia_final_aprobada(6124).
 materia_final_aprobada(6125).
-.
 materia_final_aprobada(6211).
 materia_final_aprobada(6212).
 materia_final_aprobada(6213).
