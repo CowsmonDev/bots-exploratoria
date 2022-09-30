@@ -3,6 +3,13 @@ version: "3.1"
 # TODO: Estado de carrera
 
 nlu:
+
+- synonym: cursada
+  examples: |
+    - cursadas
+    - materia
+    - materias
+
 - intent: consultar_año
   examples: |
     - en que año estas?
@@ -12,15 +19,6 @@ nlu:
     - ya estas en tercero?
     - ya estas en cuarto? 
     - ya estas en quinto?
-- intent: consulta_materias_en_curso
-  examples: |
-    - y que estas cursando entonces?
-    - que estas dando?
-    - que y que estas dando?
-    - que de cada cosa estas dando?
-    - que estas cursando de cada cosa?
-    - cual estas dando?
-    - cual estas cursando entonces?
 - intent: comentar_retraso
   examples: |
     - uff... te retrasaste supongo
@@ -57,7 +55,17 @@ nlu:
     - bueno, ahora a seguir para adelante
     - uff... que mal
 
-- intent: consulta_finales
+- intent: consulta_materias_en_curso
+  examples: |
+    - y que estas cursando entonces?
+    - que estas dando?
+    - que y que estas dando?
+    - que de cada cosa estas dando?
+    - que estas cursando de cada cosa?
+    - cual estas dando?
+    - cual estas cursando entonces?
+
+- intent: consulta_finales_pendientes
   examples: |
     - cuales finales te quedan pendiente?
     - cuales finales te quedan?
@@ -80,34 +88,31 @@ nlu:
     - en cuanto a finales, estas preparando alguno?
     - estas preparando algo de finales?
 
-- intent: consulta_finales_aprobados
+- intent: consulta_aprobados
   examples: |
-    - cuales finales aprobaste?
-    - que finales aprobaste?
-    - aprobaste algun final?
-    - en cuanto a finales, que final aprobaste?
-    - en cuanto a finales, aprobaste alguno?
-    - en cuanto a finales, cual aprobaste?
-    - cual final aprobaste?
-    - finales, cuales aprobaste?
-    - cuantos finales aprobaste?
-    - finales, cuanto aprobaste?
-    - cuanto aprobaste en finales?
+    - cuales [finales](materia_final) aprobaste?
+    - que [finales](materia_final) aprobaste?
+    - aprobaste algun [final](materia_final)?
+    - en cuanto a [finales](materia_final), que final aprobaste?
+    - en cuanto a [finales](materia_final), aprobaste alguno?
+    - en cuanto a [finales](materia_final), cual aprobaste?
+    - cual [final](materia_final) aprobaste?
+    - [finales](materia_final), cuales aprobaste?
+    - cuantos [finales] aprobaste?
+    - [finales](materia_final), cuanto aprobaste?
+    - cuanto aprobaste en [finales](materia_final)?
+    - cuales [materias](materia_final) aprobaste?
+    - que [materias] aprobaste?
+    - aprobaste algun [materia](materia_final)?
+    - en cuanto a materia, que [cursada](materia_final) aprobaste?
+    - en cuanto a [materia](materia_final), aprobaste alguna?
+    - en cuanto a [materia](materia_final), cual aprobaste?
+    - cual [materia](materia_final) aprobaste?
+    - [materia](materia_final), cuales aprobaste?
+    - cuantos [materia](materia_final) aprobaste?
+    - [materia](materia_final), cuanto aprobaste?
+    - cuanto aprobaste en [materia](materia_final)?
   
-- intent: consulta_materias_aprobadas
-  examples: |
-    - cuales materias aprobaste?
-    - que materias aprobaste?
-    - aprobaste algun materia?
-    - en cuanto a materia, que final aprobaste?
-    - en cuanto a materia, aprobaste alguno?
-    - en cuanto a materia, cual aprobaste?
-    - cual materia aprobaste?
-    - materia, cuales aprobaste?
-    - cuantos materia aprobaste?
-    - materia, cuanto aprobaste?
-    - cuanto aprobaste en materia?
-
 - intent: consulta_total_materias
   examples: |
     - cuales materias tenes?

@@ -22,18 +22,13 @@ stories:
 
 - story: consultar finales pendientes
   steps:
-  - intent: consulta_finales
-  - action: action_consulta_finales
+  - intent: consulta_finales_pendientes
+  - action: action_consulta_finales_pendientes
 
-- story: consultar finales aprobados
+- story: consultar materias y finales aprobados
   steps:
-  - intent: consulta_finales_aprobados
-  - action: action_consulta_finales_aprobados
-
-- story: consultar materias aprobadas
-  steps:
-  - intent: consulta_materias_aprobadas
-  - action: action_consulta_materias_aprobadas
+  - intent: consulta_aprobados
+  - action: action_consulta_aprobados
 
 - story: consulta total de materias
   steps:

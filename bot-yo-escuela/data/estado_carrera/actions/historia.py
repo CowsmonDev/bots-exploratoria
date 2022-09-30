@@ -36,7 +36,7 @@ class Historia:
 		res = Historia.getConsulta(f"materia_final_aprobada(CM,Y,CU,NM)")
 		for final in res:
 			impresion += getFinalText(final)
-		impresion += "   Si, tengo una lista preparada con mis finales (para que se vea bonito) :)   "
+		impresion += "\n| Si, tengo una lista preparada con mis finales (para que se vea bonito) :) |\n"
 		return impresion
 
 	@staticmethod
@@ -49,5 +49,5 @@ class Historia:
 		res = Historia.getConsulta(f"materia_aprobada(CM,Y,CU,NM)")
 		for cursada in res:
 			impresion += getFinalText(cursada)
-		impresion += "   Si, tengo una lista preparada con mis materias (para que se vea bonito) :)   "
+		impresion += "\n| Si, tengo una lista preparada con mis materias  (para que se vea bonito) :) |\n"
 		return impresion

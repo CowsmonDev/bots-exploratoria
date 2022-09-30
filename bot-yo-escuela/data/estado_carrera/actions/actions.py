@@ -26,23 +26,25 @@ class ActionGetCursadas(Action):
 
 class ActionGetFinalesPendientes(Action):
 	def name(self)-> Text:
-		return "action_consulta_finales"
+		return "action_consulta_finales_pendientes"
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		dispatcher.utter_message(text=EstadoActual.getFinalesPendientes())
 
 # TODO: Historia
-class ActionFinalesAprobados(Action):
+class ActionAprobados(Action):
 	def name(self)-> Text:
-		return "action_consulta_finales_aprobados"
+		return "action_finales_aprobados"
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-		dispatcher.utter_message(text=Historia.getFinalesAprobados())
-
-class ActionMateriasAprobadas(Action):
-	def name(self) -> Text:
-		return "action_consulta_materias_aprobadas"
-	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-		dispatcher.utter_message(text=Historia.getMateriasAprobadas())
+		
+		res = next(tracker.get_latest_entity_values('materia_final'), None)
+		if (res == "cursada"):
+			dispatcher.utter_message(text=Historia.getMateriasAprobadas())
+		elif (res == "final" or res == "finales"):
+			dispatcher.utter_message(text=Historia.getFinalesAprobados())
+		else:
+			print(res)
+			dispatcher.utter_message(text="perdon no te entendi... hablas de finales o materias")
 
 class ActionGetTotalMaterias(Action):
 	def name(self) -> Text:
