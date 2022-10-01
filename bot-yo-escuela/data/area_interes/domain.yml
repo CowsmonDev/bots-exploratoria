@@ -7,15 +7,14 @@ intents:
   - rama_interes
   - fuente_estudios
   - proyecto_aparte
-  - tecnologia_actual
+  - tecnologia
 
 actions:
   - action_rama_interes
-  - action_fuente_estudios
+  - action_proyecto_aparte
 
 entities:
   - tiempo
-  - institucion
 
 responses:
   utter_lenguaje_inicial:
