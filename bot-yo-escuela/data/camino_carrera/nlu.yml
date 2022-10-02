@@ -17,6 +17,15 @@ nlu:
     - cual fue tu camino para elegir Sistemas?
     - como tomaste la decision de estudiar Sistemas?
     - como tomaste la decision de estudiar Ingeñeria?
+
+- intent: como_encontre_programacion
+  examples: |
+    - como encontraste la programacion?
+    - cual fue tu primera interaccion con la programacion?
+    - como descubriste la programacion?
+    - estabas buscando la programacion?
+    - encontraste o buscaste a la programacion?
+
 - intent: eleccion_unicen
   examples: |
     - como elegiste la Unicen?

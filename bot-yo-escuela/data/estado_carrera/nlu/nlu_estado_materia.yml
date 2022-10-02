@@ -21,6 +21,7 @@ nlu:
     - que te hace dudar?
     - porque estas dudando?
     - como bien o mal, que te hace dudar?
+    - como bien o mal?
     - estas dudando?
 
 - intent: consulta_opnion_modalidad

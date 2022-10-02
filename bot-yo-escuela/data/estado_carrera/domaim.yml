@@ -40,7 +40,7 @@ responses:
   utter_estado_materia:
   - text: "Por ahora voy bien, o mal, realmente no estoy seguro"
   utter_indecision:
-  - text: "no se, la modalidad es medio rara"
+  - text: "no se, no estoy acostumbrada a esta modalidad"
   utter_opinion_modalidad:
   - text: "Esta interesante, es diferente y le encuentro sus ventajas... pero a veces parece demasiado amplio o abstracto. como si no tuvieramos lineamientos..."
   utter_estado_bot:

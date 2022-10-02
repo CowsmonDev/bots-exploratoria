@@ -12,9 +12,25 @@ intents:
   - bot_challenge
   - todo
 
+actions:
+  - action_ah_si
+  - action_despedir
+
 entities:
   - nombre
   - profesion
+
+slots:
+  slot_profesion:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: profesion
+  slot_nombre:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre
 
 responses:
   utter_saludar:

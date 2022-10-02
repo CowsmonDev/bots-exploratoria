@@ -19,22 +19,11 @@ stories:
   steps: 
   - checkpoint: notificar_relacion
   - intent: notificar_profesion
-  - action: utter_ah_si
+  - action: action_ah_si
 - story: notificar nombre y profesion
   steps:
   - checkpoint: notificar_relacion
   - intent: notificar_nombre_profesion
-  - action: utter_ah_si
+  - action: action_ah_si
 
 # ? Dependiendo profesion agrego reciprocidad ### Idea
-
-# TODO: Despedida
-Comment_x: > 
-  - story: despedir
-    steps:
-    - intent: despedir
-    - action: utter_consultar_despedir
-    - or:
-      - intent: despedir
-      - intent: negar
-    - action: utter_despedir
