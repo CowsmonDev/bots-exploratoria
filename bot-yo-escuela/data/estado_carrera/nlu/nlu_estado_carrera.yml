@@ -1,0 +1,131 @@
+version: "3.1"
+
+# TODO: Estado de carrera / General
+
+nlu:
+
+- synonym: cursada
+  examples: |
+    - cursadas
+    - materia
+    - materias
+
+- intent: consultar_año
+  examples: |
+    - en que año estas?
+    - que año estas cursando?
+    - por que año vas?
+    - que año estas cursando en teoria?
+    - ya estas en tercero?
+    - ya estas en cuarto? 
+    - ya estas en quinto?
+- intent: comentar_retraso
+  examples: |
+    - uff... te retrasaste supongo
+    - suele pasar
+    - lo he escuchado
+    - es bastante comun
+    - es mas comun de lo que esperaba
+    - puede pasar
+    - pasa
+- intent: consultar_retraso
+  examples: |
+    - que paso?
+    - como?, no entendi a que te referias
+    - como paso?
+    - desaprobaste algun materia o como?
+    - no diste alguna materia?
+    - como segundo / tercero?
+- intent: felicitacion_cursada
+  examples: |
+    - te fue bastante bien
+    - excelente como te fue
+    - nada mal te fue
+    - relativamente bien
+    - bueno, felicitaciones por como venis
+    - venis bien
+    - a comparacion de muchos, venis excelente
+    - no te preocupes por como te fue, te fue bien
+- intent: compadecer_cursadas
+  examples: |
+    - pudo haber sido peor
+    - lastima esas dos cursadas, venias bien
+    - que pena esas cursadas
+    - que lastima esas cursadas, ahora a seguir adelante
+    - bueno, ahora a seguir para adelante
+    - uff... que mal
+
+- intent: consulta_materias_en_curso
+  examples: |
+    - y que estas cursando entonces?
+    - que estas dando?
+    - que y que estas dando?
+    - que de cada cosa estas dando?
+    - que estas cursando de cada cosa?
+    - cual estas dando?
+    - cual estas cursando entonces?
+
+- intent: consulta_finales_pendientes
+  examples: |
+    - cuales finales te quedan pendiente?
+    - cuales finales te quedan?
+    - que finales te quedan?
+    - que tenes pendiente en cuanto a finales?
+    - que debes de final?
+    - que te falta de finales?
+    - que te falta de final?
+    - cuantos finales te quedan?
+    - cuanto te queda de final?
+
+- intent: consulta_finales_en_curso
+  examples: |
+    - cuales finales estas dando?
+    - que finales estas dando?
+    - que finales estas preparando?
+    - estas preparando algun final?
+    - vas a dar algun final?
+    - tenes pensado dar algun final?
+    - en cuanto a finales, estas preparando alguno?
+    - estas preparando algo de finales?
+
+- intent: consulta_aprobados
+  examples: |
+    - cuales [finales](materia_final) aprobaste?
+    - que [finales](materia_final) aprobaste?
+    - aprobaste algun [final](materia_final)?
+    - en cuanto a [finales](materia_final), que final aprobaste?
+    - en cuanto a [finales](materia_final), aprobaste alguno?
+    - en cuanto a [finales](materia_final), cual aprobaste?
+    - cual [final](materia_final) aprobaste?
+    - [finales](materia_final), cuales aprobaste?
+    - cuantos [finales] aprobaste?
+    - [finales](materia_final), cuanto aprobaste?
+    - cuanto aprobaste en [finales](materia_final)?
+    - cuales [materias](materia_final) aprobaste?
+    - que [materias] aprobaste?
+    - aprobaste algun [materia](materia_final)?
+    - en cuanto a materia, que [cursada](materia_final) aprobaste?
+    - en cuanto a [materia](materia_final), aprobaste alguna?
+    - en cuanto a [materia](materia_final), cual aprobaste?
+    - cual [materia](materia_final) aprobaste?
+    - [materia](materia_final), cuales aprobaste?
+    - cuantos [materia](materia_final) aprobaste?
+    - [materia](materia_final), cuanto aprobaste?
+    - cuanto aprobaste en [materia](materia_final)?
+  
+- intent: consulta_total_materias
+  examples: |
+    - cuales materias tenes?
+    - cuales materias tenes en la carrera?
+    - cuales son las materias de la carrera?
+    - cuales son las materias que tenes en la carrera?
+    - que materias tenes?
+    - que materias tenes en la carrera?
+    - cuales son las asignaturas que tenes en la carrera?
+    - cual es tu plan de estudios?
+    - me pasas tu plan de estudios?
+    - me pasas tus materias?
+    - pasame tus materias?
+    - necesito saber cuales materias tenes en la carrera
+    - necesito saber cuales son las materias que tenes en la carrera
+    - cuales son las materias de ingeñeria

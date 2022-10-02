@@ -4,7 +4,7 @@ rules:
 - rule: decir adios, siempre que el usuario lo diga
   steps:
   - intent: despedir
-  - action: utter_despedir
+  - action: action_despedir
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:

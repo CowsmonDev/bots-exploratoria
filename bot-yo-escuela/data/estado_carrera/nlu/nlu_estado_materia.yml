@@ -1,0 +1,44 @@
+version: "3.1"
+
+# TODO: Estado de carrera / Materia Programacion Exploratoria
+
+nlu:
+
+- intent: consulta_estado_materia
+  examples: |
+    - como venis con la materia?
+    - vas llevando la materia?
+    - como venis con Programacion Exploratoria?
+    - se te dificulta Programacion Exploratoria?
+    - estas llevando la materia?
+    - se te dificulta la materia?
+    - como venis llevando la materia?
+    - como venis llevando Programacion Exploratoria?
+
+- intent: consulta_indecision
+  examples: |
+    - porque no estas seguro?
+    - que te hace dudar?
+    - porque estas dudando?
+    - como bien o mal, que te hace dudar?
+    - como bien o mal?
+    - estas dudando?
+
+- intent: consulta_opnion_modalidad
+  examples: |
+    - que te parecio la modalidad de la materia?
+    - como te parecio la organizacion de la materia?
+    - se te dificulto la modalidad de la materia?
+    - te fue mejor con la modalidad de la materia?
+    - te gusto la modalidad de la materia?
+
+- intent: consulta_estado_bot
+  examples: |
+    - como venis con el bot?
+    - pudiste avanzar con el bot?
+    - te resulto dificil el bot?
+    - se te dificulto el bot?
+    - se te dificulta el bot?
+    - avanzaste algo con el bot?
+    - como crees que te va con el bot?
+    - te va bien el bot?
