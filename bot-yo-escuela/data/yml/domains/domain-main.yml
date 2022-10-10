@@ -10,11 +10,16 @@ intents:
   - negar
   - afirmar
   - bot_challenge
-  - todo
+  - como_estas
+  - como_venis_con_eso
+  - /deny
+  - /affirm
 
 actions:
   - action_ah_si
   - action_despedir
+  - action_como_estas
+  - action_como_venis_con_eso
 
 entities:
   - nombre
@@ -31,8 +36,22 @@ slots:
     mappings:
     - type: from_entity
       entity: nombre
+  slot_como_estas:
+    type: text
+    mappings:
+    - type: custom
+      action: action_como_estas
 
 responses:
+  utter_ask_transfer_form_confirm:
+  - buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No, cancel the transaction
+    button_type: inline 
+    text: Would you like to transfer?
+
   utter_saludar:
   - text: "Hola... Perdon, quien sos? no te tengo agendado"
   #- text: "Hola, soy un robot o tu lo eres, en cualquier caso...\nQue, esperabas que dijera algo mas :) ?"
@@ -40,8 +59,6 @@ responses:
   #- text: "bueno, las respuestas normales no suelen ir conmigo, asi que... Quien eres? perdon, no te tengo agendado"
   utter_solicitar_profesion:
   - text: "y de donde te conozco? es que soy muy malo con los nombres"
-  utter_ah_si:
-  - text: "ahhh... si, que pasa?"
   utter_consultar_despedir:
   - text: "algo mas o damos por finalizada esta increible conversacion tan apasionada?"
   utter_despedir:

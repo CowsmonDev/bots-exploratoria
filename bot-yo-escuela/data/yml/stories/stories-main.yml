@@ -6,6 +6,7 @@ stories:
   steps:
   - intent: saludar
   - action: utter_saludar
+  - action: utter_ask_transfer_form_confirm
   - checkpoint: notificar_relacion
 
 # TODO: Presentacion
@@ -25,5 +26,16 @@ stories:
   - checkpoint: notificar_relacion
   - intent: notificar_nombre_profesion
   - action: action_ah_si
+
+# TODO: Conectores
+- story: como estas 
+  steps:
+  - intent: como_estas
+  - action: action_como_estas
+
+- story: como venis con eso
+  steps:
+  - intent: como_venis_con_eso
+  - action: action_como_venis_con_eso
 
 # ? Dependiendo profesion agrego reciprocidad ### Idea

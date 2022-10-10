@@ -199,6 +199,25 @@ nlu:
     - hola, mi nombre es Daniel y te conozco porque soy [Profesor](profesion)
     - hola, yo soy Pablo y te conozco porque soy [Profesor](profesion)
 
+# TODO: Conectores
+- intent: como_estas
+  examples: |
+    - como te va?
+    - que tal te ha ido?
+    - como estas?
+    - que hay de nuevo?
+    - que tal?
+    - todo bien?
+    - como te va?
+    - quisiera saber, como te va?
+  
+- intent: como_venis_con_eso
+  examples: |
+    - como venis con eso
+    - y como va esto?
+    - como lo vas llevando eso?
+    - pero, venis bien con eso?
+
 # TODO: Despedida
 - intent: negar
   examples: |
