@@ -10,7 +10,7 @@ class Historia:
 	def getConsulta(consulta):
 			with PrologMQI(port=8000) as mqi:
 				with mqi.create_thread() as prolog_thread:
-					prolog_thread.query_async("consult('~/GitHub/bots-exploratoria/bot-yo-escuela/data/estado_carrera/actions/db/historia.pl')", find_all=False)
+					prolog_thread.query_async("consult('~/GitHub/bots-exploratoria/bot-yo-escuela/data/backend/db/historia.pl')", find_all=False)
 					prolog_thread.query_async(consulta, find_all=True)
 					result = prolog_thread.query_async_result()
 					return result

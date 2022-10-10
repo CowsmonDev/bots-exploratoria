@@ -1,8 +1,8 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from data.estado_carrera.actions.estado_actual import EstadoActual
-from data.estado_carrera.actions.historia import Historia
+from data.backend.modules.estado_actual import EstadoActual
+from data.backend.modules.historia import Historia
 
 
 # TODO: Estado Actual
@@ -33,7 +33,7 @@ class ActionGetFinalesPendientes(Action):
 # TODO: Historia
 class ActionAprobados(Action):
 	def name(self)-> Text:
-		return "action_finales_aprobados"
+		return "action_consulta_aprobados"
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		

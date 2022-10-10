@@ -1,5 +1,4 @@
-
-from data.modules.operar_archivo import OperarArchivo
+from data.backend.modules.operar_archivo import OperarArchivo
 
 def getFinalText(final):
 	retorno = ""
@@ -12,7 +11,7 @@ def getFinalText(final):
 
 
 class EstadoActual:
-	datos = OperarArchivo.cargarArchivo("./data/estado_carrera/actions/db/estado_actual.json")
+	datos = OperarArchivo.cargarArchivo("./data/backend/db/estado_actual.json")
 	@staticmethod
 	def getCursadas(): # ya esta
 		materias = EstadoActual.datos["materias"]["cursadas"]
