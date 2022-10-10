@@ -43,15 +43,6 @@ slots:
       action: action_como_estas
 
 responses:
-  utter_ask_transfer_form_confirm:
-  - buttons:
-    - payload: /affirm
-      title: Yes
-    - payload: /deny
-      title: No, cancel the transaction
-    button_type: inline 
-    text: Would you like to transfer?
-
   utter_saludar:
   - text: "Hola... Perdon, quien sos? no te tengo agendado"
   #- text: "Hola, soy un robot o tu lo eres, en cualquier caso...\nQue, esperabas que dijera algo mas :) ?"

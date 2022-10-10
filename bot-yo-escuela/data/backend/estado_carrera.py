@@ -36,7 +36,6 @@ class ActionAprobados(Action):
 		return "action_consulta_aprobados"
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-		
 		res = next(tracker.get_latest_entity_values('materia_final'), None)
 		if (res == "cursada"):
 			dispatcher.utter_message(text=Historia.getMateriasAprobadas())

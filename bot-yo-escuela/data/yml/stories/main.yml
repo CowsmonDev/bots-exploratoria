@@ -6,7 +6,6 @@ stories:
   steps:
   - intent: saludar
   - action: utter_saludar
-  - action: utter_ask_transfer_form_confirm
   - checkpoint: notificar_relacion
 
 # TODO: Presentacion
