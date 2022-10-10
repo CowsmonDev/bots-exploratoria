@@ -12,8 +12,6 @@ intents:
   - bot_challenge
   - como_estas
   - como_venis_con_eso
-  - /deny
-  - /affirm
 
 actions:
   - action_ah_si
