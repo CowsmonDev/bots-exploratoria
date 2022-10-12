@@ -3,9 +3,17 @@ version: "3.1"
 # TODO: Estado de carrera / Estado de Materia
 
 stories:
+
+- story: estas cursando 
+  steps:
+  - intent: consulta_materia_cursada_actual # pregunta si estoy cursando determinada materia
+  - action: action_materia_cursada_actual # responde a travez de JSON
+  - intent: consulta_estado_materia # consulta el estado de una materia en especifico
+  - action: action_estado_materia # responde dependiendo del slot anterior
+
 - story: como estoy con la materia
   steps:
-  - intent: consulta_estado_materia
+  - intent: consulta_estado_materia 
   - action: utter_estado_materia
   - checkpoint: como_estoy_materia
 
