@@ -2,6 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from data.backend.db import Personas
 
 class ActionAhSi(Action):
 	def name(self)-> Text:
@@ -14,7 +15,12 @@ class ActionAhSi(Action):
 			nombre = tracker.get_slot("slot_nombre")
 			if(nombre is None):
 				dispatcher.utter_message(text="que pasa?")
-			else: dispatcher.utter_message(text=f"ahh... si que pasa {nombre}")
+			else: 
+				Personas().insertData({
+					"name": nombre,
+					"profesion": profesion
+				})
+				dispatcher.utter_message(text=f"ahh... si que pasa {nombre}")
 	
 class ActionDespedir(Action):
 	def name(self)-> Text:
@@ -35,4 +41,4 @@ class ActionDespedir(Action):
 		return "action_como_estas"
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-		return [SlotSet('slot_como_estas', 'nombre')]
+		return [SlotSet('slot_tema_bot', 'robot')]

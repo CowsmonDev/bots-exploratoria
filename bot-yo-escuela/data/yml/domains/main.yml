@@ -34,7 +34,7 @@ slots:
     mappings:
     - type: from_entity
       entity: nombre
-  slot_como_estas:
+  slot_tema_bot:
     type: text
     mappings:
     - type: custom
@@ -43,9 +43,6 @@ slots:
 responses:
   utter_saludar:
   - text: "Hola... Perdon, quien sos? no te tengo agendado"
-  #- text: "Hola, soy un robot o tu lo eres, en cualquier caso...\nQue, esperabas que dijera algo mas :) ?"
-  #utter_no_se:
-  #- text: "bueno, las respuestas normales no suelen ir conmigo, asi que... Quien eres? perdon, no te tengo agendado"
   utter_solicitar_profesion:
   - text: "y de donde te conozco? es que soy muy malo con los nombres"
   utter_consultar_despedir:
