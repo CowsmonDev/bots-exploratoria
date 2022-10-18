@@ -11,12 +11,6 @@ stories:
   - intent: consulta_estado_materia # consulta el estado de una materia en especifico
   - action: action_estado_materia # responde dependiendo del slot anterior
 
-- story: como estoy con la materia
-  steps:
-  - intent: consulta_estado_materia 
-  - action: utter_estado_materia
-  - checkpoint: como_estoy_materia
-
 - story: consulta indecision
   steps:
   - checkpoint: como_estoy_materia

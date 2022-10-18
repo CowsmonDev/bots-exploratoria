@@ -12,7 +12,9 @@ intents:
   - consulta_finales_pendientes
   - consulta_finales_en_curso
   - consulta_aprobados
-  - consulta_estado_materia # ! Estado Materia
+  - consulta_materia_cursada_actual # ! Estado Materia
+  - consulta_estado_materia
+  - consulta_estado_materia
   - consulta_indecision
   - consulta_opnion_modalidad
   - consulta_estado_bot
