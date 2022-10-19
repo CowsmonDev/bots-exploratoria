@@ -14,7 +14,6 @@ intents:
   - consulta_aprobados
   - consulta_materia_cursada_actual # ! Estado Materia
   - consulta_estado_materia
-  - consulta_estado_materia
   - consulta_indecision
   - consulta_opnion_modalidad
   - consulta_estado_bot

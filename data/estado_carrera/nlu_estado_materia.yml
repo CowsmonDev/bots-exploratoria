@@ -3,7 +3,6 @@ version: "3.1"
 # TODO: Estado de carrera / Materia Programacion Exploratoria
 
 nlu:
-
 - intent: consulta_estado_materia
   examples: |
     - como venis con la materia?
