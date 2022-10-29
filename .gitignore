@@ -1,5 +1,5 @@
 venv/
-models
-tests
-.rasa
+*/models
+*/tests
+*/.rasa
 __pycache__
