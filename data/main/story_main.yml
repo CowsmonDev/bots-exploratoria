@@ -5,7 +5,8 @@ stories:
 - story: inicio
   steps:
   - intent: saludar
-  - action: utter_saludar
+  - action: action_saludar
+
   - checkpoint: notificar_relacion
 
 # TODO: Presentacion

@@ -18,20 +18,32 @@ actions:
   - action_despedir
   - action_como_estas
   - action_como_venis_con_eso
+  - action_saludar
 
 entities:
   - nombre
   - profesion
 
 slots:
+  slot_id_conversacion:
+    type: text
+    mappings:
+    - type: custom
+      action: action_saludar
+    - type: custom
+      action: action_ah_si
   slot_profesion:
     type: text
     mappings:
+    - type: custom
+      action: action_saludar
     - type: from_entity
       entity: profesion
   slot_nombre:
     type: text
     mappings:
+    - type: custom
+      action: action_saludar
     - type: from_entity
       entity: nombre
   slot_tema_bot:

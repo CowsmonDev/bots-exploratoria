@@ -39,13 +39,15 @@ class PersonasDB(Conneccion):
 	__id_conversacion: str = "id_conversacion"
 	__numero : str = "numero"
 	__nombre : str = "nombre"
-	__apellido : str = "apellido"
 	__profesion : str = "profesion"
-	__campos : str = f"{__id_conversacion}, {__numero}, {__nombre}, {__apellido}, {__profesion}"
+	__campos : str = f"{__id_conversacion}, {__numero}, {__nombre}, {__profesion}"
 
 	def existe_persona(self, id_conversacion): 
 		res = Conneccion.commit(self, self.get_select() + " WHERE " + self.__id_conversacion + " = " + id_conversacion)
 		return res
+
+	def agregar_persona(self, datos):
+		Conneccion.commit(self, f"INSERT INTO {self.__table} ({self.get_campos()}) VALUES ({datos[0]}, {datos[1]}, {datos[2]}, {datos[3]})")
 
 	def get_campos(self): return self.__campos
 	def get_table(self): return self.__table

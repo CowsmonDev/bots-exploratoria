@@ -3,3 +3,5 @@ venv/
 */tests
 */.rasa
 __pycache__
+.rasa/*
+models/
