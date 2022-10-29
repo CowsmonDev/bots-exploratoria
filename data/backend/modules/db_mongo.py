@@ -24,14 +24,14 @@ class PersonasDB:
 		self.__collection = self.__db.personas
 
 	def insertData(self, dato):
+
 		self.__collection.update(
 			{
-				"name" : dato.name
+				"name" : dato[0]
 			}, 
 			{
 				"$setOnInsert": dato
 			},
-			{upsert: true}
 		)
 	def updateData(self, dato):
 		self.__collection.findAndModify()

@@ -2,12 +2,17 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-from data.backend.db import Personas
+from data.backend.modules.db_sql import PersonasDB
 
 class ActionAhSi(Action):
 	def name(self)-> Text:
 		return "action_ah_si"
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		from_message = tracker.latest_message["metadata"]
+		"""id_conversacion = from_message["id"]
+		persona = PersonasDB()
+		res = persona.existe_persona(str(id_conversacion))"""
+		print(from_message)
 		profesion = tracker.get_slot("slot_profesion")
 		if(profesion == "Profesor"):
 			dispatcher.utter_message(text="que pasa profe?")
@@ -16,11 +21,9 @@ class ActionAhSi(Action):
 			if(nombre is None):
 				dispatcher.utter_message(text="que pasa?")
 			else: 
-				Personas().insertData({
-					"name": nombre,
-					"profesion": profesion
-				})
 				dispatcher.utter_message(text=f"ahh... si que pasa {nombre}")
+				#PersonasDB().insertData([nombre, profesion])
+		return []
 	
 class ActionDespedir(Action):
 	def name(self)-> Text:
