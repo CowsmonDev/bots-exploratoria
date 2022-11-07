@@ -3,16 +3,7 @@ version: "3.1"
 # TODO: Estado de carrera / Materia Programacion Exploratoria
 
 nlu:
-- intent: consulta_estado_materia
-  examples: |
-    - como venis con la materia?
-    - vas llevando la materia?
-    - como venis con Programacion Exploratoria?
-    - se te dificulta Programacion Exploratoria?
-    - estas llevando la materia?
-    - se te dificulta la materia?
-    - como venis llevando la materia?
-    - como venis llevando Programacion Exploratoria?
+
 
 - intent: consulta_indecision
   examples: |

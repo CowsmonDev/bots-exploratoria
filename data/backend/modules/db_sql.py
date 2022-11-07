@@ -43,7 +43,7 @@ class PersonasDB(Conneccion):
 	__campos : str = f"{__id_conversacion}, {__numero}, {__nombre}, {__profesion}"
 
 	def existe_persona(self, id_conversacion): 
-		res = Conneccion.commit(self, self.get_select() + " WHERE " + self.__id_conversacion + " = " + id_conversacion)
+		res = Conneccion.commit(self, self.get_select() + " WHERE " + self.__id_conversacion + " = " + str(id_conversacion))
 		return res
 
 	def agregar_persona(self, datos):

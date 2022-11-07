@@ -3,6 +3,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from data.backend.modules.estado_actual import EstadoActual
 from data.backend.modules.historia import Historia
+from rasa_sdk.events import SlotSet
 
 
 # TODO: Estado Actual
@@ -29,6 +30,24 @@ class ActionGetFinalesPendientes(Action):
 		return "action_consulta_finales_pendientes"
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		dispatcher.utter_message(text=EstadoActual.getFinalesPendientes())
+
+class ActionEstadoMateria(Action):
+	def name(self) -> Text:
+		return "action_consulta_estado_materia"
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		valor = next(tracker.get_latest_entity_values('materia_estado'), None)
+		print(valor)
+
+class ActionGetCursoTalMateria(Action):
+	def name(self):
+		return "action_estas_cursando"
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		materia = next(tracker.get_latest_entity_values('materia_estado'), None)
+		if(EstadoActual.estasCursando(materia)):
+			dispatcher.utter_message(text=f"Si, la estoy cursando")
+			return [SlotSet('slot_materia_estado', materia)]
+		else:
+			dispatcher.utter_message(text=f"No... {EstadoActual.getCursadas()}")
 
 # TODO: Historia
 class ActionAprobados(Action):

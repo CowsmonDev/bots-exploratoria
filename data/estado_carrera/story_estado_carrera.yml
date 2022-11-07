@@ -4,36 +4,35 @@ version: "3.1"
 # ? - agregar año de ingreso
 
 stories:
-- story: consultar año
-  steps:
-  - intent: consultar_año
-  - action: action_consultar_año
-
-- story: consulta materias cursadas
+- story: consulta materias cursadas ### (check salida [doble]) Consulta Todas las cursadas en curso
   steps:
   - intent: consulta_materias_en_curso
   - action: action_consulta_materias_en_curso
+  - checkpoint: como_venis_con_eso
   - checkpoint: camino_materias_cursada
 
-- story: consultar finales en curso
+- story: consultar finales en curso ### (check salida) Consulta Todos los finales en curso
   steps:
   - intent: consulta_finales_en_curso
   - action: action_consulta_finales_en_curso
+  - checkpoint: como_venis_con_eso
 
-- story: consultar finales pendientes
+- story: consultar materia en especifico ### (check salida) Consulta si curso una materia en especifico
   steps:
-  - intent: consulta_finales_pendientes
-  - action: action_consulta_finales_pendientes
+  - intent: consulta_estas_cursando
+  - action: action_estas_cursando
+  - checkpoint: como_venis_con_eso
 
-- story: consultar materias y finales aprobados
+- story: como venis con ello ### (check entrada) Responde como vengo todas las cursadas, con la especifica o con los finales que estoy preparando
   steps:
-  - intent: consulta_aprobados
-  - action: action_consulta_aprobados
+  - checkpoint: como_venis_con_eso
+  - intent: consulta_como_venis_con_eso
+  - action: action_como_venis_con_eso
 
-- story: consulta total de materias
+- story: consultar como vengo con una materia en especifico ### Consulta como vengo con una materia en especifico
   steps:
-  - intent: consulta_total_materias
-  - action: action_consulta_total_materias
+  - intent: consulta_estado_materia
+  - action: action_consulta_estado_materia
 
 - story: camino retraso
   steps:
@@ -54,3 +53,23 @@ stories:
   - checkpoint: camino_materias_cursada
   - intent: compadecer_cursadas
   - action: utter_compadecer_cursadas
+
+- story: consultar año
+  steps:
+  - intent: consultar_año
+  - action: action_consultar_año
+
+- story: consultar finales pendientes
+  steps:
+  - intent: consulta_finales_pendientes
+  - action: action_consulta_finales_pendientes
+
+- story: consultar materias y finales aprobados
+  steps:
+  - intent: consulta_aprobados
+  - action: action_consulta_aprobados
+
+- story: consulta total de materias
+  steps:
+  - intent: consulta_total_materias
+  - action: action_consulta_total_materias

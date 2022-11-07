@@ -24,6 +24,14 @@ class EstadoActual:
 			retorno += f"- {materia}\n"
 		return retorno
 
+	@staticmethod
+	def estasCursando(materia):
+		materias = EstadoActual.datos["materias"]["cursadas"]
+		for m in materias:
+			if(m == materia):
+				return True
+		return False
+
 	@staticmethod	
 	def getFinalesEnCurso(): # ya esta
 		finales = EstadoActual.datos["finales"]["en_curso"]

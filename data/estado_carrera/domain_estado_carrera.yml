@@ -11,23 +11,35 @@ intents:
   - consulta_total_materias
   - consulta_finales_pendientes
   - consulta_finales_en_curso
+  - consulta_estas_cursando
+  - consulta_como_venis_con_eso
   - consulta_aprobados
-  - consulta_materia_cursada_actual # ! Estado Materia
-  - consulta_estado_materia
+  - consulta_materia_cursada_actual 
+  - consulta_estado_materia # ! Estado Materia
   - consulta_indecision
   - consulta_opnion_modalidad
   - consulta_estado_bot
 
 entities:
   - materia_final
+  - materia_estado
+
+slots:
+  slot_materia_estado:
+    type: text
+    mappings:
+    - type: custom
+      action: action_estas_cursando
 
 actions:
   - action_consulta_materias_en_curso
   - action_consultar_año
   - action_consulta_finales_pendientes
   - action_consulta_finales_en_curso
+  - action_estas_cursando
   - action_consulta_aprobados
   - action_consulta_total_materias
+  - action_consulta_estado_materia
 
 responses:
   utter_consultar_año:

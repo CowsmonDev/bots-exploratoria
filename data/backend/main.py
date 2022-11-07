@@ -23,7 +23,6 @@ class ActionAhSi(Action):
 	def name(self)-> Text:
 		return "action_ah_si"
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-		print('entro')
 		profesion = tracker.get_slot("slot_profesion")
 		nombre = tracker.get_slot("slot_nombre")
 		id_conversacion = tracker.get_slot("slot_id_conversacion")
@@ -32,7 +31,7 @@ class ActionAhSi(Action):
 			id_conversacion = tracker.latest_message["metadata"]["message"]["from"]["id"]
 			persona = PersonasDB()
 			persona.agregar_persona([str(id_conversacion), '', str(nombre), str(profesion)])
-			return [SlotSet('id_conversacion', id_conversacion)]
+			return [SlotSet('slot_id_conversacion', id_conversacion)]
 
 		if(profesion == "Profesor"):
 			dispatcher.utter_message(text="que pasa profe?")
