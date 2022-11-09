@@ -57,6 +57,7 @@ nlu:
 
 - intent: consulta_materias_en_curso
   examples: |
+    - que estas cursando?
     - y que estas cursando entonces?
     - que estas dando?
     - que y que estas dando?
@@ -64,6 +65,7 @@ nlu:
     - que estas cursando de cada cosa?
     - cual estas dando?
     - cual estas cursando entonces?
+    - que materias estas cursando?
 
 - intent: consulta_finales_pendientes
   examples: |
@@ -96,6 +98,16 @@ nlu:
     - estas en Electronica Digital?
     - das Comunicacion de Datos?
 
+- intent: como_venis_con_eso
+  examples: |
+    - y como venis con eso?
+    - como te va con eso?
+    - como lo llevas?
+    - como vas con eso?
+    - venis bien?
+    - pero, venis bien?
+    - como lo vas preparando?
+
 - intent: consulta_aprobados
   examples: |
     - cuales [finales](materia_final) aprobaste?
@@ -120,7 +132,7 @@ nlu:
     - cuantos [materia](materia_final) aprobaste?
     - [materia](materia_final), cuanto aprobaste?
     - cuanto aprobaste en [materia](materia_final)?
-  
+
 - intent: consulta_total_materias
   examples: |
     - cuales materias tenes?

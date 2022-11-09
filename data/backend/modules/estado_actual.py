@@ -1,5 +1,6 @@
 from data.backend.modules.operar_archivo import OperarArchivo
 
+
 def getFinalText(final):
 	retorno = ""
 	retorno += f"------------- {final['materia']} -------------\n"
@@ -12,31 +13,38 @@ def getFinalText(final):
 
 class EstadoActual:
 	datos = OperarArchivo.cargarArchivo("./data/backend/db/estado_actual.json")
+
 	@staticmethod
-	def getCursadas(): # ya esta
+	def getCursadas():  # ya esta
 		materias = EstadoActual.datos["materias"]["cursadas"]
 
-		if(len(materias) == 0):
+		if (len(materias) == 0):
 			return "No estoy cursando nada"
-		
-		retorno =  "dame un segundo que me acuerde...\nemm, a cierto... estoy cursando:\n"
+
+		retorno = "dame un segundo que me acuerde...\nemm, a cierto... estoy cursando:\n"
 		for materia in materias:
 			retorno += f"- {materia}\n"
 		return retorno
 
 	@staticmethod
 	def estasCursando(materia):
-		materias = EstadoActual.datos["materias"]["cursadas"]
-		for m in materias:
-			if(m == materia):
-				return True
-		return False
+		try:
+			materias = EstadoActual.datos["materias"]["cursadas"][materia]
+			return True
+		except KeyError:
+			return False
 
-	@staticmethod	
-	def getFinalesEnCurso(): # ya esta
+	@staticmethod
+	def estadoMateria(materia):
+		if EstadoActual.estasCursando(materia):
+			materias = EstadoActual.datos["materias"]["cursadas"][materia]["estado"]
+			return materias
+
+	@staticmethod
+	def getFinalesEnCurso():  # ya esta
 		finales = EstadoActual.datos["finales"]["en_curso"]
 
-		if(len(finales) == 0):
+		if (len(finales) == 0):
 			return "No estoy preparando ningun final"
 
 		retorno = "Estoy preparando:\n\n"
@@ -49,11 +57,11 @@ class EstadoActual:
 		finales_curso = EstadoActual.datos["finales"]["en_curso"]
 		finales_pendientes = EstadoActual.datos["finales"]["pendientes"]
 
-		if(len((finales_curso)) == 0 and (len(finales_pendientes) == 0)):
+		if (len((finales_curso)) == 0 and (len(finales_pendientes) == 0)):
 			return "No tengo ningun final pendiente"
 
 		retorno = "Estoy Preparando:\n\n"
-		for final in finales_curso: 
+		for final in finales_curso:
 			retorno += getFinalText(final)
 		for final in finales_pendientes:
 			retorno += getFinalText(final)
@@ -61,7 +69,8 @@ class EstadoActual:
 
 	@staticmethod
 	def getAñoTeorico():
-		return EstadoActual.datos["año_teorico"] # ya esta
+		return EstadoActual.datos["año_teorico"]  # ya esta
+
 	@staticmethod
-	def  getAñoActual():
-		return EstadoActual.datos["materias"]["año"] # ya esta
+	def getAñoActual():
+		return EstadoActual.datos["materias"]["año"]  # ya esta

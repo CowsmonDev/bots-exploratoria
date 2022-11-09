@@ -40,6 +40,7 @@ actions:
   - action_consulta_aprobados
   - action_consulta_total_materias
   - action_consulta_estado_materia
+  - action_como_venis_con_eso
 
 responses:
   utter_consultar_año:

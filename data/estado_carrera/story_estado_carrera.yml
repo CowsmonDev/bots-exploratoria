@@ -33,6 +33,7 @@ stories:
   steps:
   - intent: consulta_estado_materia
   - action: action_consulta_estado_materia
+  - action: action_como_venis_con_eso
 
 - story: camino retraso
   steps:

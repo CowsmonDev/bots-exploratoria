@@ -3,12 +3,20 @@
 	"año_teorico" : "tercero",
 	"materias" : {
 		"año": "segundo/tercero",
-		"cursadas": [
-			"Programacion Exploratoria",
-			"Programacion Orientada a Objetos",
-			"Electronica Digital",
-			"Comunicacion de Datos"
-		]
+		"cursadas": {
+			"Programacion Exploratoria" : {
+				"estado": "Por ahora vengo bien"
+			},
+			"Programacion Orientada a Objetos": {
+				"estado": "Por ahora vengo bien"
+			},
+			"Electronica Digital": {
+				"estado": "Por ahora vengo bien"
+			},
+			"Comunicacion de Datos": {
+				"estado": "Por ahora vengo bien"
+			}
+		}
 	},
 	"finales" :{
 		"en_curso": [
