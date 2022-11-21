@@ -1,0 +1,56 @@
+{
+	"año_ingreso" : 2020,
+	"año_teorico" : "tercero",
+	"materias" : {
+		"año": "segundo/tercero",
+		"cursadas": [
+			"Programacion Exploratoria",
+			"Programacion Orientada a Objetos",
+			"Electronica Digital",
+			"Comunicacion de Datos"
+		]
+	},
+	"finales" :{
+		"en_curso": [
+			{
+				"año" : 3,
+				"cuatrimestre" : 1,
+				"materia" : "Programacion Orientada a Objetos",
+				"cursada_aprobada": false
+			},
+			{
+				"año" : 2,
+				"cuatrimestre" : 2,
+				"materia" : "Analisis y Diseño de Algoritmos 2",
+				"cursada_aprobada": true
+			}
+		],
+		"pendientes":[
+			{
+				"año" : 3,
+				"cuatrimestre" : 1,
+				"materia" : "Programacion Orientada a Objetos",
+				"cursada_aprobada": false
+			},
+			{
+				"año" : 2,
+				"cuatrimestre" : 2,
+				"materia" : "Analisis y Diseño de Algoritmos 2",
+				"cursada_aprobada": true
+			},
+			{
+				"año" : 2,
+				"cuatrimestre" : 1,
+				"materia" : "Analisis Matematico 2",
+				"cursada_aprobada": false
+			},
+			{
+				"año" : 2,
+				"cuatrimestre" : 2,
+				"materia" : "Probabilidad y Estadistica",
+				"cursada_aprobada": true
+			}
+		]
+	}
+
+}
