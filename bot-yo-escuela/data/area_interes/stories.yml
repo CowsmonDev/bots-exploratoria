@@ -1,0 +1,25 @@
+version: "3.1"
+
+# TODO: Areas de Interes
+
+stories:
+- story: tecnologias iniciales
+  steps:
+  - intent: lenguaje_inicial
+  - action: utter_lenguaje_inicial
+
+- story: fuente de estudios
+  steps:
+  - or:
+    - intent: estudio_aparte # que estudio/estudie # ! Que estudie y no por donde (tecnologias)
+    - intent: rama_interes # que rama de la programacion me interesa/intereso
+  - action: action_rama_interes
+  - intent: fuente_estudios # por donde estudio/estudie
+  - action: utter_fuente_estudios
+
+- story: proyectos actuales
+  steps:
+  - or:
+    - intent: proyecto_aparte
+    - intent: tecnologia
+  - action: action_proyecto_aparte

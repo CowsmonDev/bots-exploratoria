@@ -1,0 +1,244 @@
+version: "3.1"
+
+nlu:
+- lookup: nombre 
+  examples: |
+    - Agustin
+    - Mateo
+    - Jonathan
+    - Daniel
+    - Pablo
+    - Álvaro
+    - Adrián
+    - David
+    - Diego
+    - Javier
+    - Mario
+    - Sergio
+    - Marcos
+    - Manuel
+    - Martín
+    - Nicolás
+    - Jorge
+    - Iván
+    - Carlos
+    - Lucas
+    - Sofía
+    - Lucía
+    - María
+    - Paula
+    - Daniela
+    - Valeria
+    - Julia
+    - Alba
+    - Claudia
+    - Isabella
+    - Romina
+    - Jimena
+    - Emma
+    - Alexandra
+    - Laura
+    - Charllote
+    - Violet
+    - Eleanor
+    - Lucy
+    - Evelyn
+    - Adeline
+    - Alice
+    - Adelaide
+    - Elizabeth
+    - Samantha
+    - Scarlett
+    - Amalia
+    - Olivia
+    - Isla
+    - Ava
+    - Cora
+    - Eleanor
+    - Lucy
+    - Analia
+    - Chloe
+    - Renata
+    - Camila
+    - Regina
+    - Veronica
+    - Bianca
+    - Fiorella
+    - Gabriella
+    - Gianna
+    - Pia
+    - Zinerva
+    - Fatima
+    - Nayla
+    - Karima
+    - Zara
+    - Atticus
+    - Asher
+    - Ezra
+    - Silas
+    - Declan
+    - Wyat
+    - Oliver
+    - Henry
+    - Milo
+    - Jude
+    - Liam
+    - Austin
+    - Axel
+    - Alexander
+    - Jacob
+    - Luke
+    - Everett
+    - Santiago
+    - Matías
+    - Ángel
+    - Gabriel
+    - Simón
+    - Thiago
+    - Valentín
+    - Julián
+    - Benjamín
+    - Erick
+    - Sasha
+    - Dante
+    - Enzo
+    - Ariel
+    - Alexandra
+
+- synonym: Profesor
+  examples: |
+    - profesora
+    - Profesora
+    - profe
+    - Profe
+    - ayudante
+    - Ayudante
+
+- synonym: Compañero
+  examples: |
+    - compañera
+    - compa
+    - con vos
+
+# TODO: Presentacion
+- intent: saludar
+  examples: |
+    - hola
+    - hi
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - buenas
+    - que tal?
+    - hola, Agustin
+    - hi, Agustin
+    - buenos dias, Agustin
+    - buenas tardes, Agustin
+    - buenas noches, Agustin
+    - buenas, Agustin
+    - que tal?, Agustin
+- intent: notificar_nombre
+  examples: |
+    - soy [Agustin](nombre)
+    - me llamo Alexandra
+    - mi nombre es Daniel
+    - yo soy Pablo
+    - soy Analia
+- intent: notificar_profesion
+  examples: |
+    - soy tu [Compañero](profesion)
+    - soy tu compa
+    - te conozco porque soy [Compañero](profesion) tuyo
+    - soy [Profesor](profesion) tuyo
+    - soy profe tuyo
+    - soy profesora tuyo
+    - te conozco porque soy tu profesora
+    - soy tu ayudante
+    - te conozco porque soy tu ayudante
+    - te conozco porque soy tu [Profesor](profesion)
+    - soy [Profe](profesion) tuyo
+    - te conozco porque soy [Profesor](profesion)
+- intent: notificar_nombre_profesion
+  examples: |
+    - soy [Agustin](nombre) y soy tu [Compañero](profesion)
+    - me llamo Alexandra y soy tu [Compañero](profesion)
+    - mi nombre es Daniel y soy tu [Compañero](profesion)
+    - yo soy Pablo y soy tu [Compañero](profesion)
+    - soy [Agustin](nombre) y soy tu compa
+    - me llamo Alexandra y soy tu compa
+    - mi nombre es Daniel y soy tu compa
+    - yo soy Pablo y soy tu compa
+    - soy [Agustin](nombre) y soy [Profesor](profesion) tuyo
+    - soy [Agustin](nombre) y soy Profe tuyo
+    - me llamo Alexandra y soy [Profesor](profesion) tuyo
+    - mi nombre es Daniel y soy [Profesor](profesion) tuyo
+    - yo soy Pablo y soy [Profesor](profesion) tuyo
+    - soy [Agustin](nombre) y te conozco porque soy [Compañero](profesion) tuyo
+    - me llamo Alexandra y te conozco porque soy [Compañero](profesion) tuyo
+    - mi nombre es Daniel y te conozco porque soy [Compañero](profesion) tuyo
+    - yo soy Pablo y te conozco porque soy [Compañero](profesion) tuyo
+    - soy [Agustin](nombre) y te conozco porque soy [Profesor](profesion)
+    - me llamo Alexandra y te conozco porque soy [Profesor](profesion)
+    - mi nombre es Daniel y te conozco porque soy [Profesor](profesion)
+    - yo soy Pablo y te conozco porque soy [Profesor](profesion)
+    - hola, soy [Agustin](nombre) y soy tu [Compañero](profesion)
+    - hola, me llamo Alexandra y soy tu [Compañero](profesion)
+    - hola, mi nombre es Daniel y soy tu [Compañero](profesion)
+    - hola, yo soy Pablo y soy tu [Compañero](profesion)
+    - hola, soy [Agustin](nombre) y soy [Profesor](profesion) tuyo
+    - hola, soy [Agustin](nombre) y soy profe tuyo
+    - hola, me llamo Alexandra y soy [Profesor](profesion) tuyo
+    - hola, mi nombre es Daniel y soy [Profesor](profesion) tuyo
+    - hola, yo soy Pablo y soy [Profesor](profesion) tuyo
+    - hola, soy [Agustin](nombre) y te conozco porque soy [Compañero](profesion) tuyo
+    - hola, me llamo Alexandra y te conozco porque soy [Compañero](profesion) tuyo
+    - hola, mi nombre es Daniel y te conozco porque soy [Compañero](profesion) tuyo
+    - hola, yo soy Pablo y te conozco porque soy [Compañero](profesion) tuyo
+    - hola, soy [Agustin](nombre) y te conozco porque soy [Profesor](profesion)
+    - hola, me llamo Alexandra y te conozco porque soy [Profesor](profesion)
+    - hola, mi nombre es Daniel y te conozco porque soy [Profesor](profesion)
+    - hola, yo soy Pablo y te conozco porque soy [Profesor](profesion)
+
+# TODO: Despedida
+- intent: negar
+  examples: |
+    - no
+    - no gracias
+    - por ahora no
+    - negativo
+    - eso seria una negacion
+- intent: afirmar
+  examples: |
+    - si
+    - probablemente
+    - eso seria una afirmacion
+    - es lo que esperaba
+    - normalmente asi es
+    - asi es
+    - es la costrumbre
+    - afirmativo
+    - supongo
+- intent: despedir
+  examples: |
+    - bye
+    - nos vemos
+    - adios
+    - gracias
+    - hasta pronto
+    - gracias por la ayuda
+    - fue un placer
+    - fue un gusto, nos vemos
+    - hasta la proxima
+    - gracias por la atencion
+    - que tengas un lindo dia
+    - hasta nunca
+    - bueno, suerte... nos vemos
+    - bueno, suerte... bye
+    - bueno, nos vemos
+    - bueno, bye
+- intent: bot_challenge
+  examples: |
+    - eres un robot?
+    - eres humano?
+    - estoy hablando con un robot?
+    - estoy hablando con un humano?

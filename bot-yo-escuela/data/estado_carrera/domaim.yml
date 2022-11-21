@@ -1,0 +1,51 @@
+#* author: "CowsmonDev@22-23" *#
+version: "3.1"
+
+intents:
+  - consultar_año
+  - consulta_materias_en_curso
+  - comentar_retraso
+  - consultar_retraso
+  - felicitacion_cursada
+  - compadecer_cursadas
+  - consulta_total_materias
+  - consulta_finales_pendientes
+  - consulta_finales_en_curso
+  - consulta_aprobados
+  - consulta_estado_materia # ! Estado Materia
+  - consulta_indecision
+  - consulta_opnion_modalidad
+  - consulta_estado_bot
+
+entities:
+  - materia_final
+
+actions:
+  - action_consulta_materias_en_curso
+  - action_consultar_año
+  - action_consulta_finales_pendientes
+  - action_consulta_finales_en_curso
+  - action_consulta_aprobados
+  - action_consulta_total_materias
+
+responses:
+  utter_consultar_año:
+  - text: "uff, bueno... ahora mismo estoy en segundo/tercero"
+  utter_retraso:
+  - text: "si, me retrase con CDC1 y fisica el primer año, cosas que pasan :)"
+  utter_felicitacion_cursada:
+  - text: "gracias... supongo, en cierta forma me pudo haber ido mejor"
+  utter_compadecer_cursadas:
+  - text: "si, lastima... pero son cosas que pasa y ahora solo puedo ir para delante"
+  utter_estado_materia:
+  - text: "Por ahora voy bien, o mal, realmente no estoy seguro"
+  utter_indecision:
+  - text: "no se, no estoy acostumbrada a esta modalidad"
+  utter_opinion_modalidad:
+  - text: "Esta interesante, es diferente y le encuentro sus ventajas... pero a veces parece demasiado amplio o abstracto. como si no tuvieramos lineamientos..."
+  utter_estado_bot:
+  - text: "Voy bien supongo... realmente cada vez que lo abro parece que le falta algo. cada vez que lo veo pienso: `Sera suficiente?`"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

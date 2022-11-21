@@ -1,0 +1,79 @@
+version: "3.1"
+
+# TODO: Areas de Interes
+
+nlu:
+- intent: lenguaje_inicial
+  examples: |
+    - con que lenguaje empesaste?
+    - con que tecnologia iniciaste?
+    - con que rama iniciaste?
+    - cual fue tu primer lenguaje?
+    - con que lenguaje tuviste tu primera interaccion?
+    - tu primer lenguaje?
+    - como empezaste con la programacion?
+- intent: estudio_aparte
+  examples: |
+    - que estudiabas a parte de la [secundaria]{"entity": "tiempo", "role": "secundaria", "value" : "pasado"}?
+    - estudiabas por tu cuenta en la [secundaria]{"entity": "tiempo", "role": "secundaria", "value" : "pasado"}?
+    - que estudiaste a parte de la [secundaria]{"entity": "tiempo", "role": "secundaria", "value" : "pasado"}?
+    - estudiabas algo por cuenta por separado de la [escuela]{"entity": "tiempo", "role": "secundaria", "value" : "pasado"}?
+    - que estudias a parte de la [universidad]{"entity": "tiempo", "role": "universidad", "value" : "presente"}?
+    - estudias por tu cuenta en la [universidad]{"entity": "tiempo", "role": "universidad", "value" : "presente"}?
+    - que estudias a parte de la [universidad]{"entity": "tiempo", "role": "universidad", "value" : "presente"}
+    - que estudiabas a parte de la [universidad]{"entity": "tiempo", "role": "universidad", "value" : "presente"}
+    - algo por cuenta por separado de la [unicen]{"entity": "tiempo", "role": "universidad", "value" : "presente"}?
+    - algo por cuenta por separado de la [UNICEN]{"entity": "tiempo", "role": "universidad", "value" : "presente"}?
+
+- intent: rama_interes
+  examples: |
+    - que rama te [intereso]{"entity": "tiempo", "role":"general", "value" : "pasado"}?
+    - que rama te [intereso]{"entity": "tiempo", "role":"general", "value" : "pasado"} en la programacion?
+    - que rama te [parecio]{"entity": "tiempo","role":"general", "value" : "pasado"} interesante?
+    - que rama te [llamo]{"entity": "tiempo","role":"general", "value" : "pasado"} la atencion?
+    - que seccion te [llamo]{"entity": "tiempo","role":"general", "value" : "pasado"} la atencion?
+    - que sector de la programacion te [llamo]{"entity": "tiempo","role":"general", "value" : "pasado"} la atencion
+    - que rama te [interesa]{"entity": "tiempo","role":"general", "value" : "presente"}?
+    - que rama te [parece]{"entity": "tiempo","role":"general", "value" : "presente"} interesante?
+    - que rama te [llama]{"entity": "tiempo","role":"general", "value" : "presente"} la atencion?
+    - que seccion te [llama]{"entity": "tiempo","role":"general", "value" : "presente"} la atencion?
+    - que sector de la programacion te [llama]{"entity": "tiempo","role":"general", "value" : "presente"} la atencion
+    - que rama te intereso en la [secundaria]{"entity": "tiempo","role":"secundaria", "value" : "pasado"}?
+    - que rama te interesante en la [secundaria]{"entity": "tiempo","role":"secundaria", "value" : "pasado"}?
+    - que rama te llamo la atencion en la [secundaria]{"entity": "tiempo","role":"secundaria", "value" : "pasado"}?
+    - que seccion te llamo la atencion en la [secundaria]{"entity": "tiempo","role":"secundaria", "value" : "pasado"}?
+    - que sector de la programacion te llamo la atencion en la [secundaria]{"entity": "tiempo", "role":"secundaria", "value" : "pasado"}?
+    - que te [llamo]{"entity": "tiempo","role":"general", "value" : "pasado"} la atencion
+    - y en la [secundaria]{"entity": "tiempo","role":"secundaria", "value" : "pasado"}, que te intereso?
+
+- intent: fuente_estudios
+  examples: |
+    - por donde estudias?
+    - por donde estudiabas?
+    - por donde estudiabas?
+    - por donde estudias?
+    - de donde sacas informacion?
+    - te ayudas con algun video o preferis documentacion?
+    - documentacion o videos?
+    - por donde aprendes
+    - que metodo utilizas para aprender
+- intent: proyecto_aparte
+  examples: |
+    - que proyecto [tenias]{"entity": "tiempo", "role" : "general", "value" : "pasado"}?
+    - [tenias]{"entity": "tiempo", "role" : "general", "value" : "pasado"} algun proyecto?
+    - [tuviste]{"entity": "tiempo", "role" : "general", "value" : "pasado"} algun proyecto?
+    - [estuviste]{"entity": "tiempo", "role" : "general", "value" : "pasado"} en algun proyecto?
+    - tenias algun proyecto en la [secundaria]{"entity": "tiempo", "role" : "secundaria", "value" : "pasado"}?
+    - tuviste algun proyecto durante la [secundaria]{"entity": "tiempo", "role" : "secundaria", "value" : "pasado"}?
+    - que proyecto tenias en la secundaria{"entity": "tiempo", "role" : "secundaria", "value" : "pasado"}?
+    - [tenes]{"entity": "tiempo", "role" : "general", "value" : "presente"} algun proyecto?
+    - [estas]{"entity": "tiempo", "role" : "general", "value" : "presente"} trabajando en algun proyecto?
+    - [estas]{"entity": "tiempo", "role" : "general", "value" : "presente"} trabajando con algo?
+    - que proyecto [tenes]{"entity": "tiempo", "role" : "general", "value" : "presente"}?
+    - que proyecto [tenes]{"entity": "tiempo", "role" : "general", "value" : "presente"} en la universidad?
+
+- intent: tecnologia
+  examples: |
+    - que tecnologias [utilizabas]{"entity": "tiempo", "role" : "general", "value" : "pasado"}?
+    - cual tecnologias [utilizabas]{"entity": "tiempo", "role" : "general", "value" : "pasado"}?
+    - que tecnologias [utilizas]{"entity": "tiempo", "role" : "general", "value" : "presente"}?
