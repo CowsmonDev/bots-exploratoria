@@ -29,12 +29,12 @@ class Conneccion:
             print("Error:", s)
         return None
 
-    def get_select(self):
-        return "SELECT " + self.get_campos() + " FROM " + self.get_table()
-
     def select(self):
         res = self.commit(self, self.get_select(self))
         return res
+
+    def get_select(self):
+        return "SELECT " + self.get_campos() + " FROM " + self.get_table()
 
     @abstractmethod
     def get_campos(self):

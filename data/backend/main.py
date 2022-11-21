@@ -16,8 +16,8 @@ class ActionSaludar(Action):
         res = persona.existe_persona(str(id_conversacion))
 
         if len(res) > 0:
-
-            return [SlotSet('slot_nombre', res[0][2]), SlotSet('slot_profesion', res[0][3]),
+            nombre = res[0][2].split(' ')[0]
+            return [SlotSet('slot_nombre', nombre), SlotSet('slot_profesion', res[0][3]),
                     SlotSet('slot_id_conversacion', id_conversacion)]
         else:
             dispatcher.utter_message(response="utter_saludar")
