@@ -2,12 +2,12 @@
 version: "3.1"
 
 intents:
-  - consultar_año
+  - consulta_año
   - consulta_materias_en_curso
-  - comentar_retraso
-  - consultar_retraso
-  - felicitacion_cursada
-  - compadecer_cursadas
+  - consulta_comentar_retraso
+  - consulta_retraso
+  - consulta_felicitacion_cursada
+  - consulta_compadecer_cursadas
   - consulta_total_materias
   - consulta_finales_pendientes
   - consulta_finales_en_curso
@@ -16,9 +16,6 @@ intents:
   - consulta_aprobados
   - consulta_materia_cursada_actual 
   - consulta_estado_materia # ! Estado Materia
-  - consulta_indecision
-  - consulta_opnion_modalidad
-  - consulta_estado_bot
 
 entities:
   - materia_final

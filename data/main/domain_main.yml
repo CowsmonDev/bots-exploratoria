@@ -2,16 +2,16 @@
 version: "3.1"
 
 intents:
-  - saludar
-  - notificar_nombre_profesion
-  - notificar_nombre
-  - notificar_profesion
-  - despedir
-  - negar
-  - afirmar
-  - bot_challenge
-  - como_estas
-  - como_venis_con_eso
+  - consulta_saludar
+  - consulta_notificar_nombre_profesion
+  - consulta_notificar_nombre
+  - consulta_notificar_profesion
+  - consulta_despedir
+  - consulta_negar
+  - consulta_afirmar
+  - consulta_bot_challenge
+  - consulta_como_estas
+  - consulta_como_venis_con_eso
 
 actions:
   - action_ah_si

@@ -4,38 +4,37 @@ stories:
 
 - story: inicio
   steps:
-  - intent: saludar
+  - intent: consulta_saludar
   - action: action_saludar
-
   - checkpoint: notificar_relacion
 
 # TODO: Presentacion
 - story: notificar de nombre
   steps:
   - checkpoint: notificar_relacion
-  - intent: notificar_nombre
+  - intent: consulta_notificar_nombre
   - action: utter_solicitar_profesion
   - checkpoint: notificar_relacion
 - story: notificar de profesion
   steps: 
   - checkpoint: notificar_relacion
-  - intent: notificar_profesion
+  - intent: consulta_notificar_profesion
   - action: action_ah_si
 - story: notificar nombre y profesion
   steps:
   - checkpoint: notificar_relacion
-  - intent: notificar_nombre_profesion
+  - intent: consulta_notificar_nombre_profesion
   - action: action_ah_si
 
 # TODO: Conectores
 - story: como estas 
   steps:
-  - intent: como_estas
+  - intent: consulta_como_estas
   - action: action_como_estas
 
 - story: como venis con eso
   steps:
-  - intent: como_venis_con_eso
+  - intent: consulta_como_venis_con_eso
   - action: action_como_venis_con_eso
 
 # ? Dependiendo profesion agrego reciprocidad ### Idea

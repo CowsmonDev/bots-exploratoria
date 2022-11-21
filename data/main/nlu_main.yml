@@ -107,6 +107,8 @@ nlu:
 
 - synonym: Profesor
   examples: |
+    - Profesor
+    - profesor
     - profesora
     - Profesora
     - profe
@@ -116,12 +118,14 @@ nlu:
 
 - synonym: Compañero
   examples: |
+    - Compañero
+    - compañero
     - compañera
     - compa
     - con vos
 
 # TODO: Presentacion
-- intent: saludar
+- intent: consulta_saludar
   examples: |
     - hola
     - hi
@@ -137,14 +141,14 @@ nlu:
     - buenas noches, Agustin
     - buenas, Agustin
     - que tal?, Agustin
-- intent: notificar_nombre
+- intent: consulta_notificar_nombre
   examples: |
     - soy [Agustin](nombre)
     - me llamo Alexandra
     - mi nombre es Daniel
     - yo soy Pablo
     - soy Analia
-- intent: notificar_profesion
+- intent: consulta_notificar_profesion
   examples: |
     - soy tu [Compañero](profesion)
     - soy tu compa
@@ -158,7 +162,7 @@ nlu:
     - te conozco porque soy tu [Profesor](profesion)
     - soy [Profe](profesion) tuyo
     - te conozco porque soy [Profesor](profesion)
-- intent: notificar_nombre_profesion
+- intent: consulta_notificar_nombre_profesion
   examples: |
     - soy [Agustin](nombre) y soy tu [Compañero](profesion)
     - me llamo Alexandra y soy tu [Compañero](profesion)
@@ -200,7 +204,7 @@ nlu:
     - hola, yo soy Pablo y te conozco porque soy [Profesor](profesion)
 
 # TODO: Conectores
-- intent: como_estas
+- intent: consulta_como_estas
   examples: |
     - como te va?
     - que tal te ha ido?
@@ -211,7 +215,7 @@ nlu:
     - como te va?
     - quisiera saber, como te va?
   
-- intent: como_venis_con_eso
+- intent: consulta_como_venis_con_eso
   examples: |
     - como venis con eso
     - y como va esto?
@@ -219,14 +223,14 @@ nlu:
     - pero, venis bien con eso?
 
 # TODO: Despedida
-- intent: negar
+- intent: consulta_negar
   examples: |
     - no
     - no gracias
     - por ahora no
     - negativo
     - eso seria una negacion
-- intent: afirmar
+- intent: consulta_afirmar
   examples: |
     - si
     - probablemente
@@ -237,7 +241,7 @@ nlu:
     - es la costrumbre
     - afirmativo
     - supongo
-- intent: despedir
+- intent: consulta_despedir
   examples: |
     - bye
     - nos vemos
@@ -255,7 +259,7 @@ nlu:
     - bueno, suerte... bye
     - bueno, nos vemos
     - bueno, bye
-- intent: bot_challenge
+- intent: consulta_bot_challenge
   examples: |
     - eres un robot?
     - eres humano?

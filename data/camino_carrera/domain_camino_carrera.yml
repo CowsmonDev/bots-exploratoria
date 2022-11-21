@@ -2,15 +2,15 @@
 version: "3.1"
 
 intents:
-  - como_encontraste_carrera
-  - como_encontre_programacion
-  - eleccion_unicen
-  - alternativa_tecnica
-  - eleccion_tecnica
-  - no_eleccion_media
-  - opciones_secundaria
-  - efecto_mariposa
-  - consultar_opciones_carrera
+  - consulta_como_encontraste_carrera
+  - consulta_como_encontre_programacion
+  - consulta_eleccion_unicen
+  - consulta_alternativa_tecnica
+  - consulta_eleccion_tecnica
+  - consulta_no_eleccion_media
+  - consulta_opciones_secundaria
+  - consulta_efecto_mariposa
+  - consulta_opciones_carrera
 
 responses:
   utter_como_encontre_carrera:

@@ -3,14 +3,13 @@ version: "3.1"
 # TODO: Estado de carrera / General
 
 nlu:
-
 - synonym: cursada
   examples: |
     - cursadas
     - materia
     - materias
 
-- intent: consultar_año
+- intent: consulta_año
   examples: |
     - en que año estas?
     - que año estas cursando?
@@ -19,7 +18,7 @@ nlu:
     - ya estas en tercero?
     - ya estas en cuarto? 
     - ya estas en quinto?
-- intent: comentar_retraso
+- intent: consulta_comentar_retraso
   examples: |
     - uff... te retrasaste supongo
     - suele pasar
@@ -28,7 +27,7 @@ nlu:
     - es mas comun de lo que esperaba
     - puede pasar
     - pasa
-- intent: consultar_retraso
+- intent: consulta_retraso
   examples: |
     - que paso?
     - como?, no entendi a que te referias
@@ -36,7 +35,7 @@ nlu:
     - desaprobaste algun materia o como?
     - no diste alguna materia?
     - como segundo / tercero?
-- intent: felicitacion_cursada
+- intent: consulta_felicitacion_cursada
   examples: |
     - te fue bastante bien
     - excelente como te fue
@@ -46,7 +45,7 @@ nlu:
     - venis bien
     - a comparacion de muchos, venis excelente
     - no te preocupes por como te fue, te fue bien
-- intent: compadecer_cursadas
+- intent: consulta_compadecer_cursadas
   examples: |
     - pudo haber sido peor
     - lastima esas dos cursadas, venias bien
@@ -98,7 +97,7 @@ nlu:
     - estas en Electronica Digital?
     - das Comunicacion de Datos?
 
-- intent: como_venis_con_eso
+- intent: consulta_como_venis_con_eso
   examples: |
     - y como venis con eso?
     - como te va con eso?

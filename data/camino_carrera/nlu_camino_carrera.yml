@@ -6,7 +6,7 @@ nlu:
 
 ### ! agregar historia donde pregunte directamente donde estudie la secundaria
 
-- intent: como_encontraste_carrera
+- intent: consulta_como_encontraste_carrera
   examples: |
     - como encontraste la carrera?
     - como supiste de la carrera?
@@ -18,7 +18,7 @@ nlu:
     - como tomaste la decision de estudiar Sistemas?
     - como tomaste la decision de estudiar Ingeñeria?
 
-- intent: como_encontre_programacion
+- intent: consulta_como_encontre_programacion
   examples: |
     - como encontraste la programacion?
     - cual fue tu primera interaccion con la programacion?
@@ -26,7 +26,7 @@ nlu:
     - estabas buscando la programacion?
     - encontraste o buscaste a la programacion?
 
-- intent: eleccion_unicen
+- intent: consulta_eleccion_unicen
   examples: |
     - como elegiste la Unicen?
     - como encontraste la Unicen?
@@ -36,14 +36,14 @@ nlu:
     - conociste alguna otra opcion en lugar de la Unicen?
     - conociste otra universidad?
     - pensaste en otra Universidad?
-- intent: alternativa_tecnica
+- intent: consulta_alternativa_tecnica
   examples: |
     - Que hubiera pasado si no llegabas a la tecnica?
     - y si no ibas a la tecnica?
     - si no entrabas a la tecnica que pasaba?
     - que pasaba si no ibas a la tecnica?
     - que alternativa tenias a la tecnica?
-- intent: eleccion_tecnica
+- intent: consulta_eleccion_tecnica
   examples: |
     - Como elegiste la tecnica?
     - Como terminaste en la tecnica?
@@ -52,21 +52,21 @@ nlu:
     - que te llamo la atencion de la tecnica?
     - siempre supiste que querias ir a la tecnica?
     - decidiste vos ir a la tecnica o alguien mas tomo la decision?
-- intent: no_eleccion_media
+- intent: consulta_no_eleccion_media
   examples: |
     - por que no fuiste a la media?
     - que te llevo a elegir la tecnica sobre la media?
     - por que no elegiste la media?
     - por que la tecnica y no la media?
     - en que supero la tecnica a la media entonces?
-- intent: opciones_secundaria
+- intent: consulta_opciones_secundaria
   examples: |
     - tenias alguna otra opcion?
     - que opciones tenias?
     - conociste alguna otra secundaria?
     - te dieron o buscaste algun opcion?
     - existia alguna opcion?
-- intent: efecto_mariposa
+- intent: consulta_efecto_mariposa
   examples: |
     - interesante como pequeñas cosas cambian tu vida
     - impresionante efecto mariposa
@@ -74,7 +74,7 @@ nlu:
     - te has puesto a pensar en eso?
     - una eleccion... interesante
     - es para ponerte a pensar
-- intent: consultar_opciones_carrera
+- intent: consulta_opciones_carrera
   examples: |
     - tenias alguna otra carrera en mente?
     - pensaste en alguna otra carrera?
