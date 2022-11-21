@@ -1,0 +1,12 @@
+version: "3.1"
+
+rules:
+- rule: decir adios, siempre que el usuario lo diga
+  steps:
+  - intent: consulta_despedir
+  - action: action_despedir
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: consulta_bot_challenge
+  - action: utter_iamabot

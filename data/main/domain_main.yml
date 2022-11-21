@@ -1,0 +1,71 @@
+#* author: "CowsmonDev@22-23" *#
+version: "3.1"
+
+intents:
+  - consulta_saludar
+  - consulta_notificar_nombre_profesion
+  - consulta_notificar_nombre
+  - consulta_notificar_profesion
+  - consulta_despedir
+  - consulta_negar
+  - consulta_afirmar
+  - consulta_bot_challenge
+  - consulta_como_estas
+  - consulta_como_venis_con_eso
+
+actions:
+  - action_ah_si
+  - action_despedir
+  - action_como_estas
+  - action_como_venis_con_eso
+  - action_saludar
+
+entities:
+  - nombre
+  - profesion
+
+slots:
+  slot_id_conversacion:
+    type: text
+    mappings:
+    - type: custom
+      action: action_saludar
+    - type: custom
+      action: action_ah_si
+  slot_profesion:
+    type: text
+    mappings:
+    - type: custom
+      action: action_saludar
+    - type: from_entity
+      entity: profesion
+  slot_nombre:
+    type: text
+    mappings:
+    - type: custom
+      action: action_saludar
+    - type: from_entity
+      entity: nombre
+  slot_tema_bot:
+    type: text
+    mappings:
+    - type: custom
+      action: action_como_estas
+
+responses:
+  utter_saludar:
+  - text: "Hola... Perdon, quien sos? no te tengo agendado"
+  utter_solicitar_profesion:
+  - text: "y de donde te conozco? es que soy muy malo con los nombres"
+  utter_consultar_despedir:
+  - text: "algo mas o damos por finalizada esta increible conversacion tan apasionada?"
+  utter_despedir:
+  - text: "Ha sido un placer, espero haberte ayudado... adios\nXD al final si soy un robot, frase robotizada y todo jajaja"
+  utter_iamabot:
+  - text: "Define bot... estas seguro que tu no lo eres?"
+  utter_todo:
+  - text: "todo dicho"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

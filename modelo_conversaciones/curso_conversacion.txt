@@ -1,0 +1,27 @@
+presentacion:
+	notifica su nombre, profesion o ambas
+	solicita lo faltante o saluda
+
+estado de carrera:
+	consultar el año actual - consulta las materias en curso - preparacion de final
+	consultar el año actual - consultar retraso - camino de comentario sobre la cursada (felicitar o compaceder) - materias en curso - preparacion final
+	consultar cantidad total de materias (probablemente al final de esta presentacion)
+
+	consultar estado de materia - consulta indecision - consulta modalidad - consulta bot
+
+camino a la carrera
+	como encontre la programacion/carrera - eleccion unicen
+	como encontre la programacion/carrera - alternativa tecnica - (eleccion_tecnica/no_eleccion_media/opciones_secundaria) - efecto mariposa (interesante efecto mariposa)
+
+
+	otra carrera (probablemente al final de la presentacion)
+
+area de interes	
+	lenguaje inicial - (estudio aparte [que estudie] / rama interes) - fuente de estudios
+	(proyecto aparte / tecnologia aparte)
+
+
+
+
+
+	

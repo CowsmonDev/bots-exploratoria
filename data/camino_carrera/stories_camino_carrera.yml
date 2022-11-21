@@ -1,0 +1,36 @@
+version: "3.1"
+
+# TODO: Camino hacia la carrera
+
+stories:
+- story: como encontre la carrera
+  steps:
+  - or:
+    - intent: consulta_como_encontre_programacion
+    - intent: consulta_como_encontraste_carrera
+  - action: utter_como_encontre_carrera
+  - checkpoint: bifurcacion_encontre_carrera
+
+- story: eleccion de universidad
+  steps:
+  - checkpoint: bifurcacion_encontre_carrera
+  - intent: consulta_eleccion_unicen
+  - action: utter_eleccion_unicen
+
+- story: que hubieras hecho si no llegabas a la tecnica
+  steps:
+  - checkpoint: bifurcacion_encontre_carrera
+  - intent: consulta_alternativa_tecnica
+  - action: utter_alternativa_tecnica
+  - or:
+    - intent: consulta_eleccion_tecnica
+    - intent: consulta_no_eleccion_media
+    - intent: consulta_opciones_secundaria
+  - action: utter_eleccion_tecnica_media
+  - intent: consulta_efecto_mariposa
+  - action: utter_efecto_mariposa
+
+- story: otra carrera posible
+  steps:
+  - intent: consulta_opciones_carrera
+  - action: utter_consultar_opciones_carrera
