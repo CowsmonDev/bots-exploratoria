@@ -1,6 +1,7 @@
 version: "3.1"
 
 nlu:
+# TODO: Tablas
 - lookup: nombre 
   examples: |
     - Agustin
@@ -105,6 +106,8 @@ nlu:
     - Ariel
     - Alexandra
 
+
+# TODO: Sinonimos
 - synonym: Profesor
   examples: |
     - Profesor
@@ -123,6 +126,7 @@ nlu:
     - compañera
     - compa
     - con vos
+
 
 # TODO: Presentacion
 - intent: consulta_saludar
@@ -203,6 +207,7 @@ nlu:
     - hola, mi nombre es Daniel y te conozco porque soy [Profesor](profesion)
     - hola, yo soy Pablo y te conozco porque soy [Profesor](profesion)
 
+
 # TODO: Conectores
 - intent: consulta_como_estas
   examples: |
@@ -214,13 +219,14 @@ nlu:
     - todo bien?
     - como te va?
     - quisiera saber, como te va?
-  
+
 - intent: consulta_como_venis_con_eso
   examples: |
     - como venis con eso
     - y como va esto?
     - como lo vas llevando eso?
     - pero, venis bien con eso?
+
 
 # TODO: Despedida
 - intent: consulta_negar

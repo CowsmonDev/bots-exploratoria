@@ -1,0 +1,24 @@
+version: "3.1"
+stories:
+- story: iniciar la comunicacion
+  steps:
+  - intent: consulta_iniciar_planificacion
+  - action: action_iniciar_planificacion
+
+- story: proponer fecha
+  steps:
+  - or:
+      - intent: consulta_proponer_fecha_semana
+      - intent: consulta_proponer_fecha_dia
+      - intent: consulta_proponer_fecha_mes
+  - action: action_proponer_fecha
+
+- story: aceptan fecha
+  steps:
+  - intent: consulta_aceptan_fecha
+  - action: action_aceptan_fecha
+
+- story: rechazan fecha
+  steps:
+  - intent: consulta_rechazan_fecha
+  - action: action_rechazan_fecha #si nadie propone, proponer yo

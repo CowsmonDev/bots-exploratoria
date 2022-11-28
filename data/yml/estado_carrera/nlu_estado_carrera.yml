@@ -132,6 +132,7 @@ nlu:
     - [materia](materia_final), cuanto aprobaste?
     - cuanto aprobaste en [materia](materia_final)?
 
+
 - intent: consulta_total_materias
   examples: |
     - cuales materias tenes?
@@ -186,6 +187,7 @@ nlu:
     - Diseño de Sistemas de Software
     - Diseño de Compiladores
     - Ingeñeria de Software
+
 
 - intent: consulta_estado_materia
   examples: |

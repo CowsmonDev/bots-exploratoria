@@ -1,0 +1,31 @@
+version: "3.1"
+intents:
+  - consulta_iniciar_planificacion
+  - consulta_proponer_fecha_semana
+  - consulta_proponer_fecha_dia
+  - consulta_proponer_fecha_mes
+  - consulta_aceptan_fecha
+  - consulta_rechazan_fecha
+
+actions:
+  - action_iniciar_planificacion
+  - action_proponer_fecha
+  - action_aceptan_fecha
+  - action_rechazan_fecha
+
+#entities:
+
+responses:
+  utter_aceptar_fecha:
+  - text: "Por mi es perfecto"
+  - text: "Yo puedo esa fecha"
+  - text: "a mi me va..."
+  utter_rechazar_fecha:
+  - text: "Perdon chicos pero esa fecha no puedo"
+  - text: "Yo no estoy disponible esa fecha"
+  - text: "Pero chivos, yo no puedo es fecha"
+  - text: "No se puede otra fecha? esa no puedo"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
