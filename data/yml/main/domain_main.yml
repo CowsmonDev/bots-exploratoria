@@ -14,11 +14,11 @@ intents:
   - consulta_como_venis_con_eso
 
 actions:
+  - action_saludar
   - action_ah_si
   - action_despedir
   - action_como_estas
   - action_como_venis_con_eso
-  - action_saludar
 
 entities:
   - nombre
@@ -29,28 +29,22 @@ slots:
     type: text
     mappings:
     - type: custom
-      action: action_saludar
-    - type: custom
-      action: action_ah_si
-  slot_profesion:
-    type: text
-    mappings:
-    - type: custom
-      action: action_saludar
-    - type: from_entity
-      entity: profesion
   slot_nombre:
     type: text
     mappings:
-    - type: custom
-      action: action_saludar
     - type: from_entity
       entity: nombre
+    - type: custom
+  slot_profesion:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: profesion
+    - type: custom
   slot_tema_bot:
     type: text
     mappings:
     - type: custom
-      action: action_como_estas
 
 responses:
   utter_saludar:
