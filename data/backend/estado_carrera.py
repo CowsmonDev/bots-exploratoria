@@ -66,7 +66,7 @@ class ActionGetCursoTalMateria(Action):
             dispatcher.utter_message(text=f"Si, la estoy cursando")
             return [SlotSet('slot_materia_estado', materia)]
         else:
-            dispatcher.utter_message(text=f"No... {EstadoActual.getCursadas()}")
+            dispatcher.utter_message(text=f"No la estoy cursando, pero {EstadoActual.getCursadas()}")
 
 
 # TODO: action_como_venis_con_eso

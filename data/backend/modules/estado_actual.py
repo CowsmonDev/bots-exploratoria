@@ -21,7 +21,7 @@ class EstadoActual:
 		if (len(materias) == 0):
 			return "No estoy cursando nada"
 
-		retorno = "dame un segundo que me acuerde...\nemm, a cierto... estoy cursando:\n"
+		retorno = "dame un segundo que me acuerde...\nestoy cursando:\n"
 		for materia in materias:
 			retorno += f"- {materia}\n"
 		return retorno

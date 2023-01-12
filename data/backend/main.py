@@ -36,8 +36,8 @@ class ActionAhSi(Action):
         id_conversacion = from_message["id"]
         res = existe_persona(id_conversacion)
 
-        nombre = tracker.get_slot("slot_nombre")
-        profesion = tracker.get_slot("slot_profesion")
+        nombre = str(tracker.get_slot("slot_nombre"))
+        profesion = str(tracker.get_slot("slot_profesion"))
 
         print("Slot Nombre: ", tracker.get_slot('slot_nombre'))
         print("Slot Profesion: ", tracker.get_slot('slot_profesion'))
