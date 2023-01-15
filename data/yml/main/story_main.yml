@@ -6,23 +6,17 @@ stories:
   steps:
   - intent: consulta_saludar
   - action: action_saludar
-  - checkpoint: notificar_relacion
 
 # TODO: Presentacion
 - story: notificar de nombre
   steps:
-  - checkpoint: notificar_relacion
   - intent: consulta_notificar_nombre
   - action: utter_solicitar_profesion
-  - checkpoint: notificar_relacion
-- story: notificar de profesion
-  steps: 
-  - checkpoint: notificar_relacion
   - intent: consulta_notificar_profesion
   - action: action_ah_si
+
 - story: notificar nombre y profesion
   steps:
-  - checkpoint: notificar_relacion
   - intent: consulta_notificar_nombre_profesion
   - action: action_ah_si
 

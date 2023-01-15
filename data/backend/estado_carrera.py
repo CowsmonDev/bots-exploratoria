@@ -66,7 +66,7 @@ class ActionGetCursoTalMateria(Action):
             dispatcher.utter_message(text=f"Si, la estoy cursando")
             return [SlotSet('slot_materia_estado', materia)]
         else:
-            dispatcher.utter_message(text=f"No... {EstadoActual.getCursadas()}")
+            dispatcher.utter_message(text=f"No la estoy cursando, pero {EstadoActual.getCursadas()}")
 
 
 # TODO: action_como_venis_con_eso
@@ -84,7 +84,11 @@ class ActionComoVenisConEso(Action):
         elif materia == "finales":
             dispatcher.utter_message(text="Honestamente, todavia no empece a estudiar")
         elif materia is not None:
-            dispatcher.utter_message(text=str(EstadoActual.estadoMateria(materia)))
+            res = EstadoActual.estadoMateria(materia)
+            if res is None:
+                dispatcher.utter_message(text="No estoy realizando nada con esa Materia")
+            else:
+                dispatcher.utter_message(text=str(res))
         else:
             dispatcher.utter_message(text="Perdon, de que estas hablando?")
 
@@ -96,7 +100,7 @@ class ActionAprobados(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         res = next(tracker.get_latest_entity_values('materia_final'), None)
-        if res == "cursor":
+        if res == "cursada":
             dispatcher.utter_message(text=Historia.getMateriasAprobadas())
         elif res == "final" or res == "finales":
             dispatcher.utter_message(text=Historia.getFinalesAprobados())

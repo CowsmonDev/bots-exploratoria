@@ -1,8 +1,8 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
-from data.backend.modules.db_sql import PersonasDB
+from rasa_sdk.events import SlotSet, FollowupAction
+from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona
 
 
 class ActionSaludar(Action):
@@ -12,43 +12,54 @@ class ActionSaludar(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         from_message = tracker.latest_message["metadata"]['message']['from']
         id_conversacion = from_message["id"]
-        persona = PersonasDB()
-        res = persona.existe_persona(str(id_conversacion))
-
-        if len(res) > 0:
-            nombre = res[0][2].split(' ')[0]
-            return [SlotSet('slot_nombre', nombre), SlotSet('slot_profesion', res[0][3]),
-                    SlotSet('slot_id_conversacion', id_conversacion)]
+        res = existe_persona(id_conversacion)
+        print(res[0])
+        if res[0]:
+            res = res[1]
+            print(res.get_nombre())
+            return [
+                FollowupAction("action_ah_si"),
+                SlotSet("slot_nombre", res.get_nombre()),
+                SlotSet("slot_profesion", res.get_profesion()),
+                SlotSet('slot_id_conversacion', id_conversacion)
+            ]
         else:
             dispatcher.utter_message(response="utter_saludar")
-        return []
-
+        return [SlotSet("slot_profesion", "Profesion")]
 
 class ActionAhSi(Action):
     def name(self) -> Text:
         return "action_ah_si"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        profesion = tracker.get_slot("slot_profesion")
-        nombre = tracker.get_slot("slot_nombre")
-        id_conversacion = tracker.get_slot("slot_id_conversacion")
-        if profesion is None: profesion = "Null"
-        if nombre is None: nombre = "Null"
+        from_message = tracker.latest_message["metadata"]['message']['from']
+        id_conversacion = from_message["id"]
+        res = existe_persona(id_conversacion)
 
-        if id_conversacion is None:
-            id_conversacion = tracker.latest_message["metadata"]["message"]["from"]["id"]
-            persona = PersonasDB()
-            persona.agregar_persona([str(id_conversacion), "Null", str(nombre), str(profesion)])
-            return [SlotSet('slot_id_conversacion', id_conversacion)]
+        nombre = str(tracker.get_slot("slot_nombre"))
+        profesion = str(tracker.get_slot("slot_profesion"))
+
+        print("Slot Nombre: ", tracker.get_slot('slot_nombre'))
+        print("Slot Profesion: ", tracker.get_slot('slot_profesion'))
+
+        # TODO: si no existia el usuario en la base de datos lo registra
+        if not res[0]:
+            dispatcher.utter_message(text="Ah... si\n")
+            agregar_persona(Persona(id_conversacion, "Agustin" , "", profesion))
 
         if profesion == "Profesor":
-            dispatcher.utter_message(text="que pasa profe?")
+            dispatcher.utter_message(text="hola profe, que pasa?")
         else:
             if nombre == "Null":
-                dispatcher.utter_message(text="que pasa?")
+                dispatcher.utter_message(text="hola, que pasa?")
             else:
-                dispatcher.utter_message(text=f"ahh... si que pasa {nombre}")
-        return []
+                dispatcher.utter_message(text=f"hola {nombre}, que pasa")
+        return [
+
+            SlotSet("slot_profesion", profesion),
+            SlotSet("slot_nombre", nombre),
+            SlotSet('slot_id_conversacion', id_conversacion),
+        ]
 
 
 class ActionComoEstas(Action):

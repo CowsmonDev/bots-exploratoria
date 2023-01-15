@@ -1,13 +1,54 @@
+
 version: "3.1"
 
 # TODO: Estado de carrera / General
-
 nlu:
+- lookup: materia_estado
+  examples: |
+          - Ingles
+          - Introduccion a la Programacion 1
+          - Analisis Matematico 1
+          - Algebra 1
+          - Quimica
+          - Ciencias de la Computacion 1
+          - Introduccion a la Programacion 2
+          - Algebra Lineal
+          - Fisica General
+          - Matematica Discreta
+          - Ciencias de la Computacion 2
+          - Analisis y Diseño de Algoritmos 1
+          - Introduccion a la Arquitectura de Sistemas
+          - Analisis Matematico 2
+          - Electricidad y Magnetismo
+          - Analisis y Diseño de Algoritmos
+          - Comunicacion de Datos
+          - Probabilidad y Estadistica
+          - Electronica Digital
+          - Programacion Orientada a Objetos
+          - Estructura de Almacenamiento de Datos
+          - Metodologias de Desarrolo de Software
+          - Arquitectura de Computadoras 1
+          - Programacion Exploratoria
+          - Bases de Datos 1
+          - Lenguajes de Programacion 1
+          - Sistemas Operativos
+          - Investigacion Operativa
+          - Arquitectura de Computadoras y Tecnicas Digitales
+          - Teoria de la Informacion
+          - Comunicacion de Datos 2
+          - Introduccion al Calculo Diferencial e Integral
+          - Diseño de Sistemas de Software
+          - Diseño de Compiladores
+          - Ingeñeria de Software
+          
+
+
 - synonym: cursada
   examples: |
     - cursadas
     - materia
     - materias
+
 
 - intent: consulta_año
   examples: |
@@ -18,6 +59,7 @@ nlu:
     - ya estas en tercero?
     - ya estas en cuarto? 
     - ya estas en quinto?
+
 - intent: consulta_comentar_retraso
   examples: |
     - uff... te retrasaste supongo
@@ -27,6 +69,7 @@ nlu:
     - es mas comun de lo que esperaba
     - puede pasar
     - pasa
+
 - intent: consulta_retraso
   examples: |
     - que paso?
@@ -35,6 +78,7 @@ nlu:
     - desaprobaste algun materia o como?
     - no diste alguna materia?
     - como segundo / tercero?
+
 - intent: consulta_felicitacion_cursada
   examples: |
     - te fue bastante bien
@@ -44,15 +88,19 @@ nlu:
     - bueno, felicitaciones por como venis
     - venis bien
     - a comparacion de muchos, venis excelente
+    - pero te fue bien, a otros le va peor
     - no te preocupes por como te fue, te fue bien
+
 - intent: consulta_compadecer_cursadas
   examples: |
     - pudo haber sido peor
     - lastima esas dos cursadas, venias bien
     - que pena esas cursadas
     - que lastima esas cursadas, ahora a seguir adelante
+    - si, es una lastima
     - bueno, ahora a seguir para adelante
     - uff... que mal
+
 
 - intent: consulta_materias_en_curso
   examples: |
@@ -66,6 +114,7 @@ nlu:
     - cual estas cursando entonces?
     - que materias estas cursando?
 
+
 - intent: consulta_finales_pendientes
   examples: |
     - cuales finales te quedan pendiente?
@@ -78,6 +127,7 @@ nlu:
     - cuantos finales te quedan?
     - cuanto te queda de final?
 
+
 - intent: consulta_finales_en_curso
   examples: |
     - cuales finales estas dando?
@@ -89,6 +139,7 @@ nlu:
     - en cuanto a finales, estas preparando alguno?
     - estas preparando algo de finales?
 
+
 - intent: consulta_estas_cursando
   examples: |
     - estas cursando [Ingles](materia_estado)?
@@ -96,6 +147,7 @@ nlu:
     - estas dando Programacion Exploratoria?
     - estas en Electronica Digital?
     - das Comunicacion de Datos?
+
 
 - intent: consulta_como_venis_con_eso
   examples: |
@@ -106,6 +158,7 @@ nlu:
     - venis bien?
     - pero, venis bien?
     - como lo vas preparando?
+
 
 - intent: consulta_aprobados
   examples: |
@@ -132,6 +185,8 @@ nlu:
     - [materia](materia_final), cuanto aprobaste?
     - cuanto aprobaste en [materia](materia_final)?
 
+
+
 - intent: consulta_total_materias
   examples: |
     - cuales materias tenes?
@@ -149,43 +204,6 @@ nlu:
     - necesito saber cuales son las materias que tenes en la carrera
     - cuales son las materias de ingeñeria
 
-- lookup: materia_estado
-  examples: |
-    - Ingles
-    - Introduccion a la Programacion 1
-    - Analisis Matematico 1
-    - Algebra 1
-    - Quimica
-    - Ciencias de la Computacion 1
-    - Introduccion a la Programacion 2
-    - Algebra Lineal
-    - Fisica General
-    - Matematica Discreta
-    - Ciencias de la Computacion 2
-    - Analisis y Diseño de Algoritmos 1
-    - Introduccion a la Arquitectura de Sistemas
-    - Analisis Matematico 2
-    - Electricidad y Magnetismo
-    - Analisis y Diseño de Algoritmos
-    - Comunicacion de Datos
-    - Probabilidad y Estadistica
-    - Electronica Digital
-    - Programacion Orientada a Objetos
-    - Estructura de Almacenamiento de Datos
-    - Metodologias de Desarrolo de Software
-    - Arquitectura de Computadoras 1
-    - Programacion Exploratoria
-    - Bases de Datos 1
-    - Lenguajes de Programacion 1
-    - Sistemas Operativos
-    - Investigacion Operativa
-    - Arquitectura de Computadoras y Tecnicas Digitales
-    - Teoria de la Informacion
-    - Comunicacion de Datos 2
-    - Introduccion al Calculo Diferencial e Integral
-    - Diseño de Sistemas de Software
-    - Diseño de Compiladores
-    - Ingeñeria de Software
 
 - intent: consulta_estado_materia
   examples: |

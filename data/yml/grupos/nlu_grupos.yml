@@ -1,0 +1,63 @@
+version: "3.1"
+nlu:
+
+# TODO: Tablas
+- lookup: fecha_semana
+  examples: |
+    - Lunes
+    - lunes
+    - Martes
+    - martes
+    - Miercoles
+    - miercoles
+    - Jueves
+    - jueves
+    - Viernes
+    - viernes
+    - Sabado
+    - sabado
+    - Domingo
+    - domingo
+    - fin de semana
+    - Fin de semana
+    - Fin De Semana
+    - Fin De semana
+    - fin de Semana
+
+- intent: consulta_iniciar_planificacion
+  examples: |
+    - podriamos empezar a organizar la fecha
+    - necesitamos organizar la fecha
+    - y si organizamos la reunion?
+    - hay que organizar la reunion
+    - que les parece si decidimos una fecha para la reunion
+    - necesitamos organizar una fecha para la reunion
+    - cuando hacemos la reunion?
+    - que dia hacemos la reunion?
+    - hay que ver la fecha para la reunion
+- intent: consulta_proponer_fecha_semana
+  examples: |
+    - que les parece el [Lunes](fecha_semana)
+    - que les parece el martes?
+    - que tal el Sabado?
+    - y el fin de semana?
+    - que tal el fin de semana?
+    - o el domingo les pinta?
+    - que tal el domingo?
+    - lo podemos hacer el lunes?
+    - yo estoy libre el miercoles
+    - a mi no me molestaria hacerlo el viernes
+    - les pinta el Viernes?
+    - a mi me gusta el Jueves
+- intent: consulta_proponer_fecha_dia
+  examples: |
+    - a
+- intent: consulta_proponer_fecha_mes
+  examples: |
+    - a
+- intent: consulta_aceptan_fecha
+  examples: |
+    - a
+- intent: consulta_rechazan_fecha
+  examples: |
+    - a

@@ -35,6 +35,26 @@ stories:
   - action: action_consulta_estado_materia
   - action: action_como_venis_con_eso
 
+- story: consultar finales pendientes
+  steps:
+    - intent: consulta_finales_pendientes
+    - action: action_consulta_finales_pendientes
+
+- story: consultar materias y finales aprobados
+  steps:
+    - intent: consulta_aprobados
+    - action: action_consulta_aprobados
+
+- story: consulta total de materias
+  steps:
+    - intent: consulta_total_materias
+    - action: action_consulta_total_materias
+
+- story: consultar año
+  steps:
+    - intent: consulta_año
+    - action: action_consultar_año
+
 - story: camino retraso
   steps:
   - checkpoint: camino_materias_cursada
@@ -54,23 +74,3 @@ stories:
   - checkpoint: camino_materias_cursada
   - intent: consulta_compadecer_cursadas
   - action: utter_compadecer_cursadas
-
-- story: consultar año
-  steps:
-  - intent: consulta_año
-  - action: action_consultar_año
-
-- story: consultar finales pendientes
-  steps:
-  - intent: consulta_finales_pendientes
-  - action: action_consulta_finales_pendientes
-
-- story: consultar materias y finales aprobados
-  steps:
-  - intent: consulta_aprobados
-  - action: action_consulta_aprobados
-
-- story: consulta total de materias
-  steps:
-  - intent: consulta_total_materias
-  - action: action_consulta_total_materias
