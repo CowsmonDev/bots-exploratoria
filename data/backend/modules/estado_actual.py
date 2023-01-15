@@ -6,7 +6,9 @@ def getFinalText(final):
 	retorno += f"------------- {final['materia']} -------------\n"
 	retorno += f"- año: {str(final['año'])}\n"
 	retorno += f"- Cuatrimestre: {str(final['cuatrimestre'])}\n"
-	retorno += f"- Cursada Aprobada: " + "Si" if (final['cursada_aprobada']) else "No" + "\n"
+	retorno += f"- Cursada Aprobada: "
+	retorno += f"Si" if (final['cursada_aprobada']) else "No"
+	retorno += "\n"
 	retorno += f"----------------------------------------------\n"
 	return retorno
 
@@ -55,15 +57,13 @@ class EstadoActual:
 	@staticmethod
 	def getFinalesPendientes():
 		finales_curso = EstadoActual.datos["finales"]["en_curso"]
-		finales_pendientes = EstadoActual.datos["finales"]["pendientes"]
+		#finales_pendientes = EstadoActual.datos["finales"]["pendientes"]
 
-		if (len((finales_curso)) == 0 and (len(finales_pendientes) == 0)):
+		if (len(finales_curso) == 0):
 			return "No tengo ningun final pendiente"
 
 		retorno = "Estoy Preparando:\n\n"
 		for final in finales_curso:
-			retorno += getFinalText(final)
-		for final in finales_pendientes:
 			retorno += getFinalText(final)
 		return retorno
 

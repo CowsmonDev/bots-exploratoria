@@ -27,7 +27,7 @@ class ActionRamaInteres(Action):
             elif tiempo == "presente":
                 dispatcher.utter_message(
                     text="Ahora mismo, estoy enfocandome en la conexion entre diferentes tecnologias. como estas "
-                         "technologist se conectan a traves de mensajes... Algo asi como un FullStack.")
+                         "technologias se conectan a traves de mensajes... Algo asi como un FullStack.")
 
 
 class ActionProyectoAparte(Action):
@@ -49,6 +49,7 @@ class ActionProyectoAparte(Action):
                          "bastante")
             elif tiempo == "presente":
                 dispatcher.utter_message(
-                    text="hoy en dia estoy adaptando el proyecto en Java a Electron, un Framework basado en "
+                    text="hoy en dia estoy adaptando un proyecto inicialmente implemantado en Java a Electron, "
+                         "un Framework basado en"
                          "JavaScript de forma de poder realizar un proyecto mas mantenible con recursos limitados... "
                          "ademas, asi practico nuevas tecnologias con un proyecto bastante completo")
