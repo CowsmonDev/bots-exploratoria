@@ -69,3 +69,7 @@ def agregar_persona(persona: Persona):
         {"$setOnInsert": persona.toJSON()},
         upsert=True
     )
+
+def existe_atributo(id_conversacion):
+    persona = collection.find()
+    return true

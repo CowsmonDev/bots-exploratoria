@@ -7,7 +7,6 @@ intents:
   - consulta_notificar_nombre
   - consulta_notificar_profesion
   - consulta_despedir
-  - consulta_negar
   - consulta_afirmar
   - consulta_bot_challenge
   - consulta_como_estas

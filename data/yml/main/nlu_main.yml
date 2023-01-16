@@ -229,24 +229,7 @@ nlu:
 
 
 # TODO: Despedida
-- intent: consulta_negar
-  examples: |
-    - no
-    - no gracias
-    - por ahora no
-    - negativo
-    - eso seria una negacion
-- intent: consulta_afirmar
-  examples: |
-    - si
-    - probablemente
-    - eso seria una afirmacion
-    - es lo que esperaba
-    - normalmente asi es
-    - asi es
-    - es la costrumbre
-    - afirmativo
-    - supongo
+
 - intent: consulta_despedir
   examples: |
     - bye

@@ -1,0 +1,31 @@
+version: "3.1"
+stories:
+  - story: afirmacion
+    steps:
+      - intent: consulta_afirmar
+      - action: action_afirmar
+  - story: negacion
+    steps:
+      - intent: consulta_negar
+      - action: action_negar
+
+  - story: buen humor
+    steps:
+      - intent: consulta_buen_humor
+      - action: utter_buen_humor
+      - action: action_humor
+  - story: mal humor
+    steps:
+      - intent: consulta_mal_humor
+      - action: utter_mal_humor
+      - action: action_humor
+  - story: triste humor
+    steps:
+      - intent: consulta_triste_humor
+      - action: utter_triste_humor
+      - action: action_humor
+  - story: cansado humor
+    steps:
+      - intent: consulta_cansado_humor
+      - action: utter_cansado_humor
+      - action: action_humor
