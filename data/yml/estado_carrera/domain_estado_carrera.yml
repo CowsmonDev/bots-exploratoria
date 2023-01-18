@@ -2,6 +2,7 @@
 version: "3.1"
 
 intents:
+  - consulta_como_te_fue_cuatrimestre
   - consulta_año
   - consulta_materias_en_curso
   - consulta_comentar_retraso
@@ -40,6 +41,8 @@ actions:
   - action_como_venis_con_eso
 
 responses:
+  utter_como_te_fue_cuatrimestre:
+  - text: "supongo que bien, aunque preferiria que me hubiera ido un poco mejor"
   utter_consultar_año:
   - text: "uff, bueno... ahora mismo estoy en segundo/tercero"
   utter_retraso:

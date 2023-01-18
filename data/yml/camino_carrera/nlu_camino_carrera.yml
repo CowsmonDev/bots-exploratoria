@@ -5,6 +5,16 @@ version: "3.1"
 nlu:
 
 ### ! agregar historia donde pregunte directamente donde estudie la secundaria
+- intent: consulta_como_llegaste_hasta_aca
+  examples: |
+    - como llegaste hasta aca?
+    - como terminaste en este camino?
+    - cual fue tu camino para llegar hasta aca?
+    - cual fue tu camino?
+    - como alguien termina en esta rama?
+    - como terminaste en esta rama?
+    - como llegaste a esta rama?
+    - como elegiste esto?
 
 - intent: consulta_como_encontraste_carrera
   examples: |

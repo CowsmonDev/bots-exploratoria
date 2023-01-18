@@ -1,6 +1,8 @@
 #* author: "CowsmonDev@22-23" *#
 version: "3.1"
 
+# TODO: que es MetricPoint intent
+
 intents:
   - lenguaje_inicial
   - estudio_aparte

@@ -50,6 +50,19 @@ nlu:
     - materias
 
 
+
+- intent: consulta_como_te_fue_cuatrimestre
+  examples: |
+    - como te fue este cuatrimestre?
+    - como te fue en el cuatrimestre?
+    - como te fue durante el cuatrimestre?
+    - consulta, como te fue en el cuatrimeste?
+    - te fue bien en las cursadas?
+    - como te fue con las cursadas?
+    - vas bien con las cursadas?
+    - como vas con las cursadas?
+    - como te va en la universidad
+
 - intent: consulta_año
   examples: |
     - en que año estas?

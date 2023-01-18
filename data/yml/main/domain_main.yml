@@ -10,13 +10,12 @@ intents:
   - consulta_afirmar
   - consulta_bot_challenge
   - consulta_como_estas
-  - consulta_como_venis_con_eso
+  - consulta_que_puedes_hacer
 
 actions:
   - action_saludar
   - action_ah_si
   - action_despedir
-  - action_como_estas
   - action_como_venis_con_eso
 
 entities:
@@ -56,8 +55,14 @@ responses:
   - text: "Ha sido un placer, espero haberte ayudado... adios\nXD al final si soy un robot, frase robotizada y todo jajaja"
   utter_iamabot:
   - text: "Define bot... estas seguro que tu no lo eres?"
-  utter_todo:
-  - text: "todo dicho"
+  utter_que_puedes_hacer:
+  - text: "Puedo:
+          \n - decirte como llegue aca (como encontre la programacion, eleccion de carrera y secundaria, etc)
+          \n - decirte como me va en la universidad
+          \n - areas de interes en la programacion
+          \n - me puedes decir como estas..."
+  utter_como_estas:
+  - text: "He estado mejor pero voy bien por ahora"
 
 session_config:
   session_expiration_time: 60

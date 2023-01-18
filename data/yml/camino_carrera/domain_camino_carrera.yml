@@ -2,6 +2,7 @@
 version: "3.1"
 
 intents:
+  - consulta_como_llegaste_hasta_aca
   - consulta_como_encontraste_carrera
   - consulta_como_encontre_programacion
   - consulta_eleccion_unicen
@@ -13,6 +14,8 @@ intents:
   - consulta_opciones_carrera
 
 responses:
+  utter_como_llegaste_hasta_aca:
+  - text: "Bueno es una historia larga... empezamos en el como me tope con la programacion? (realiza la pregunta)"
   utter_como_encontre_carrera:
   - text: "Bueno, mira como que medio tope con ella... entre a la tecnica pensando en los talleres que me podrian interesar\n sin saber que tenian una orientacion en informatica, desde ahi todo fue tomando su rumbo"
   utter_eleccion_unicen:

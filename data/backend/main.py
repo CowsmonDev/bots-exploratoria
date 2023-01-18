@@ -12,15 +12,16 @@ class ActionSaludar(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         from_message = tracker.latest_message["metadata"]['message']['from']
         id_conversacion = from_message["id"]
-        res = existe_persona(id_conversacion)
-        print(res[0])
-        if res[0]:
-            res = res[1]
-            print(res.get_nombre())
+        persona = existe_persona(id_conversacion)
+
+        print(persona)
+        if persona:
+            persona = persona[0]
+            print(persona.get_nombre())
             return [
                 FollowupAction("action_ah_si"),
-                SlotSet("slot_nombre", res.get_nombre()),
-                SlotSet("slot_profesion", res.get_profesion()),
+                SlotSet("slot_nombre", persona.get_nombre()),
+                SlotSet("slot_profesion", persona.get_profesion()),
                 SlotSet('slot_id_conversacion', id_conversacion)
             ]
         else:

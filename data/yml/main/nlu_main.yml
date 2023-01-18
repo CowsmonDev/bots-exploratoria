@@ -220,13 +220,15 @@ nlu:
     - como te va?
     - quisiera saber, como te va?
 
-- intent: consulta_como_venis_con_eso
+- intent: consulta_que_puedes_hacer
   examples: |
-    - como venis con eso
-    - y como va esto?
-    - como lo vas llevando eso?
-    - pero, venis bien con eso?
-
+    - que haces?
+    - que puedes hacer?
+    - que puedes decirme?
+    - haces muchas cosas?
+    - me podes decir que haces?
+    - que funcion tenes?
+    - que utilidad tenes?
 
 # TODO: Despedida
 
