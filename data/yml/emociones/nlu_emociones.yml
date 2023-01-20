@@ -19,7 +19,7 @@ nlu:
       - es la costrumbre
       - afirmativo
       - supongo
-  - intent: consulta_buen_humor
+  - intent: consulta_feliz_humor
     examples: |
       - Estoy bien
       - Ando de buen humor

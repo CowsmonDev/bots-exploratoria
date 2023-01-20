@@ -66,6 +66,14 @@ def agregar_persona(persona: Persona):
     )
 
 
+def agregar_emociones(id_conversacion, datos: object):
+    collection.update_one(
+        {ID_CONVERSACION: int(id_conversacion)},
+        {"$set": {CONVERSACION_ANTERIOR: datos}},
+        upsert=True
+    )
+
+
 def exist(busqueda: object):
     persona = collection.find_one(busqueda)
     if persona is None:

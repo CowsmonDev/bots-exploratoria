@@ -4,7 +4,7 @@ version: "3.1"
 intents:
   - consulta_afirmar
   - consulta_negar
-  - consulta_buen_humor
+  - consulta_feliz_humor
   - consulta_mal_humor
   - consulta_triste_humor
   - consulta_cansado_humor
@@ -22,7 +22,7 @@ slots:
     type: text
     mappings:
       - type: from_intent
-        intent: consulta_buen_humor
+        intent: consulta_feliz_humor
         value: "feliz"
       - type: from_intent
         intent: consulta_mal_humor
@@ -33,18 +33,34 @@ slots:
       - type: from_intent
         intent: consulta_cansado_humor
         value: "cansado"
+  slot_afirmar:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: consulta_afirmar
+        value: true
+  slot_negar:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: consulta_negar
+        value: true
 
 responses:
-  utter_buen_humor:
+  utter_feliz_humor:
     - text: "Que bien, para mi tambien ha sido una buena semana..."
   utter_mal_humor:
     - text: "uff, bueno...yo ando medio raro estos dias tambien"
   utter_triste_humor:
-    - text: "Que mal, ya vendran dias mejores"
+    - text: "yo ando de bajon tambien..."
   utter_cansado_humor:
     - text: "Yo ando agotado igual... tal parece que mi semana no fue la unica larga"
   utter_vos_humor:
     - text: "Vos, porque andas asi?"
+  utter_excusa:
+    - text: "y Cual es tu excusa?"
+  utter_por:
+    - text: "Por?"
 
 session_config:
   session_expiration_time: 60

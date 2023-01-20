@@ -1,23 +1,10 @@
+import datetime
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, FollowupAction
-from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, existe_atributo
+from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, existe_atributo, agregar_emociones
 
-
-class ActionAfirmar(Action):
-    def name(self) -> Text:
-        return "action_afirmar"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        return []
-
-class ActionNegar(Action):
-    def name(self) -> Text:
-        return "action_negar"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        return []
 
 class ActionHumor(Action):
     def name(self) -> Text:
@@ -25,10 +12,21 @@ class ActionHumor(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         humor = tracker.get_slot("slot_humor")
-        print(humor)
         id_conversacion = tracker.get_slot("slot_id_conversacion")
-        if(id_conversacion == None):
-            dispatcher.utter_message(response="utter_saludar")
+        date = datetime.datetime.now()
+        date = f"{date.year}/{date.month}/{date.day} {date.hour}-{date.minute}-{date.second}"
+
+        if id_conversacion == None:
+            return [FollowupAction("action_saludar")]
         else:
-            res = existe_atributo(id_conversacion)# TODO: establecer el codigo en mognodb.py
+            agregar_emociones(id_conversacion, {
+                "emociones": humor,
+                "fecha": date
+            })
+            profesion = tracker.get_slot("slot_profesion")
+            if profesion == "Compañero":
+                dispatcher.utter_message(response=f"utter_{humor}_humor")
+                dispatcher.utter_message(response="utter_excusa")
+            else:
+                dispatcher.utter_message(response="utter_por")
         return []

@@ -49,8 +49,6 @@ nlu:
     - materia
     - materias
 
-
-
 - intent: consulta_como_te_fue_cuatrimestre
   examples: |
     - como te fue este cuatrimestre?
