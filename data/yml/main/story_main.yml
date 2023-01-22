@@ -20,15 +20,4 @@ stories:
   - intent: consulta_notificar_nombre_profesion
   - action: action_ah_si
 
-# TODO: Conectores
-- story: como estas 
-  steps:
-  - intent: consulta_como_estas
-  - action: action_como_estas
-
-- story: como venis con eso
-  steps:
-  - intent: consulta_como_venis_con_eso
-  - action: action_como_venis_con_eso
-
 # ? Dependiendo profesion agrego reciprocidad ### Idea

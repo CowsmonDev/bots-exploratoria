@@ -3,6 +3,10 @@ version: "3.1"
 # TODO: Camino hacia la carrera
 
 stories:
+- story: como llegue hasta donde estoy
+  steps:
+    - intent: consulta_como_llegaste_hasta_aca
+    - action: utter_como_llegaste_hasta_aca
 - story: como encontre la carrera
   steps:
   - or:

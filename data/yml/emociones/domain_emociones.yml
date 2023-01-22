@@ -1,0 +1,67 @@
+#* author: "CowsmonDev@22-23" *#
+version: "3.1"
+
+intents:
+  - consulta_afirmar
+  - consulta_negar
+  - consulta_feliz_humor
+  - consulta_mal_humor
+  - consulta_triste_humor
+  - consulta_cansado_humor
+
+actions:
+  - action_afirmar
+  - action_negar
+  - action_humor
+
+entities:
+  - entity_humor
+
+slots:
+  slot_humor:
+    type: text
+    mappings:
+      - type: from_intent
+        intent: consulta_feliz_humor
+        value: "feliz"
+      - type: from_intent
+        intent: consulta_mal_humor
+        value: "mal"
+      - type: from_intent
+        intent: consulta_triste_humor
+        value: "triste"
+      - type: from_intent
+        intent: consulta_cansado_humor
+        value: "cansado"
+  slot_afirmar:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: consulta_afirmar
+        value: true
+  slot_negar:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: consulta_negar
+        value: true
+
+responses:
+  utter_feliz_humor:
+    - text: "Que bien, para mi tambien ha sido una buena semana..."
+  utter_mal_humor:
+    - text: "uff, bueno...yo ando medio raro estos dias tambien"
+  utter_triste_humor:
+    - text: "yo ando de bajon tambien..."
+  utter_cansado_humor:
+    - text: "Yo ando agotado igual... tal parece que mi semana no fue la unica larga"
+  utter_vos_humor:
+    - text: "Vos, porque andas asi?"
+  utter_excusa:
+    - text: "y Cual es tu excusa?"
+  utter_por:
+    - text: "Por?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,18 @@
+version: "3.1"
+stories:
+  - story: buen humor
+    steps:
+      - intent: consulta_feliz_humor
+      - action: action_humor
+  - story: mal humor
+    steps:
+      - intent: consulta_mal_humor
+      - action: action_humor
+  - story: triste humor
+    steps:
+      - intent: consulta_triste_humor
+      - action: action_humor
+  - story: cansado humor
+    steps:
+      - intent: consulta_cansado_humor
+      - action: action_humor

@@ -1,0 +1,58 @@
+version: "3.1"
+
+nlu:
+  - intent: consulta_negar
+    examples: |
+      - no
+      - no gracias
+      - por ahora no
+      - negativo
+      - eso seria una negacion
+  - intent: consulta_afirmar
+    examples: |
+      - si
+      - probablemente
+      - eso seria una afirmacion
+      - es lo que esperaba
+      - normalmente asi es
+      - asi es
+      - es la costrumbre
+      - afirmativo
+      - supongo
+  - intent: consulta_feliz_humor
+    examples: |
+      - Estoy bien
+      - Ando de buen humor
+      - me esta llendo bien
+      - ando bien
+      - estoy bien
+      - estoy de buen humor
+      - estoy feliz
+  - intent: consulta_mal_humor
+    examples: |
+      - no ando muy bien
+      - no me esta llendo bien
+      - ando mal
+      - estoy mal
+      - no lo estoy llevando muy bien
+      - no ando de humor 
+      - no ando de buen humor
+      - no estoy del mejor humor
+  - intent: consulta_triste_humor
+    examples: |
+      - ando un poco triste
+      - estoy un toque triste
+      - ando un poco sad
+      - ando de bajon
+      - estoy bajon
+      - estoy triste
+      - no estoy en mi mejor momento
+  - intent: consulta_cansado_humor
+    examples: |
+      - ando agotado
+      - estoy cansado
+      - ando detonado
+      - estoy hecho pelota
+      - estoy destruido
+      - me mata todo
+      - hoy fue un dia largo

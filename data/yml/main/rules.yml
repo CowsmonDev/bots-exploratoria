@@ -10,3 +10,12 @@ rules:
   steps:
   - intent: consulta_bot_challenge
   - action: utter_iamabot
+
+- rule: que puede hacer este bot
+  steps:
+  - intent: consulta_que_puedes_hacer
+  - action: utter_que_puedes_hacer
+- rule: preguntar como estoy en todo momento
+  steps:
+  - intent: consulta_como_estas
+  - action: utter_como_estas

@@ -2,8 +2,13 @@ version: "3.1"
 
 # TODO: Estado de carrera
 # ? - agregar año de ingreso
-
+# como te va en la universidad en general
 stories:
+- story: consulta estado del cuatrimestre
+  steps:
+  - intent: consulta_como_te_fue_cuatrimestre
+  - action: utter_como_te_fue_cuatrimestre
+
 - story: consulta materias cursadas ### (check salida [doble]) Consulta Todas las cursadas en curso
   steps:
   - intent: consulta_materias_en_curso
