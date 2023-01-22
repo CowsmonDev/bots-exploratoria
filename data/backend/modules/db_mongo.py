@@ -66,7 +66,7 @@ def agregar_persona(persona: Persona):
     )
 
 
-def agregar_emociones(id_conversacion, datos: object):
+def modificar_emociones(id_conversacion, datos: object):
     collection.update_one(
         {ID_CONVERSACION: int(id_conversacion)},
         {"$set": {CONVERSACION_ANTERIOR: datos}},
@@ -88,9 +88,9 @@ def existe_persona(id_conversacion):
     return []
 
 
-def existe_atributo(id_conversacion):
-    persona = exist({ID_CONVERSACION: int(id_conversacion), CONVERSACION_ANTERIOR: {"$exists": "true"}})
+def get_emociones(id_conversacion):
+    persona = exist({ID_CONVERSACION: int(id_conversacion)})
     if persona:
-        return Persona(int(persona[ID_CONVERSACION]), str(persona[NOMBRE]), "", persona[PROFESION]), persona[
-            CONVERSACION_ANTERIOR]
+        for persona in persona:
+            return [persona[CONVERSACION_ANTERIOR]]
     return []

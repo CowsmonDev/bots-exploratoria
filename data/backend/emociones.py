@@ -3,7 +3,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, FollowupAction
-from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, existe_atributo, agregar_emociones
+from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, modificar_emociones
 
 
 class ActionHumor(Action):
@@ -19,12 +19,13 @@ class ActionHumor(Action):
         if id_conversacion == None:
             return [FollowupAction("action_saludar")]
         else:
-            agregar_emociones(id_conversacion, {
+            modificar_emociones(id_conversacion, {
                 "emociones": humor,
                 "fecha": date
             })
             profesion = tracker.get_slot("slot_profesion")
             if profesion == "Compañero":
+                print()
                 dispatcher.utter_message(response=f"utter_{humor}_humor")
                 dispatcher.utter_message(response="utter_excusa")
             else:

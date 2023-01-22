@@ -63,6 +63,14 @@ responses:
           \n - me puedes decir como estas..."
   utter_como_estas:
   - text: "He estado mejor pero voy bien por ahora"
+  utter_como_estas_triste:
+  - text: "Como estas, considerando nuestra ultima conversacion?"
+  utter_como_estas_feliz:
+  - text: "La ultima vez andabas feliz... seguis asi?"
+  utter_como_estas_cansado:
+  - text: "seguis cansado? o tu semana ya se tranquilizo?"
+  utter_como_estas_mal:
+  - text: "las cosas mejoraron desde la ultima vez?"
 
 session_config:
   session_expiration_time: 60
