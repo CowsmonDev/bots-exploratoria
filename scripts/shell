@@ -1,1 +1,1 @@
-cd ../ && rasa shell && cd ./scripts
+source ./venv/bin/activate && rasa shell

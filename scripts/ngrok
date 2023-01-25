@@ -1,1 +1,1 @@
-cd ../ && ngrok http 5005 && cd ./scripts && clear
+ngrok http 5005

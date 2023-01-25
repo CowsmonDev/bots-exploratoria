@@ -2,28 +2,30 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, FollowupAction
-from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, get_emociones, modificar_emociones
+from data.data_yo.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, get_emociones, modificar_emociones
 
 class ActionSaludar(Action):
     def name(self) -> Text:
         return "action_saludar"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        from_message = tracker.latest_message["metadata"]['message']['from']
-        id_conversacion = from_message["id"]
-        persona = existe_persona(id_conversacion)
+        if tracker.latest_message["metadata"]['message']['chat']['type'] != "group":
+            from_message = tracker.latest_message["metadata"]['message']['from']
+            id_conversacion = from_message["id"]
+            persona = existe_persona(id_conversacion)
 
-        if persona:
-            persona = persona[0]
-            return [
-                FollowupAction("action_ah_si"),
-                SlotSet("slot_nombre", persona.get_nombre()),
-                SlotSet("slot_profesion", persona.get_profesion()),
-                SlotSet('slot_id_conversacion', id_conversacion)
-            ]
-        else:
-            dispatcher.utter_message(response="utter_saludar")
-        return [SlotSet("slot_profesion", "Profesion")]
+            if persona:
+                persona = persona[0]
+                return [
+                    FollowupAction("action_ah_si"),
+                    SlotSet("slot_nombre", persona.get_nombre()),
+                    SlotSet("slot_profesion", persona.get_profesion()),
+                    SlotSet('slot_id_conversacion', id_conversacion)
+                ]
+            else:
+                dispatcher.utter_message(response="utter_saludar")
+            return [SlotSet("slot_profesion", "Profesion")]
+        return []
 
 class ActionAhSi(Action):
     def name(self) -> Text:
@@ -50,10 +52,10 @@ class ActionAhSi(Action):
             else:
                 dispatcher.utter_message(text=f"hola {nombre}, que pasa")
             res = get_emociones(id_conversacion)
-            if res:
-                res = res[0]
+            res = res[0]
+            if res is not None:
                 dispatcher.utter_message(response=f"utter_como_estas_{res['emociones']}")
-                modificar_emociones(id_conversacion, {})
+                modificar_emociones(id_conversacion, None)
         return [
             SlotSet("slot_profesion", profesion),
             SlotSet("slot_nombre", nombre),

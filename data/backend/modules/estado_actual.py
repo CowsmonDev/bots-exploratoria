@@ -1,4 +1,4 @@
-from data.backend.modules.operar_archivo import OperarArchivo
+from data.data_yo.backend.modules.operar_archivo import OperarArchivo
 
 
 def getFinalText(final):

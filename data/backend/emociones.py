@@ -2,8 +2,8 @@ import datetime
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet, FollowupAction
-from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, modificar_emociones
+from rasa_sdk.events import FollowupAction
+from data.data_yo.backend.modules.db_mongo import modificar_emociones
 
 
 class ActionHumor(Action):

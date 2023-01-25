@@ -1,8 +1,8 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from data.backend.modules.estado_actual import EstadoActual
-from data.backend.modules.historia import Historia
+from data.data_yo.backend.modules.estado_actual import EstadoActual
+from data.data_yo.backend.modules.historia import Historia
 from rasa_sdk.events import SlotSet
 
 
