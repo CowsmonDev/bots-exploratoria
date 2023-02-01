@@ -1,85 +1,92 @@
-from __future__ import print_function
-
 import datetime
 import os.path
+import pytz
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from data.backend.api.calendar.class_event import EventCalendar
 
-# If modifying these scopes, delete the file token.json.
+CALENDAR = '2649d24a5118ef5faca07a5c392114919a476fec13eb1002b8c6cf2fc43ea895@group.calendar.google.com'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
 def authorization():
-    """Shows basic usage of the Google Calendar API.
-    Prints the start and name of the next 10 events on the user's calendar.
-
-    """
     creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('authorization/token.json'):
-        creds = Credentials.from_authorized_user_file('authorization/token.json', SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
+    if os.path.exists('./authorization/token.json'):
+        creds = Credentials.from_authorized_user_file('./authorization/token.json', SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'authorization/credentials.json', SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file('authorization/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('authorization/token.json', 'w') as token:
+        with open('./authorization/token.json', 'w') as token:
             token.write(creds.to_json())
     return creds
 
 
+def authorization2():
+    creds = None
+    if os.path.exists('./authorization/token2.json'):
+        creds = Credentials.from_authorized_user_file('./authorization/token2.json', SCOPES)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file('authorization/credentials2.json', SCOPES)
+            creds = flow.run_local_server(port=0)
+        with open('./authorization/token2.json', 'w') as token:
+            token.write(creds.to_json())
+    return creds
+
+
+def get_service():
+    creds = authorization()
+    try:
+        service = build('calendar', 'v3', credentials=creds)
+        return service
+    except HttpError as error:
+        print('An error occurred: %s' % error)
+        return None
+
+
+def get_events_by_date(day, month, year):
+    event_date = f"{day}/{month}/{year}"
+    init_event_date_str = f'{event_date} 01:55:19'
+    init_event_date = datetime.datetime.strptime(init_event_date_str, '%d/%m/%Y %H:%M:%S')
+    init_event_date = pytz.UTC.localize(init_event_date).isoformat()
+
+    end_event_date_str = f"{event_date} 23:59:59"
+    end_event_date = datetime.datetime.strptime(end_event_date_str, '%d/%m/%Y %H:%M:%S')
+    end_event_date = pytz.UTC.localize(end_event_date).isoformat()
+
+    events_result = get_service().events().list(calendarId=CALENDAR, timeMin=init_event_date,
+                                                timeMax=end_event_date, timeZone="UTC").execute()
+    e = []
+    for event in events_result['items']:
+        e.append(EventCalendar(event))
+
+    events = events_result.get('items', [])
+    return e, events
+
+
 def get_calendars():
     page_token = None
-    creds = authorization()
     calendars = []
     while True:
-        service = build('calendar', 'v3', credentials=creds)
+        service = get_service()
         calendar_list = service.calendarList().list(pageToken=page_token).execute()
         for calendar_list_entry in calendar_list['items']:
-            c = calendar_list_entry['summary']
+            c = calendar_list_entry
             calendars.insert(len(calendars), c)
         page_token = calendar_list.get('nextPageToken')
         if not page_token:
             return calendars
 
 
-def main():
-    creds = authorization()
-    try:
-        service = build('calendar', 'v3', credentials=creds)
-
-        # Call the Calendar API
-        now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-        print('Getting the upcoming 10 events')
-        events_result = service.events().list(calendarId='primary', timeMin=now,
-                                                  maxResults=5, singleEvents=True,
-                                                  orderBy='startTime').execute()
-
-        events = events_result.get('items', [])
-
-        if not events:
-            print('No upcoming events found.')
-            return
-
-        # Prints the start and name of the next 10 events
-        for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
-
-    except HttpError as error:
-        print('An error occurred: %s' % error)
-
-
-if __name__ == '__main__':
-    main()
-    print(str(get_calendars()))
+# print(get_events_by_date(3, 2, 2022))
+# get_calendars()
+authorization2()

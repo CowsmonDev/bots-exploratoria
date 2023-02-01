@@ -39,25 +39,49 @@ nlu:
   examples: |
     - que les parece el [Lunes](fecha_semana)
     - que les parece el martes?
+    - que les parece el [Lunes](fecha_semana)?
     - que tal el Sabado?
+    - que tal el [Lunes](fecha_semana)?
     - y el fin de semana?
+    - y el [Lunes](fecha_semana)?
     - que tal el fin de semana?
     - o el domingo les pinta?
+    - o el [Lunes](fecha_semana) les pinta?
     - que tal el domingo?
     - lo podemos hacer el lunes?
     - yo estoy libre el miercoles
     - a mi no me molestaria hacerlo el viernes
     - les pinta el Viernes?
     - a mi me gusta el Jueves
-- intent: consulta_proponer_fecha_dia
-  examples: |
-    - a
-- intent: consulta_proponer_fecha_mes
-  examples: |
-    - a
+
 - intent: consulta_aceptan_fecha
   examples: |
-    - a
+    - a mi me va
+    - yo puedo
+    - me resulta conveniente
+    - me parece bien
+    - estoy libre
+    - me va
+    - puedo
+    - esta bien
+
 - intent: consulta_rechazan_fecha
   examples: |
-    - a
+    - yo no puedo
+    - a mi no me va
+    - yo estoy ocupado en esa fecha
+    - a mi no me va, estoy ocupado
+    - no puedo
+    - para mi no esta bien
+    - no me dan las fechas, no puedo
+    - a mi no me parece bien, no puedo en esa fecha
+
+- intent: consulta_pregunta_general
+  examples: |
+    - A que se refiere?
+    - Que les parece?
+    - Que hacemos ahora?
+    - Digan sus opiniones
+    - Que opinan?
+    - les Pinta?
+    - Que opinan de lo que se dijo?

@@ -3,7 +3,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction
-from data.data_yo.backend.modules.db_mongo import modificar_emociones
+from data.backend.modules.mongo_db.connection import Connection
+from data.backend.modules.mongo_db.object_sql import Persona
 
 
 class ActionHumor(Action):
@@ -19,7 +20,7 @@ class ActionHumor(Action):
         if id_conversacion == None:
             return [FollowupAction("action_saludar")]
         else:
-            modificar_emociones(id_conversacion, {
+            Connection().update_date(Persona(id_conversacion), {
                 "emociones": humor,
                 "fecha": date
             })

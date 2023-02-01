@@ -1,0 +1,9 @@
+{
+  "fecha_reunion": "",
+  "hora_reunion": "",
+  "asistencia_reunion": {
+    "id_conversacion": "string",
+    "cantidad_aceptantes" : "int",
+    "cantidad_rechazantes" : ""
+  }
+}

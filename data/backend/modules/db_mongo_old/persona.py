@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+from data.backend.modules.db_mongo_old.connection import Connection
 
 ID_CONVERSACION: str = "id_conversacion"
 NOMBRE: str = "nombre"
@@ -6,20 +6,6 @@ APELLIDO: str = "apellido"
 PROFESION: str = "profesion"
 CONVERSACION_ANTERIOR: str = "conversacion_anterior"
 COLLECTION_NAME = "personas"
-
-
-class Connection:
-    def __init__(self) -> None:
-        super().__init__()
-        self.host = "localhost"
-        self.port = "27017"
-        self.db_name = "bot-yo-db"
-        self.CONNECTION_STRING = f"mongodb://{self.host}:{self.port}"
-
-    def get_db(self):
-        client = MongoClient(self.CONNECTION_STRING)
-        return client[self.db_name]
-
 
 class Persona:
 

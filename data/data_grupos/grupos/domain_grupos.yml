@@ -13,7 +13,8 @@ actions:
   - action_aceptan_fecha
   - action_rechazan_fecha
 
-#entities:
+entities:
+  - fecha_semana
 
 responses:
   utter_aceptar_fecha:
