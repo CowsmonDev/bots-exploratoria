@@ -5,4 +5,4 @@ venv/
 __pycache__
 .rasa/*
 models/
-*/calendar/authorization
+data/backend/api/calendar/authorization/*

@@ -8,38 +8,17 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from data.backend.api.calendar.class_event import EventCalendar
+from google.oauth2 import service_account
 
-CALENDAR = '2649d24a5118ef5faca07a5c392114919a476fec13eb1002b8c6cf2fc43ea895@group.calendar.google.com'
+CALENDAR = 'd4s5ros6nltg432hsq6lmfhvlo@group.calendar.google.com'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
+FILE_PATH = 'authorization/bot-yo-369318-21a6102e96b7.json'
 
 
 def authorization():
-    creds = None
-    if os.path.exists('./authorization/token.json'):
-        creds = Credentials.from_authorized_user_file('./authorization/token.json', SCOPES)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file('authorization/credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        with open('./authorization/token.json', 'w') as token:
-            token.write(creds.to_json())
-    return creds
-
-
-def authorization2():
-    creds = None
-    if os.path.exists('./authorization/token2.json'):
-        creds = Credentials.from_authorized_user_file('./authorization/token2.json', SCOPES)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file('authorization/credentials2.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        with open('./authorization/token2.json', 'w') as token:
-            token.write(creds.to_json())
+    creds = service_account.Credentials.from_service_account_file(
+        filename=FILE_PATH, scopes=SCOPES
+    )
     return creds
 
 
@@ -53,24 +32,47 @@ def get_service():
         return None
 
 
-def get_events_by_date(day, month, year):
+def get_date(day: str, month: str, year: str, hour="00", minute="00", second="01"):
     event_date = f"{day}/{month}/{year}"
-    init_event_date_str = f'{event_date} 01:55:19'
-    init_event_date = datetime.datetime.strptime(init_event_date_str, '%d/%m/%Y %H:%M:%S')
-    init_event_date = pytz.UTC.localize(init_event_date).isoformat()
 
-    end_event_date_str = f"{event_date} 23:59:59"
-    end_event_date = datetime.datetime.strptime(end_event_date_str, '%d/%m/%Y %H:%M:%S')
-    end_event_date = pytz.UTC.localize(end_event_date).isoformat()
+    if (1 <= int(day) <= 31) and (1 <= int(month) <= 12) and (1 <= int(year)):
+        if (0 <= int(hour) <= 23) and (0 <= int(minute) <= 59) and (0 <= int(second) <= 59):
+            init_event_date_str = f'{event_date} {hour}:{minute}:{second}'
+            init_event_date = datetime.datetime.strptime(init_event_date_str, '%d/%m/%Y %H:%M:%S')
+            init_event_date = pytz.UTC.localize(init_event_date).isoformat()
+            return init_event_date
+    return None
 
-    events_result = get_service().events().list(calendarId=CALENDAR, timeMin=init_event_date,
-                                                timeMax=end_event_date, timeZone="UTC").execute()
-    e = []
-    for event in events_result['items']:
-        e.append(EventCalendar(event))
 
-    events = events_result.get('items', [])
-    return e, events
+def insert_event_by_date(summary: str, init_date: datetime.datetime, end_date: datetime.datetime):
+    if init_date and end_date:
+        event = {
+            'summary': summary,
+            'start': {
+                'dateTime': init_date
+            },
+            'end': {
+                'dateTime': end_date
+            }
+        }
+        e = get_service().events().insert(calendarId=CALENDAR, body=event).execute()
+        print(e)
+
+
+def get_events_by_date(day, month, year):
+    init_event_date = get_date(day, month, year)
+    if init_event_date is not None:
+        end_event_date = get_date(day, month, year, "23", "59", "59")
+
+        events_result = get_service().events().list(calendarId=CALENDAR, timeMin=init_event_date,
+                                                    timeMax=end_event_date, timeZone="UTC").execute()
+        e = []
+        for event in events_result['items']:
+            e.append(EventCalendar(event))
+
+        events = events_result.get('items', [])
+        return e, events
+    return [], []
 
 
 def get_calendars():
@@ -86,7 +88,11 @@ def get_calendars():
         if not page_token:
             return calendars
 
+def print_calendars():
+    calendars = get_calendars()
+    for calendar in calendars:
+        print(calendar)
 
-# print(get_events_by_date(3, 2, 2022))
-# get_calendars()
-authorization2()
+e, events = get_events_by_date("07", "02", "2023")
+for event in e:
+    print(event)
