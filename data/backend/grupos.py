@@ -5,7 +5,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, FollowupAction
 from datetime import datetime
 from data.backend.api.calendar.class_event import EventCalendar
-from data.backend.api.calendar.quickstart import get_events_by_date
+from data.backend.api.calendar.quickstart import get
 
 WEEK_DAYS = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']
 
@@ -29,10 +29,8 @@ class ActionProponerFecha(Action):
             fecha = WEEK_DAYS.index(fecha_semana)
             dispatcher.utter_message(fecha_semana)
             day, month, year = self.determinar_fecha(fecha)
+            get()
             print(f"dia: {day} \nMes: {month} \naño: {year}")
-            e, event = get_events_by_date(day, month, year)
-            for event in e:
-                print(event)
         else:
             dispatcher.utter_message(text="Perdon, que dia?")
         return []
