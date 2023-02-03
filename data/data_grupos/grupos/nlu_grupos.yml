@@ -54,6 +54,21 @@ nlu:
     - les pinta el Viernes?
     - a mi me gusta el Jueves
 
+- regex: entity_hour
+  examples: |
+    - ([0-1][0-9]|2[0,3]):[0-5][0-9]
+
+- intent: consulta_proponer_hora
+  examples: |
+    - que les parece a las [17:15](entity_hour)
+    - que tal a las [20:30](entity_hour)?
+    - y a las [23:00](entity_hour)?
+    - o a las [00:01](entity_hour) les pinta?
+    - lo podemos hacer [23:59](entity_hour)?
+    - yo estoy libre a las [03:10](entity_hour)?
+    - a mi no me molestaria hacerlo a las [15:32](entity_hour)?
+    - les pinta a las [17:05](entity_hour)?
+    - a mi me gusta a las [17:05](entity_hour)?
 - intent: consulta_aceptan_fecha
   examples: |
     - a mi me va

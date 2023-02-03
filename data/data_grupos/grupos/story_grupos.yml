@@ -13,6 +13,11 @@ stories:
       - intent: consulta_proponer_fecha_mes
   - action: action_proponer_fecha
 
+- story: proponer hora
+  steps:
+  - intent: consulta_proponer_hora
+  - action: action_proponer_hora
+
 - story: aceptan fecha
   steps:
   - intent: consulta_aceptan_fecha

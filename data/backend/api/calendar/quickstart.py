@@ -45,6 +45,7 @@ class Calendar:
 
     @staticmethod
     def get_events_by_date(init_date: Date):
+        e = []
         if init_date.is_valid():
             events_result = Authentication.get_service().events().list(calendarId=Calendar.CALENDAR,
                                                                        timeMin=init_date.get_date(),
@@ -52,14 +53,33 @@ class Calendar:
                                                                                     init_date.year, 23, 59,
                                                                                     29).get_date(),
                                                                        timeZone="UTC").execute()
-            e = []
             for event in events_result['items']:
                 e.append(EventCalendar(event['summary'],
                                        Date.text_to_date(event['start']['dateTime']),
                                        Date.text_to_date(event['end']['dateTime'])
                                        ))
-            return e
-        return []
+        return e
+
+    @staticmethod
+    def get_conflicts_events(evt: EventCalendar, day_check: Date):
+        e = []
+        if day_check.is_valid():
+            events_result = Authentication.get_service().events().list(calendarId=Calendar.CALENDAR,
+                                                                       timeMin=day_check.get_date(),
+                                                                       timeMax=Date(day_check.day, day_check.month,
+                                                                                    day_check.year, 23, 59,
+                                                                                    29).get_date(),
+                                                                       timeZone="UTC").execute()
+            for event in events_result['items']:
+                new_event = EventCalendar(event['summary'], Date.text_to_date(event['start']['dateTime']), Date.text_to_date(event['end']['dateTime']))
+                if evt.conflicts_date(new_event):
+                    e.append(new_event)
+        return e
+
+    """
+        si la fecha inferior del que viene, es menor que que la fecha final del que esta
+        y si la fecha superior del que viene, es mayor que la fecha inicial del que esta
+    """
 
     @staticmethod
     def print_events(events):
@@ -79,8 +99,3 @@ class Calendar:
             page_token = calendar_list.get('nextPageToken')
             if not page_token:
                 return calendars
-
-
-def get():
-    e = Calendar.get_events_by_date(Date(7, 2, 2023))
-    Calendar.print_events(e)

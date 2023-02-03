@@ -18,7 +18,8 @@ class Date:
         date_split = date.split('T')
         start = date_split[0].split('-')
         end = date_split[1].split('-')[0].split(':')
-        return Date(int(start[2]),int(start[1]), int(start[0]), int(end[0]) - 3, int(end[1]), int(end[2].split('Z')[0]))
+        return Date(int(start[2]), int(start[1]), int(start[0]), int(end[0]) - 3, int(end[1]),
+                    int(end[2].split('Z')[0]))
 
     def get_date(self):
         if (1 <= int(self.day) <= 31) and (1 <= int(self.month) <= 12) and (1 <= int(self.year)):
@@ -30,6 +31,21 @@ class Date:
 
     def is_valid(self) -> bool:
         return self.get_date() is not None
+
+    def to_compare(self, other):
+        if self.year == other.year:
+            if self.month == other.month:
+                if self.day == other.day:
+                    if self.hour == other.hour:
+                        if self.minute == other.minute:
+                            if self.second == other.second:
+                                return True, True
+                            return False, self.second < other.second
+                        return False, self.minute < other.minute
+                    return False, self.hour < other.hour
+                return False, self.day < other.day
+            return False, self.month < other.month
+        return False, self.year < other.year
 
     @staticmethod
     def __format_date(value: int) -> str:
@@ -67,3 +83,10 @@ class EventCalendar:
                 'dateTime': self.end_date.get_date()
             }
         }
+
+    def conflicts_date(self, evt):
+        equals_init, less_init = self.init_date.to_compare(evt.end_date)
+        equals_end, less_end = self.end_date.to_compare(evt.init_date)
+        if not (equals_init or equals_end):
+            return less_init and not less_end
+        return True
