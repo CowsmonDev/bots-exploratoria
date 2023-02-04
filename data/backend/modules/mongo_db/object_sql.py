@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from data.backend.api.calendar.class_event import Date
+
 
 class ObjectSQL(ABC):
 
@@ -7,7 +9,7 @@ class ObjectSQL(ABC):
         super().__init__()
 
     @abstractmethod
-    def to_string(self):
+    def __str__(self) -> str:
         pass
 
     @abstractmethod
@@ -25,6 +27,7 @@ class ObjectSQL(ABC):
     @abstractmethod
     def get_collection_name(self):
         pass
+
     @abstractmethod
     def get_object(self, persona):
         pass
@@ -49,7 +52,7 @@ class Persona(ObjectSQL):
     def get_sql_keys(self):
         return {Persona.ID_CONVERSACION: self.__id_conversacion}
 
-    def to_string(self):
+    def __str__(self) -> str:
         return f"{Persona.ID_CONVERSACION}: {self.__id_conversacion} \n{Persona.NOMBRE}: {self.__nombre} \n{Persona.APELLIDO}: {self.__apellido} \n{Persona.PROFESION}: {self.__profesion}\n {Persona.CONVERSACION_ANTERIOR}: {self.__conversacion_anterior}"
 
     def to_array(self):
@@ -78,3 +81,37 @@ class Persona(ObjectSQL):
             )
             return p
         return persona
+
+
+class EventoGrupos(ObjectSQL):
+    ID_CONVERSACION_PROPUESTA = "id_conversacion_propuesta"
+    FECHA_REUNION = "fecha_reunion"
+    HORA_REUNION = "hora_reunion"
+    CANTIDAD_ASISTENCIAS = "cantidad_asistencias"
+    PERSONAS = "personas"
+
+    def __init__(self, id_conversacion_propuesta, fecha: Date, cantidad_asistencias, personas=None) -> None:
+        super().__init__()
+        self.__dia = f"{fecha.year}/{fecha.month}/{fecha.day}"
+        self.__hora = f"{fecha.hour}:{fecha.minute}:{fecha.second}"
+        self.__id_conversacion_propuesta = f"{id_conversacion_propuesta}-{self.__dia}-{self.__hora}"
+        self.cantidad_asistencias = cantidad_asistencias
+        self.personas = personas if personas is not None else []
+
+    def __str__(self) -> str:
+        return f"{EventoGrupos.ID_CONVERSACION_PROPUESTA}: {self.__id_conversacion_propuesta}\n{EventoGrupos.FECHA_REUNION}: {self.fecha}\n{EventoGrupos.CANTIDAD_ASISTENCIAS}: {self.cantidad_asistencias}\n{EventoGrupos.PERSONAS}: {self.personas}"
+
+    def get_sql_keys(self):
+        return {EventoGrupos.ID_CONVERSACION_PROPUESTA: self.__id_conversacion_propuesta}
+
+    def to_array(self):
+        return [self.__id_conversacion_propuesta, self.cantidad_asistencias, self.personas]
+
+    def to_json(self):
+        return {EventoGrupos.ID_CONVERSACION_PROPUESTA: self.__id_conversacion_propuesta, EventoGrupos.CANTIDAD_ASISTENCIAS: self.cantidad_asistencias, EventoGrupos.PERSONAS: self.personas}
+
+    def get_collection_name(self):
+        pass
+
+    def get_object(self, persona):
+        pass

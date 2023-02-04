@@ -84,15 +84,19 @@ class ActionProponerHora(Action):
 
 class ActionAceptarFecha(Action):
     def name(self) -> Text:
-        return "action_aceptar_fecha"
+        return "action_aceptan_fecha"
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
+        from_message = tracker.latest_message["metadata"]['message']
+        reply = from_message['reply_to_message']
+        #from_message = tracker.latest_message["metadata"]['reply_to_message']
+        print(reply)
         return []
 
 
 class ActionRechazarFecha(Action):
     def name(self) -> Text:
-        return "action_rechazar_fecha"
+        return "action_rechazan_fecha"
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
         return []

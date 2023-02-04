@@ -1,9 +1,10 @@
 {
+  "id_conversacion_propuesta": "",
   "fecha_reunion": "",
   "hora_reunion": "",
-  "asistencia_reunion": {
+  "cantidad_asistencia": "int",
+  "personas" : [{
     "id_conversacion": "string",
-    "cantidad_aceptantes" : "int",
-    "cantidad_rechazantes" : ""
-  }
+    "asiste" : "boolean"
+  }]
 }

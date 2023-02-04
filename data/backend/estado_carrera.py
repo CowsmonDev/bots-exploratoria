@@ -74,8 +74,7 @@ class ActionComoVenisConEso(Action):
     def name(self) -> Text:
         return "action_como_venis_con_eso"
 
-    def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[
-        Dict[Text, Any]]:
+    def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
         materia = tracker.get_slot("slot_materia_estado")
         print(f"como venis con eso: {materia}")
         if materia == "materias":
@@ -91,6 +90,7 @@ class ActionComoVenisConEso(Action):
                 dispatcher.utter_message(text=str(res))
         else:
             dispatcher.utter_message(text="Perdon, de que estas hablando?")
+        return[]
 
 
 # TODO: Historia
