@@ -20,10 +20,10 @@ class ActionHumor(Action):
         if id_conversacion == None:
             return [FollowupAction("action_saludar")]
         else:
-            Connection().update_date(Persona(id_conversacion), {
+            Connection().update(Persona(id_conversacion), {Persona.CONVERSACION_ANTERIOR:{
                 "emociones": humor,
                 "fecha": date
-            })
+            }})
             profesion = tracker.get_slot("slot_profesion")
             if profesion == "Compañero":
                 print()

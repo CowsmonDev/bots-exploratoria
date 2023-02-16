@@ -55,8 +55,8 @@ class Calendar:
                                                                        timeZone="UTC").execute()
             for event in events_result['items']:
                 e.append(EventCalendar(event['summary'],
-                                       Date.text_to_date(event['start']['dateTime']),
-                                       Date.text_to_date(event['end']['dateTime'])
+                                       Date.text_format_to_date(event['start']['dateTime']),
+                                       Date.text_format_to_date(event['end']['dateTime'])
                                        ))
         return e
 
@@ -71,7 +71,7 @@ class Calendar:
                                                                                     29).get_date(),
                                                                        timeZone="UTC").execute()
             for event in events_result['items']:
-                new_event = EventCalendar(event['summary'], Date.text_to_date(event['start']['dateTime']), Date.text_to_date(event['end']['dateTime']))
+                new_event = EventCalendar(event['summary'], Date.text_format_to_date(event['start']['dateTime']), Date.text_format_to_date(event['end']['dateTime']))
                 if evt.conflicts_date(new_event):
                     e.append(new_event)
         return e

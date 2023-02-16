@@ -25,6 +25,10 @@ slots:
     type: text
     mappings:
       - type: custom
+  slot_hora_optativa:
+    type: text
+    mappings:
+      - type: custom
 
 responses:
   utter_aceptar_fecha:
@@ -34,7 +38,7 @@ responses:
   utter_rechazar_fecha:
   - text: "Perdon chicos pero esa fecha no puedo"
   - text: "Yo no estoy disponible esa fecha"
-  - text: "Pero chivos, yo no puedo es fecha"
+  - text: "Pero chicos, yo no puedo es fecha"
   - text: "No se puede otra fecha? esa no puedo"
 
 session_config:

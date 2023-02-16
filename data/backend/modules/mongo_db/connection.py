@@ -20,21 +20,20 @@ class Connection:
         collections = self.get_db()[object.get_collection_name()]
         collections.insert_one(object.to_json())
 
-    def update_date(self, element: ObjectSQL, date: object):
+    def update(self, element: ObjectSQL, date: object = None):
         collection = self.get_db()[element.get_collection_name()]
+        if date is None:
+            date = element.to_json()
         collection.update_one(
-            {element.get_sql_keys()},
+            element.get_sql_keys(),
             {"$set": date},
             upsert=True
         )
 
-    def update(self, element: ObjectSQL):
-        self.update_date(element, element.to_json())
-
     def exist(self, element: ObjectSQL):
         collection = self.get_db()[element.get_collection_name()]
-        obj = collection.find_one(element.get_sql_keys())
-        obj = element.get_object(obj)
-        if obj is None:
-            return []
-        return [obj]
+        cursor = collection.find(element.get_sql_keys())
+        for c in cursor:
+            obj = element.get_object(c)
+            return [obj]
+        return []

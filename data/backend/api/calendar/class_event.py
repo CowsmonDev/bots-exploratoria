@@ -14,12 +14,40 @@ class Date:
         self.second = second
 
     @staticmethod
-    def text_to_date(date):
+    def text_format_to_date(date):
         date_split = date.split('T')
         start = date_split[0].split('-')
         end = date_split[1].split('-')[0].split(':')
         return Date(int(start[2]), int(start[1]), int(start[0]), int(end[0]) - 3, int(end[1]),
                     int(end[2].split('Z')[0]))
+
+
+    @staticmethod
+    def text_to_date(day, hours=None):
+        """convierte dos valores en texto pasados por parametro a un objeto de tipo Date
+
+        Args:
+            day: fecha con el formato dd-mm-yy
+            hours: hora con el formato hh:mm:ss
+        Returns:
+            una instancia de objeto Date con esos valores introducidos
+        """
+        day_split = day.split('-')
+        new_date = Date(int(day_split[0]), int(day_split[1]), int(day_split[2]))
+        if hours is not None:
+            if ":" in hours:
+                hours_split = hours.split(':')
+                new_date.hour = hours_split[0]
+                new_date.minute = hours_split[1]
+                if len(hours_split) == 3:
+                    new_date.second = hours_split[2]
+            else:
+                new_date.hour = int(hours)
+        return new_date
+
+    @staticmethod
+    def copy_date(date):
+        return Date(date.day, date.month, date.year, date.hour, date.minute, date.second)
 
     def get_date(self):
         if (1 <= int(self.day) <= 31) and (1 <= int(self.month) <= 12) and (1 <= int(self.year)):

@@ -44,7 +44,7 @@ class ActionAhSi(Action):
         profesion = str(tracker.get_slot("slot_profesion"))
 
         # TODO: si no existia el usuario en la base de datos lo registra
-        if not res[0]:
+        if len(res) == 0:
             dispatcher.utter_message(text="Ah... si\n")
             Connection().insert_one(Persona(id_conversacion, nombre, "", profesion))
 
@@ -56,9 +56,11 @@ class ActionAhSi(Action):
             else:
                 dispatcher.utter_message(text=f"hola {nombre}, que pasa")
 
-            if res[0]:
-                dispatcher.utter_message(response=f"utter_como_estas_{res[0].to_json()[Persona.CONVERSACION_ANTERIOR]['emociones']}")
-                Connection().update_date(Persona(id_conversacion, nombre, "", profesion))
+            if len(res) > 0:
+                conversacion_anterior = res[0].to_json()[Persona.CONVERSACION_ANTERIOR]
+                if 'emociones' in conversacion_anterior:
+                    dispatcher.utter_message(response=f"utter_como_estas_{res[0].to_json()[Persona.CONVERSACION_ANTERIOR]['emociones']}")
+                    Connection().update(Persona(id_conversacion, nombre, "", profesion))
         return [
             SlotSet("slot_profesion", profesion),
             SlotSet("slot_nombre", nombre),
