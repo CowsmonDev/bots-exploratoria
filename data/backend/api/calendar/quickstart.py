@@ -1,14 +1,19 @@
-import datetime
+import json
+from datetime import datetime, timedelta, date, time
 import os.path
 from typing import Any
+from zoneinfo import ZoneInfo
 
+import pytz as pytz
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from data.backend.api.calendar.class_event import EventCalendar, Date
+from data.backend.api.calendar.class_event import EventCalendar
 from google.oauth2 import service_account
+
+from data.backend.modules.DateTime import DateTime
 
 
 class Authentication:
@@ -37,54 +42,65 @@ class Calendar:
     CALENDAR = 'd4s5ros6nltg432hsq6lmfhvlo@group.calendar.google.com'
 
     @staticmethod
-    def insert_event_by_date(new_event: EventCalendar):
-        if new_event.get_init_date and new_event.get_end_date:
-            e = Authentication.get_service().events().insert(calendarId=Calendar.CALENDAR,
-                                                             body=new_event.to_json()).execute()
-            print(e)
+    def get_events(calendar_id, init_date: DateTime, end_date: DateTime, time_zone):
+        events_result = Authentication.get_service().events().list(calendarId=calendar_id,
+                                                                   timeMin=init_date.format_date_tz(),
+                                                                   timeMax=end_date.format_date_tz(),
+                                                                   timeZone=time_zone).execute()
+        return events_result
 
     @staticmethod
-    def get_events_by_date(init_date: Date):
+    def get_events_by_date(date_search: date):
         e = []
-        if init_date.is_valid():
-            events_result = Authentication.get_service().events().list(calendarId=Calendar.CALENDAR,
-                                                                       timeMin=init_date.get_date(),
-                                                                       timeMax=Date(init_date.day, init_date.month,
-                                                                                    init_date.year, 23, 59,
-                                                                                    29).get_date(),
-                                                                       timeZone="UTC").execute()
-            for event in events_result['items']:
-                e.append(EventCalendar(event['summary'],
-                                       Date.text_format_to_date(event['start']['dateTime']),
-                                       Date.text_format_to_date(event['end']['dateTime'])
-                                       ))
+        init_date = DateTime(datetime(date_search.year, date_search.month, date_search.day, 0, 0, 1))
+        end_date = DateTime(datetime(date_search.year, date_search.month, date_search.day, 23, 59, 29))
+
+        events_result = Calendar.get_events(Calendar.CALENDAR, init_date, end_date, "UTC")
+
+        for event in events_result['items']:
+            e.append(EventCalendar(event['summary'],
+                                   DateTime.string_to_datetime(event['start']['dateTime'], "%Y-%m-%dT%H:%M:%Sz"),
+                                   DateTime.string_to_datetime(event['end']['dateTime'], "%Y-%m-%dT%H:%M:%Sz")
+                                   ))
         return e
 
     @staticmethod
-    def get_conflicts_events(evt: EventCalendar, day_check: Date):
+    def get_conflicts_events(evt: EventCalendar, day_check: date):
         e = []
-        if day_check.is_valid():
-            events_result = Authentication.get_service().events().list(calendarId=Calendar.CALENDAR,
-                                                                       timeMin=day_check.get_date(),
-                                                                       timeMax=Date(day_check.day, day_check.month,
-                                                                                    day_check.year, 23, 59,
-                                                                                    29).get_date(),
-                                                                       timeZone="UTC").execute()
-            for event in events_result['items']:
-                new_event = EventCalendar(event['summary'], Date.text_format_to_date(event['start']['dateTime']), Date.text_format_to_date(event['end']['dateTime']))
-                if evt.conflicts_date(new_event):
-                    e.append(new_event)
+        init_date = DateTime.date_to_datetime(day_check)
+        end_date = DateTime.date_to_datetime(day_check, time.max)
+
+        events_result = Calendar.get_events(Calendar.CALENDAR, init_date, end_date, "UTC")
+
+        for event in events_result['items']:
+            new_event = EventCalendar(
+                event['summary'],
+                DateTime.string_to_datetime(event['start']['dateTime'], "%Y-%m-%dT%H:%M:%Sz"),
+                DateTime.string_to_datetime(event['end']['dateTime'], "%Y-%m-%dT%H:%M:%Sz")
+            )
+            if evt.conflicts_date(new_event):
+                e.append(new_event)
+        return e
+
+    @staticmethod
+    def get_events_week(date_now: date):
+        e = []
+        init_date = DateTime.date_to_datetime(date_now)
+        end_date = DateTime.date_to_datetime((date_now + timedelta(days=7)), time.max)
+
+        events_result = Calendar.get_events(Calendar.CALENDAR, init_date, end_date, "UTC")
+
+        for event in events_result['items']:
+            e.append(EventCalendar(event['summary'],
+                                   DateTime.string_to_datetime(event['start']['dateTime'], "%Y-%m-%dT%H:%M:%Sz"),
+                                   DateTime.string_to_datetime(event['end']['dateTime'], "%Y-%m-%dT%H:%M:%Sz")
+                                   ))
         return e
 
     """
         si la fecha inferior del que viene, es menor que que la fecha final del que esta
         y si la fecha superior del que viene, es mayor que la fecha inicial del que esta
     """
-
-    @staticmethod
-    def print_events(events):
-        for event in events:
-            print(event)
 
     @staticmethod
     def get_calendars():
@@ -99,3 +115,10 @@ class Calendar:
             page_token = calendar_list.get('nextPageToken')
             if not page_token:
                 return calendars
+
+    @staticmethod
+    def insert_event_by_date(new_event: EventCalendar):
+        if new_event.get_init_date and new_event.get_end_date:
+            e = Authentication.get_service().events().insert(calendarId=Calendar.CALENDAR,
+                                                             body=new_event.to_json()).execute()
+            print(e)

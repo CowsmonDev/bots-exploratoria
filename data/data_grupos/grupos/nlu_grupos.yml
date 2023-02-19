@@ -24,6 +24,7 @@ nlu:
     - Fin De semana
     - fin de Semana
 
+
 - intent: consulta_iniciar_planificacion
   examples: |
     - podriamos empezar a organizar la fecha
@@ -35,6 +36,8 @@ nlu:
     - cuando hacemos la reunion?
     - que dia hacemos la reunion?
     - hay que ver la fecha para la reunion
+
+
 - intent: consulta_proponer_fecha_semana
   examples: |
     - que les parece el [Lunes](fecha_semana)
@@ -54,6 +57,7 @@ nlu:
     - les pinta el Viernes?
     - a mi me gusta el Jueves
 
+
 - regex: entity_hour
   examples: |
     - ([0-1][0-9]|2[0,3]):[0-5][0-9]
@@ -69,16 +73,84 @@ nlu:
     - a mi no me molestaria hacerlo a las [15:32](entity_hour)?
     - les pinta a las [17:05](entity_hour)?
     - a mi me gusta a las [17:05](entity_hour)?
+    - Podemos vernos a las [10:04](entity_hour)?
+    - les parece bien si nos encontramos a las [10:20](entity_hour)?
+    - ¿Pueden acomodarse para quedar a las [02:10](entity_hour)?
+    - ¿Les parece bien quedar a las [10:00] (entity_hour) horas de la mañana?
+    - ¿Podemos acordar reunirnos a las [14:00] (entity_hour) horas?
+    - ¿Les parece si nos encontramos a las [18:30] (entity_hour) horas?
+    - ¿Les va bien si quedamos a las [22:00] (entity_hour) horas?
+    - ¿Les parece si nos reunimos a las [12:00] (entity_hour) horas de la tarde?
+    - ¿Están disponibles a las [16:00] (entity_hour) horas para reunirnos?
+    - ¿Qué tal si nos encontramos a las [19:00] (entity_hour) horas?
+    - ¿Les va bien a las [11:30] (entity_hour) horas de la mañana para reunirnos?
+    - ¿Les parece si nos vemos a las [15:00] (entity_hour) horas?
+    - ¿Qué tal si nos encontramos a las [20:00] (entity_hour) horas de la noche?
+    - ¿Les conviene a las [9:00] (entity_hour) horas de la mañana para reunirnos?
+    - ¿Podemos fijar una hora para reunirnos, por ejemplo a las [17:00] (entity_hour) horas?
+    - ¿Les va bien a las [13:30] (entity_hour) horas de la tarde para vernos?
+    - ¿Qué tal si nos encontramos a las [21:00] (entity_hour) horas de la noche?
+    - ¿Les parece si quedamos a las [10:30] (entity_hour) horas de la mañana?
+    - ¿Les va bien reunirnos a las [14:30] (entity_hour) horas de la tarde?
+    - ¿Están disponibles a las [18:00] (entity_hour) horas para reunirnos?
+    - ¿Les conviene a las [12:00] (entity_hour) horas de la tarde para vernos?
+    - ¿Les parece si nos encontramos a las [19:30] (entity_hour) horas?
+    - ¿Qué tal si nos reunimos a las [21:30] (entity_hour) horas de la noche?
+
+
+
+- intent: consulta_proponer_fecha_hora
+  examples: |
+    - que les parece el [Lunes](fecha_semana) a las [17:15](entity_hour)
+    - que les parece el martes a las [20:30](entity_hour)?
+    - que les parece el [Lunes](fecha_semana) a las [23:00](entity_hour)?
+    - que tal el Sabado a las [00:01](entity_hour)?
+    - que tal el [Lunes](fecha_semana) a las [23:59](entity_hour)?
+    - y el fin de semana a las [03:10](entity_hour)?
+    - y el [Lunes](fecha_semana) a las [15:32](entity_hour)?
+    - o el domingo les pinta a las [17:05](entity_hour)?
+    - o el [Lunes](fecha_semana) les pinta a las [17:05](entity_hour)?
+    - ¿Qué les parece si nos reunimos el [lunes] (fecha_semana) a las [16:00] (entity_hour) horas?
+    - ¿Podemos fijar una reunión el [martes] (fecha_semana) a las [18:30] (entity_hour)?
+    - ¿Les va bien si nos encontramos el [miércoles] (fecha_semana) a las [11:00] (entity_hour) horas?
+    - ¿Están disponibles para una reunión el [jueves] (fecha_semana) a las [14:00] (entity_hour) horas?
+    - ¿Qué les parece si nos vemos el [viernes] (fecha_semana) a las [10:30] (entity_hour) horas?
+    - ¿Podemos agendar una reunión el [sábado] (fecha_semana) a las [13:00] (entity_hour) horas?
+    - ¿Les parece bien reunirnos el [domingo] (fecha_semana) a las [17:00] (entity_hour) horas?
+    - ¿Qué tal si nos encontramos el [lunes] (fecha_semana) a las [15:30] (entity_hour) horas?
+    - ¿Están disponibles para una llamada el [martes] (fecha_semana) a las [12:00] (entity_hour) horas?
+    - ¿Les parece bien reunirnos el [miércoles] (fecha_semana) a las [19:00] (entity_hour) horas?
+    - ¿Qué les parece si nos vemos el [jueves] (fecha_semana) a las [9:30] (entity_hour) horas?
+    - ¿Podemos agendar una reunión el [viernes] (fecha_semana) a las [11:30] (entity_hour) horas?
+    - ¿Les parece bien reunirnos el [sábado] (fecha_semana) a las [16:00] (entity_hour) horas?
+    - ¿Qué tal si nos encontramos el [domingo] (fecha_semana) a las [14:00] (entity_hour) horas?
+    - ¿Están disponibles para una llamada el [lunes] (fecha_semana) a las [10:00] (entity_hour) horas?
+    - ¿Les parece bien reunirnos el [martes] (fecha_semana) a las [17:00] (entity_hour) horas?
+    - ¿Qué les parece si nos vemos el [miércoles] (fecha_semana) a las [12:30] (entity_hour) horas?
+    - ¿Podemos agendar una reunión el [jueves] (fecha_semana) a las [16:00] (entity_hour) horas?
+    - ¿Les parece bien reunirnos el [viernes] (fecha_semana) a las [15:00] (entity_hour) horas?
+    - ¿Qué tal si nos encontramos el [sábado] (fecha_semana) a las [11:00] (entity_hour) horas?
+
+
+
 - intent: consulta_aceptan_fecha
   examples: |
     - a mi me va
     - yo puedo
-    - me resulta conveniente
-    - me parece bien
-    - estoy libre
-    - me va
-    - puedo
-    - esta bien
+    - ¡Dale! Estoy ahí.
+    - Perfecto, ¡me sumo!
+    - Ok, me prendo.
+    - Perfecto, me funciona ese día y hora.
+    - De acuerdo, lo anoto en mi agenda.
+    - Genial, cuento con estar allí.
+    - Ok, lo tengo libre en mi calendario.
+    - Sí, ese día/hora me queda bien.
+    - Excelente, estaré disponible para esa reunión.
+    - Me parece bien, no tengo otra cosa programada.
+    - Confirmo mi asistencia a esa fecha/hora.
+    - Acepto la invitación, gracias por programarlo.
+    - Sin problemas, ese día/hora me funciona bien.
+
 
 - intent: consulta_rechazan_fecha
   examples: |
@@ -90,6 +162,33 @@ nlu:
     - para mi no esta bien
     - no me dan las fechas, no puedo
     - a mi no me parece bien, no puedo en esa fecha
+    - No puedo, tengo otro compromiso.
+    - Ese día no estoy disponible.
+    - Me gustaría, pero no puedo comprometerme.
+    - No va a ser posible en esa fecha.
+    - Me temo que no puedo en ese horario.
+    - No estaré disponible en ese momento.
+    - Tengo una reunión previamente programada.
+    - No podré asistir en esa fecha y hora.
+    - Me temo que no podré hacerlo.
+
+
+- intent: consulta_estado_fecha
+  examples: |
+    - al final que paso con esa fecha?
+    - ya todos dijeron si pueden o no?
+    - quien falta confirmar?
+    - ya confirmo todo el mundo?
+    - ya confirmaron todos?
+    - alguien nos falta confirmar?
+    - alguien nos falta decir si puede o no?
+    - se queda esa fecha?
+    - como va la planificacion?
+    - como va la organizacion?
+    - como va la organizacion de la reunion?
+    - como va la organizacion de la fecha?
+    - como va la organizacion de la fecha de la reunion?
+
 
 - intent: consulta_pregunta_general
   examples: |

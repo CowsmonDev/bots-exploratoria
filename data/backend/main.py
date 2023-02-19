@@ -2,7 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, FollowupAction
-from data.backend.modules.mongo_db.object_sql import Persona
+from data.backend.modules.mongo_db.object_sql.persona import Persona
 from data.backend.modules.mongo_db.connection import Connection
 
 

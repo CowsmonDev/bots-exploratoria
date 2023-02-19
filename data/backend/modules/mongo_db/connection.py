@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-from data.backend.modules.mongo_db.object_sql import ObjectSQL
+from data.backend.modules.mongo_db.object_sql.object_sql import ObjectSQL
 
 
 class Connection:

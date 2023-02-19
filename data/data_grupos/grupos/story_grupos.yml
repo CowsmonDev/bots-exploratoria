@@ -18,6 +18,12 @@ stories:
   - intent: consulta_proponer_hora
   - action: action_proponer_hora
 
+- story: proponer_fecha_hora
+  steps:
+  - intent: consulta_proponer_fecha_hora
+  - action: action_proponer_fecha
+  - action: action_proponer_hora
+
 - story: aceptan fecha
   steps:
   - intent: consulta_aceptan_fecha
@@ -27,3 +33,8 @@ stories:
   steps:
   - intent: consulta_rechazan_fecha
   - action: action_rechazan_fecha #si nadie propone, proponer yo
+
+- story: estado fecha
+  steps:
+  - intent: consulta_estado_fecha
+  - action: action_estado_fecha
