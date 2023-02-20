@@ -137,6 +137,7 @@ nlu:
   examples: |
     - a mi me va
     - yo puedo
+    - yo al final puedo
     - ¡Dale! Estoy ahí.
     - Perfecto, ¡me sumo!
     - Ok, me prendo.
@@ -155,6 +156,7 @@ nlu:
 - intent: consulta_rechazan_fecha
   examples: |
     - yo no puedo
+    - yo al final no puedo
     - a mi no me va
     - yo estoy ocupado en esa fecha
     - a mi no me va, estoy ocupado

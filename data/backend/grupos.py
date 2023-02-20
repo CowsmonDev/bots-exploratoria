@@ -34,8 +34,8 @@ class ActionProponerFecha(Action):
         fecha_semana = next(tracker.get_latest_entity_values('fecha_semana'), None)
         if fecha_semana in WEEK_DAYS:
             fecha = WEEK_DAYS.index(fecha_semana)
-            day, month, year = self.determinar_fecha(fecha)
-            date = f"{str(day)}-{str(month)}-{str(year)}"
+            dt = self.determinar_fecha(fecha)
+            date = f"{str(dt.day)}-{str(dt.month)}-{str(dt.year)}"
             if tracker.latest_message['intent']['name'] == 'consulta_proponer_fecha_semana':
                 dispatcher.utter_message(text="y a que hora?")
             return [SlotSet('slot_fecha_optativa', date)]
@@ -43,24 +43,12 @@ class ActionProponerFecha(Action):
             dispatcher.utter_message(text="Perdon, que dia?")
         return []
 
-    def determinar_fecha(self, fecha_semana):
+    def determinar_fecha(self, fecha_semana) -> datetime:
         dt = datetime.now()
         day_week = dt.weekday()
-
-        day = dt.day
-        month = dt.month
-        year = dt.year
-
-        day = (day + (7 - day_week) + fecha_semana) if (fecha_semana - day_week < 0) \
-            else day + (fecha_semana - day_week)
-
-        if day > 31:
-            day -= 31
-            month += 1
-            if month > 12:
-                month -= 12
-                year += 1
-        return day, month, year
+        ### calculo cuantos dias faltan para el dia de la semana a partir de hoy (consultando si el dia ya paso o esta dentro de la semana)
+        day_increment = (7 - day_week) + fecha_semana if fecha_semana - day_week < 0 else fecha_semana - day_week
+        return dt + timedelta(days=day_increment)
 
 
 class ActionProponerHora(Action):
@@ -114,24 +102,23 @@ class ActionAceptarFecha(Action):
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
         ### obtengo la fecha y datos pertinentes sobre la reunion hablada
-        from_message = tracker.latest_message["metadata"]['message']['from']
-        from_chat = tracker.latest_message["metadata"]['message']['chat']
+        from_message = str(tracker.latest_message["metadata"]['message']['from']['id'])
+        from_chat = str(tracker.latest_message["metadata"]['message']['chat']['id'])
         date = tracker.get_slot('slot_fecha_optativa')
         hours = tracker.get_slot('slot_hora_optativa')
+
         if not (date is None or hours is None):
             init_date = DateTime.string_date_hour_to_datetime(date, hours)
 
-            if 'reply_to_message' in from_message:
-                reply = from_message['reply_to_message']
-            else:
-                ### se asume que antes paso por "action_proponer_fecha" para no tener que confirmar si existe el evento
-
-                evt: [EventoGrupos] = Connection().exist(EventoGrupos(from_chat['id'], init_date))
-                if len(evt) != 0:
-                    evt = evt[0]
-                    if from_message['id'] not in evt.get_asistencias():
-                        evt.incrementar_asistencias([str(from_message['id'])])
-                        Connection().update(evt)
+            ### se asume que antes paso por "action_proponer_fecha" para no tener que confirmar si existe el evento
+            evt: [EventoGrupos] = Connection().exist(EventoGrupos(from_chat, init_date))
+            if len(evt) != 0:
+                evt = evt[0]
+                if from_message not in evt.get_asistencias():
+                    evt.incrementar_asistencias([from_message])
+                    if from_message in evt.get_no_asistencias():
+                        evt.pop_no_asistencias(from_message)
+                    Connection().update(evt)
         return []
 
 
@@ -140,17 +127,23 @@ class ActionRechazarFecha(Action):
         return "action_rechazan_fecha"
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: Tracker, domain: "DomainDict") -> List[Dict[Text, Any]]:
-        from_message = tracker.latest_message["metadata"]['message']['from']
-        from_chat = tracker.latest_message["metadata"]['message']['chat']
+        from_message = str(tracker.latest_message["metadata"]['message']['from']['id'])
+        from_chat = str(tracker.latest_message["metadata"]['message']['chat']['id'])
         date = tracker.get_slot('slot_fecha_optativa')
         hours = tracker.get_slot('slot_hora_optativa')
-        init_date = DateTime.string_date_hour_to_datetime(date, hours)
-        ### se asume que antes paso por "action_proponer_fecha" para no tener que confirmar si existe el evento
-        evt: [EventoGrupos] = Connection().exist(EventoGrupos(from_chat['id'], init_date))
-        evt = evt[0]
-        if from_message['id'] not in evt.get_asistencias():
-            evt.incrementar_no_asistencias([str(from_message['id'])])
-            Connection().update(evt)
+
+        if not (date is None or hours is None):
+            init_date = DateTime.string_date_hour_to_datetime(date, hours)
+
+            ### se asume que antes paso por "action_proponer_fecha" para no tener que confirmar si existe el evento
+            evt: [EventoGrupos] = Connection().exist(EventoGrupos(from_chat, init_date))
+            if len(evt) != 0:
+                evt = evt[0]
+                if from_message not in evt.get_no_asistencias():
+                    evt.incrementar_no_asistencias([from_message])
+                    if from_message in evt.get_asistencias():
+                        evt.pop_asistencias(from_message)
+                    Connection().update(evt)
         return []
 
 

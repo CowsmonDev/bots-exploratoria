@@ -90,6 +90,14 @@ class EventoGrupos(ObjectSQL):
     def get_hora(self):
         return self.__hora
 
+    def pop_asistencias(self, persona_id: str):
+        self.__asitencias.remove(persona_id)
+        self.__cantidad_asistencias = len(self.__asitencias)
+
+    def pop_no_asistencias(self, persona_id: str):
+        self.__no_asistencias.remove(persona_id)
+        self.__cantidad_no_asistencias = len(self.__no_asistencias)
+
     def incrementar_asistencias(self, personas_id: [str]):
         self.__asitencias.extend(personas_id)
         self.__cantidad_asistencias = len(self.__asitencias)
