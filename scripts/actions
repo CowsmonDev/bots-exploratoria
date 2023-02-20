@@ -1,1 +1,1 @@
-cd ../ && rasa run actions --actions data && cd ./scripts && clear
+source ./venv/bin/activate && rasa run actions --actions data

@@ -1,0 +1,1 @@
+source ./venv/bin/activate && rasa train --data data/data_grupos --domain data/data_grupos

@@ -1,1 +1,0 @@
-cd ../ && rasa train --domain data && cd ./scripts

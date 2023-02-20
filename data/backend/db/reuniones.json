@@ -1,0 +1,10 @@
+{
+  "id_conversacion_propuesta": "",
+  "fecha_reunion": "",
+  "hora_reunion": "",
+  "cantidad_asistencia": "int",
+  "personas" : [{
+    "id_conversacion": "string",
+    "asiste" : "boolean"
+  }]
+}

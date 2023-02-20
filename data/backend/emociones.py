@@ -2,8 +2,9 @@ import datetime
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet, FollowupAction
-from data.backend.modules.db_mongo import Persona, existe_persona, agregar_persona, modificar_emociones
+from rasa_sdk.events import FollowupAction
+from data.backend.modules.mongo_db.connection import Connection
+from data.backend.modules.mongo_db.object_sql.persona import Persona
 
 
 class ActionHumor(Action):
@@ -19,10 +20,10 @@ class ActionHumor(Action):
         if id_conversacion == None:
             return [FollowupAction("action_saludar")]
         else:
-            modificar_emociones(id_conversacion, {
+            Connection().update(Persona(id_conversacion), {Persona.CONVERSACION_ANTERIOR:{
                 "emociones": humor,
                 "fecha": date
-            })
+            }})
             profesion = tracker.get_slot("slot_profesion")
             if profesion == "Compañero":
                 print()

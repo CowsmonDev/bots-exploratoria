@@ -1,85 +1,124 @@
-from __future__ import print_function
-
-import datetime
+import json
+from datetime import datetime, timedelta, date, time
 import os.path
+from typing import Any
+from zoneinfo import ZoneInfo
 
+import pytz as pytz
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from data.backend.api.calendar.class_event import EventCalendar
+from google.oauth2 import service_account
 
-# If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/calendar']
+from data.backend.modules.DateTime import DateTime
 
 
-def authorization():
-    """Shows basic usage of the Google Calendar API.
-    Prints the start and name of the next 10 events on the user's calendar.
+class Authentication:
+    SCOPES = ['https://www.googleapis.com/auth/calendar']
+    FILE_PATH = '/home/agustin/Proyectos/GitProyects/bots-exploratoria/data/backend/api/calendar/authorization/bot-yo-369318-21a6102e96b7.json'
+
+    @staticmethod
+    def authorization():
+        creds = service_account.Credentials.from_service_account_file(
+            filename=Authentication.FILE_PATH, scopes=Authentication.SCOPES
+        )
+        return creds
+
+    @staticmethod
+    def get_service():
+        creds = Authentication.authorization()
+        try:
+            service = build('calendar', 'v3', credentials=creds)
+            return service
+        except HttpError as error:
+            print('An error occurred: %s' % error)
+            return None
+
+
+class Calendar:
+    CALENDAR = 'd4s5ros6nltg432hsq6lmfhvlo@group.calendar.google.com'
+
+    @staticmethod
+    def get_events(calendar_id, init_date: DateTime, end_date: DateTime, time_zone):
+        events_result = Authentication.get_service().events().list(calendarId=calendar_id,
+                                                                   timeMin=init_date.format_date_tz(),
+                                                                   timeMax=end_date.format_date_tz(),
+                                                                   timeZone=time_zone).execute()
+        return events_result
+
+    @staticmethod
+    def get_events_by_date(date_search: date):
+        e = []
+        init_date = DateTime(datetime(date_search.year, date_search.month, date_search.day, 0, 0, 1))
+        end_date = DateTime(datetime(date_search.year, date_search.month, date_search.day, 23, 59, 29))
+
+        events_result = Calendar.get_events(Calendar.CALENDAR, init_date, end_date, "UTC")
+
+        for event in events_result['items']:
+            e.append(EventCalendar(event['summary'],
+                                   DateTime.string_to_datetime(event['start']['dateTime'], "%Y-%m-%dT%H:%M:%Sz"),
+                                   DateTime.string_to_datetime(event['end']['dateTime'], "%Y-%m-%dT%H:%M:%Sz")
+                                   ))
+        return e
+
+    @staticmethod
+    def get_conflicts_events(evt: EventCalendar, day_check: date):
+        e = []
+        init_date = DateTime.date_to_datetime(day_check)
+        end_date = DateTime.date_to_datetime(day_check, time.max)
+
+        events_result = Calendar.get_events(Calendar.CALENDAR, init_date, end_date, "UTC")
+
+        for event in events_result['items']:
+            new_event = EventCalendar(
+                event['summary'],
+                DateTime.string_to_datetime(event['start']['dateTime'], "%Y-%m-%dT%H:%M:%Sz"),
+                DateTime.string_to_datetime(event['end']['dateTime'], "%Y-%m-%dT%H:%M:%Sz")
+            )
+            if evt.conflicts_date(new_event):
+                e.append(new_event)
+        return e
+
+    @staticmethod
+    def get_events_week(date_now: date):
+        e = []
+        init_date = DateTime.date_to_datetime(date_now)
+        end_date = DateTime.date_to_datetime((date_now + timedelta(days=7)), time.max)
+
+        events_result = Calendar.get_events(Calendar.CALENDAR, init_date, end_date, "UTC")
+
+        for event in events_result['items']:
+            e.append(EventCalendar(event['summary'],
+                                   DateTime.string_to_datetime(event['start']['dateTime'], "%Y-%m-%dT%H:%M:%Sz"),
+                                   DateTime.string_to_datetime(event['end']['dateTime'], "%Y-%m-%dT%H:%M:%Sz")
+                                   ))
+        return e
 
     """
-    creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('authorization/token.json'):
-        creds = Credentials.from_authorized_user_file('authorization/token.json', SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'authorization/credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('authorization/token.json', 'w') as token:
-            token.write(creds.to_json())
-    return creds
+        si la fecha inferior del que viene, es menor que que la fecha final del que esta
+        y si la fecha superior del que viene, es mayor que la fecha inicial del que esta
+    """
 
+    @staticmethod
+    def get_calendars():
+        page_token = None
+        calendars = []
+        while True:
+            service = Authentication.get_service()
+            calendar_list = service.calendarList().list(pageToken=page_token).execute()
+            for calendar_list_entry in calendar_list['items']:
+                c = calendar_list_entry
+                calendars.insert(len(calendars), c)
+            page_token = calendar_list.get('nextPageToken')
+            if not page_token:
+                return calendars
 
-def get_calendars():
-    page_token = None
-    creds = authorization()
-    calendars = []
-    while True:
-        service = build('calendar', 'v3', credentials=creds)
-        calendar_list = service.calendarList().list(pageToken=page_token).execute()
-        for calendar_list_entry in calendar_list['items']:
-            c = calendar_list_entry['summary']
-            calendars.insert(len(calendars), c)
-        page_token = calendar_list.get('nextPageToken')
-        if not page_token:
-            return calendars
-
-
-def main():
-    creds = authorization()
-    try:
-        service = build('calendar', 'v3', credentials=creds)
-
-        # Call the Calendar API
-        now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-        print('Getting the upcoming 10 events')
-        events_result = service.events().list(calendarId='primary', timeMin=now,
-                                                  maxResults=5, singleEvents=True,
-                                                  orderBy='startTime').execute()
-
-        events = events_result.get('items', [])
-
-        if not events:
-            print('No upcoming events found.')
-            return
-
-        # Prints the start and name of the next 10 events
-        for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
-
-    except HttpError as error:
-        print('An error occurred: %s' % error)
-
-
-if __name__ == '__main__':
-    main()
-    print(str(get_calendars()))
+    @staticmethod
+    def insert_event_by_date(new_event: EventCalendar):
+        if new_event.get_init_date and new_event.get_end_date:
+            e = Authentication.get_service().events().insert(calendarId=Calendar.CALENDAR,
+                                                             body=new_event.to_json()).execute()
+            print(e)

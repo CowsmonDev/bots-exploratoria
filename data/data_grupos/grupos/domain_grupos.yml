@@ -4,16 +4,34 @@ intents:
   - consulta_proponer_fecha_semana
   - consulta_proponer_fecha_dia
   - consulta_proponer_fecha_mes
+  - consulta_proponer_hora
+  - consulta_proponer_fecha_hora
   - consulta_aceptan_fecha
   - consulta_rechazan_fecha
+  - consulta_estado_fecha
 
 actions:
   - action_iniciar_planificacion
   - action_proponer_fecha
   - action_aceptan_fecha
   - action_rechazan_fecha
+  - action_proponer_hora
+  - action_estado_fecha
 
-#entities:
+entities:
+  - fecha_semana
+  - entity_hour
+  - entity_minute
+
+slots:
+  slot_fecha_optativa:
+    type: text
+    mappings:
+      - type: custom
+  slot_hora_optativa:
+    type: text
+    mappings:
+      - type: custom
 
 responses:
   utter_aceptar_fecha:
@@ -23,7 +41,7 @@ responses:
   utter_rechazar_fecha:
   - text: "Perdon chicos pero esa fecha no puedo"
   - text: "Yo no estoy disponible esa fecha"
-  - text: "Pero chivos, yo no puedo es fecha"
+  - text: "Pero chicos, yo no puedo es fecha"
   - text: "No se puede otra fecha? esa no puedo"
 
 session_config:
